@@ -1,0 +1,386 @@
+#!/bin/sh
+# Copyright (c) 2000-2013 Synology Inc. All rights reserved.
+
+HOME=/
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/syno/sbin:/usr/syno/bin:/usr/local/sbin:/usr/local/bin
+export HOME PATH
+
+mount -o remount,rw /dev/root /
+
+. /etc.defaults/rc.subr
+. /etc.defaults/rc.fan
+
+SYNOINFO="/etc/synoinfo.conf"
+SYNOINFO_DEF="/etc.defaults/synoinfo.conf"
+KERNEL_VCODE=`KernelVersionCode $(KernelVersion)`
+
+UNIQUE=`get_key_value $SYNOINFO_DEF unique`
+PLATFORM=`get_key_value $SYNOINFO_DEF unique | cut -d"_" -f2`
+IPv4_ONLY=`get_key_value $SYNOINFO_DEF ipv4only`
+CONFIGURED=`get_key_value $SYNOINFO configured`
+
+SUPPORT_DUAL_HEAD=`/bin/get_key_value /etc.defaults/synoinfo.conf support_dual_head`
+SUPPORT_RAID=`get_key_value $SYNOINFO_DEF supportraid`
+SUPPORT_STARTUPD=`get_key_value $SYNOINFO_DEF supportstartupd`
+SUPPORT_HDD_HOTPLUG=`get_key_value $SYNOINFO_DEF HddHotplug`
+
+RUN_SYNOBIOS=`get_key_value $SYNOINFO synobios`
+SupportSAS=`/bin/get_key_value /etc.defaults/synoinfo.conf supportsas`
+
+BUILDIN_USB_MODULE=`get_key_value $SYNOINFO_DEF buildin_usb_module`
+
+RCMsg "Starting /etc/rc"
+RCMsg "Mounting procfs" \
+mount -n -t proc /proc /proc
+grep /dev/root /proc/mounts > /etc/mtab
+rm -rf /var/tmp  /var/state/ups/*
+ln -s /tmp /var/tmp
+
+RCMsg "Mounting tmpfs" \
+mount -t tmpfs /tmp /tmp
+
+RCMsg "Mounting devpts" \
+mount -vt devpts -o gid=4,mode=620 none /dev/pts
+
+# for device node autogen
+if [ $KERNEL_VCODE -ge $(KernelVersionCode "2.6") ]; then
+	RCMsg "Mounting sysfs" \
+	mount -t sysfs /sys /sys
+fi
+
+# Mindspeed's platform needs further settings
+if [ "x" != "x`/bin/get_key_value /etc.defaults/synoinfo.conf unique | grep comcerto2k`" ]; then
+	. /etc.defaults/rc.mindspeed pfe_insert
+fi
+
+if [ "$SupportSAS" = "yes" ]; then
+	. /etc.defaults/rc.sas
+	SASRemoveSDNode
+fi
+
+SYNOLoadRLTWifiDriver()
+{
+	local WIRELESS_AP_MODULES_KO="rlt_wifi.ko"
+	local WIRELESS_STA_MODULES_KO="mt7662e_sta.ko"
+	local WIRELESS_MODULES_KO=${WIRELESS_AP_MODULES_KO}
+	local WLAN_MAC_ADDR_RAW=`cat /proc/sys/kernel/syno_mac_address3`
+	local WLAN_MAC_ADDR=
+	local INSERT_MODULE="/sbin/insmod"
+	local TOPOLOGY=`/bin/get_key_value /etc/synoinfo.conf net_topology`
+
+	local WLAN_MAC_ADDR=${WLAN_MAC_ADDR_RAW:0:2}:${WLAN_MAC_ADDR_RAW:2:2}:${WLAN_MAC_ADDR_RAW:4:2}:${WLAN_MAC_ADDR_RAW:6:2}:${WLAN_MAC_ADDR_RAW:8:2}:${WLAN_MAC_ADDR_RAW:10:2}
+
+	if [ "xclient" == "x${TOPOLOGY}" ]; then
+		WIRELESS_MODULES_KO=${WIRELESS_STA_MODULES_KO}
+	fi
+
+	${INSERT_MODULE} /lib/modules/${WIRELESS_MODULES_KO} mac=${WLAN_MAC_ADDR}
+}
+
+SYNOLoadPCIWirelessDriver()
+{
+	local ATH9K_WIRELESS_MODULES="rfkill usbcore led-class compat compat_firmware_class arc4 cfg80211 syno_ipv6_junior mac80211 ath ath9k_hw ath9k_common ath9k"
+	local SupportPCIWifi=`get_key_value ${SYNOINFO_DEF} support_pci_wifi`
+	local WIRELESS_CONF="/usr/syno/etc/pci-wireless.info"
+	local RFKILL_CLASS="/sys/class/rfkill"
+	local hostapd_junior="/etc/hostapd/hostapd-wlan0.conf.junior"
+	local WIFI_AP_MODE=
+	local MODEL=`echo ${UNIQUE} | cut -d"_" -f3`
+	local WIRELESS_MODULES_KO=${ATH9K_WIRELESS_MODULES}
+
+	if [ "xyes" != "x${SupportPCIWifi}" ]; then
+		return
+	fi
+
+	if [ "xds215air" = "x${MODEL}" ]; then
+		SYNOLoadRLTWifiDriver
+	else
+		SYNOLoadModules ${WIRELESS_MODULES_KO}
+		if [ -f ${WIRELESS_CONF} ]; then
+			local WIFI_AP_CONF="/usr/syno/etc/wireless_ap.conf"
+			local TMP_WIFI_AP_CONF="/tmp/wireless_ap.conf"
+			local WIFI_SCHEDULER="/usr/syno/sbin/synowifischeduler"
+			local TMP_WIFI_SCHEDULER="/tmp/synowifischeduler"
+			local WIFI_SECTION=`get_key_value ${WIRELESS_CONF} PRODUCT`
+
+			WIFI_AP_MODE=`get_section_key_value ${WIFI_AP_CONF} ${WIFI_SECTION} enable`
+			cp ${WIRELESS_CONF} /tmp/wireless.info
+
+			if [ -f ${WIFI_AP_CONF} -a -f ${WIFI_SCHEDULER} -a "x${WIFI_AP_MODE}" = "xyes" ]; then
+				local IS_UNBLOCK=`get_section_key_value ${WIFI_AP_CONF} ${WIFI_SECTION} unblock`
+				local WIFI_SCHED_ENABLED=`get_section_key_value ${WIFI_AP_CONF} ${WIFI_SECTION} wifi_sched_enabled`
+				local GUEST_NET_SCHED_ENABLED=`get_section_key_value ${WIFI_AP_CONF} ${WIFI_SECTION} guest_net_sched_enable`
+
+				# Move wifi scheduler to /tmp/
+				if [ "x${WIFI_SCHED_ENABLED}" = "x1" -o "x${GUEST_NET_SCHED_ENABLED}" = "x1" ]; then
+					cp ${WIFI_AP_CONF} ${TMP_WIFI_AP_CONF}
+					cp ${WIFI_SCHEDULER} ${TMP_WIFI_SCHEDULER}
+				fi
+			fi
+		fi
+
+		if [ -d ${RFKILL_CLASS} ]; then
+			local RFKILL_MAJOR=`cat /sys/class/misc/rfkill/dev | cut -d':' -f1`
+			local RFKILL_MINOR=`cat /sys/class/misc/rfkill/dev | cut -d':' -f2`
+
+			/bin/mknod /dev/rfkill c  ${RFKILL_MAJOR} ${RFKILL_MINOR} > /dev/null 2>&1
+		fi
+
+		if [ "xyes" != "x${WIFI_AP_MODE}" -a -f "/usr/syno/etc/wireless.conf" ]; then
+			synowireless -c
+		fi
+
+		if [ -f ${hostapd_junior} ]; then
+			cp ${hostapd_junior} /etc/hostapd/hostapd-wlan0.conf 2>/dev/null
+		fi
+	fi
+}
+
+SYNOLoadIPv6()
+{
+	# see bug 16542, some modules of 824x don't support ipv6
+	# fixed by add this key to minimize the effect
+	local v6install=`get_key_value $SYNOINFO_DEF v6install`
+	# check if ipv4 only platform...
+	if [ "$IPv4_ONLY" = "yes" ]; then
+		# ipv4 only platform but forced to install v6 module..
+		if [ "$v6install" = "yes" ]; then
+			SYNOLoadModules "ipv6"
+		fi
+		return
+	fi
+	SYNOLoadModules "ipv6"
+}
+
+
+SYNOLoadLED_lp3943()
+{
+	local supportlp3943=`get_key_value $SYNOINFO_DEF support_leds_lp3943`
+
+	if [ "$supportlp3943" = "yes" ]; then
+			SYNOLoadModules i2c-i801 leds-lp3943
+	fi
+}
+
+# see if need repartitioning
+/etc/newdisk.sh
+
+# turn swap on
+if [ "$SUPPORT_RAID" = "yes" ]; then
+	SwapDevice="/dev/md1"
+	CheckSwapRaid
+	if [ "$?" = "1" ]; then
+		mdadm -S $SwapDevice
+		MkSwapRaid 1
+	fi
+else
+	SwapDevice="/dev/sda2"
+fi
+
+swapon $SwapDevice
+
+# Set the host name
+HOSTNAME=`get_key_value $SYNOINFO hostname`
+hostname ${HOSTNAME}
+
+ThisMachine=`uname -m`
+if [ $KERNEL_VCODE -ge $(KernelVersionCode "2.6") ]; then
+	# 2.6 or 3.x
+	NET_DRIVERS="dca e1000e i2c-algo-bit igb be2net ixgbe ixgbevf"
+	CRYPTO_MODULES="crypto_algapi crypto_wq crypto_blkcipher crypto_hash aead pcompress cryptomgr cbc md5 aes_generic rng cts ansi_cprng krng eseqiv crc32c des_generic chainiv ocf cryptodev rng-core authenc talitos cesa_dev cesa_ocf_drv aes-x86_64 aes-i586 ecb sha1_generic sha256_generic sha512_generic ecryptfs cryptosoft cryptd aesni-intel"
+	KERNEL_MODULES="llc p8022 psnap sg usbcore quota_tree quota_v2 crc-ccitt crc-itu-t zlib_inflate dm-snapshot freq_table cpufreq_stats cpufreq thermal_sys processor mperf acpi-cpufreq cpufreq_ondemand cpufreq_performance cpufreq_powersave cpufreq_conservative mdio"
+	KERNEL_MODULES="${KERNEL_MODULES} ${CRYPTO_MODULES}"
+	KERNEL_MODULES="${KERNEL_MODULES} fat vfat fuse"
+	if [ $KERNEL_VCODE -ge $(KernelVersionCode "3") ]; then
+	# 3.x
+		KERNEL_MODULES="${KERNEL_MODULES} ${NET_DRIVERS}"
+		KERNEL_MODULES="usb-common ${KERNEL_MODULES} hmac md4 hfsplus crc32c libcrc32c zlib_deflate btrfs"
+	else
+	# 2.6
+		if [ $KERNEL_VCODE -eq $(KernelVersionCode "2.6.37") ]; then
+		    KERNEL_MODULES="${KERNEL_MODULES} hmac md4"
+		fi
+		if [ $KERNEL_VCODE -ge $(KernelVersionCode "2.6.32") ]; then
+		    KERNEL_MODULES="${KERNEL_MODULES} hfsplus"
+	    fi
+	fi
+else
+	# 2.4
+	KERNEL_MODULES="netlink_dev reiserfs scsi_mod sd_mod sg usbcore quota_v2"
+	if [ "${ThisMachine}" = "ppc" ]; then
+		KERNEL_MODULES="${KERNEL_MODULES} zlib_inflate"
+	fi
+	KERNEL_MODULES="${KERNEL_MODULES} fat vfat ntfs"
+fi
+
+if [ "$PLATFORM" = "evansport" ]; then
+	VIDEO_MODULES="i2c-algo-bit button backlight thermal_sys video agpgart intel-gtt intel-agp fbdev drm fb output cfbimgblt cfbcopyarea cfbfillrect drm_kms_helper"
+	KERNEL_MODULES="${KERNEL_MODULES} ${VIDEO_MODULES} udma"
+fi
+
+SYNOLoadIPv6
+SYNOLoadModules ${KERNEL_MODULES}
+SYNOLoadAdt7490
+SoftLink7490fanInput
+SYNOLoadLED_lp3943
+
+if [ $KERNEL_VCODE -ge $(KernelVersionCode "2.6") ]; then
+	# usbfs need usbcore module
+	RCMsg "Mounting usbfs" \
+	mount -t usbfs /proc/bus/usb /proc/bus/usb
+else
+	RCMsg "Mounting usbdevfs" \
+	mount -t usbdevfs /proc/bus/usb /proc/bus/usb
+fi
+
+case "${ThisMachine}" in
+armv5tel)
+	NET_MODULES="sky2"
+	;;
+ppc)
+	if [ $KERNEL_VCODE -ge $(KernelVersionCode "2.6") ]; then
+		NET_MODULES="sk98lin skge"
+	else
+		NET_MODULES="sk98lin"
+	fi
+	;;
+armv6l)
+	NET_MODULES="mii gmac";
+	;;
+esac
+SYNOLoadModules ${NET_MODULES}
+
+
+if [ "no" != "$RUN_SYNOBIOS" ]; then
+	SYNOLoadModules "synobios"
+	/bin/mknod /dev/synobios c 201 0 2>/dev/null
+fi
+
+# adjust NIC sequence
+/usr/syno/bin/synonetseqadj
+
+SYNOLoadPCIWirelessDriver
+
+if [ -x /etc/rc.network ]; then
+	CFGEN_NETWORK="/usr/syno/bin/synochecknetworkcfg"
+	if [ -x "$CFGEN_NETWORK" ]; then
+		$CFGEN_NETWORK
+	fi
+	/etc/rc.network start
+	/etc/rc.network check-wifi-schedule
+fi
+
+syslogd_enable="YES"
+syslogd_flags="-S"
+case ${syslogd_enable} in
+[Yy][Ee][Ss])
+	# Transitional symlink (for the next couple of years :) until all
+	# binaries have had a chance to move towards /var/run/log.
+	if [ ! -L /dev/log ]; then
+		# might complain for r/o root f/s
+		ln -sf /var/run/log /dev/log
+	fi
+
+	rm -f /var/run/log
+	RCMsg "Starting syslogd" \
+	${syslogd_program:-/sbin/syslogd} ${syslogd_flags}
+	/sbin/klogd
+	;;
+esac
+
+/etc.defaults/rc.volume start
+
+echo "/root/@%e.core" >> /proc/sys/kernel/core_pattern
+ulimit -c unlimited
+
+/bin/grep eunitseq $SYNOINFO_DEF > /tmp/eunitseq
+
+StartServices()
+{
+	echo "Starting findhostd in flash_rd..."
+	/usr/syno/bin/findhostd
+	# network install mode only
+	echo "Starting services in flash_rd..."
+	for service_sh in /usr/syno/etc/rc.d/J*.sh; do
+		if [ -x "$service_sh" ]; then
+			echo "Running ${service_sh}..."
+			"$service_sh" start
+		fi
+	done
+}
+
+RCMsg "Starting scemd"
+if ! scemd ; then
+	MsgWarn "Failed to start scemd. Reboot and get into steel plan or network install mode."
+	touch "/.noroot"
+	reboot
+fi
+
+if [ -x /etc/rc.network ]; then
+	# Start PPPoE if enabled
+	/etc/rc.network start-pppoe
+fi
+
+RCMsg "Starting services in background"
+StartServices
+
+#[DSM] #36950 - force to disable shortcut
+if [ -f /proc/sys/kernel/syno_netfilter_status ]; then
+	echo 1 > /proc/sys/kernel/syno_netfilter_status
+fi
+
+# For bug 1248, probe USB device after scemd
+# usb-uhci.o is for VIA, usb-ohci.o is for NEC
+# KERNEL_MODULES="ehci-hcd.o usb-uhci.o usb-storage.o printer.o"
+if [ $KERNEL_VCODE -lt $(KernelVersionCode "2.6") ]; then
+	KERNEL_MODULES="ehci-hcd usb-ohci usb-uhci usb-storage printer hid"
+else
+	KERNEL_MODULES="ehci-hcd ohci-hcd xhci-hcd etxhci-hcd oxu210hp-hcd uhci-hcd usb-storage usblp input-core hid usbhid"
+	SUPPORT_ACM=`/bin/get_key_value /etc.defaults/synoinfo.conf support_acm`
+	if [ "$SUPPORT_ACM" == "yes" ]; then
+		KERNEL_MODULES="${KERNEL_MODULES} cdc-acm"
+		mknod /dev/ttyACM0 c 166 0
+	fi
+fi
+
+SYNOLoadModules ${KERNEL_MODULES}
+if [ "$BUILDIN_USB_MODULE" = "yes" ]; then
+	/etc/rc.scanusbdev
+fi
+
+if [ "$SUPPORT_HDD_HOTPLUG" = "yes" ]; then
+	SYNOLoadModules "syno_hddmon"
+fi
+
+# start burning test if no disk installed or has built-in storage
+if should_burnin_test; then
+	/usr/sbin/burnin_test -r &> /dev/null &
+fi
+
+# turn on no system led of built-in storage model
+/usr/syno/bin/synohwctrl -set_stat_led nodisk
+
+/usr/syno/sbin/manutild &
+
+if [ -f /.memtest -a -x /usr/sbin/syno_memtester.sh ]; then
+	swapoff $SwapDevice
+	/usr/sbin/syno_memtester.sh &
+fi
+
+# create ubi_ctrl device if exist
+if [ -e /sys/devices/virtual/misc/ubi_ctrl ]; then
+	MAJOR=`cat /sys/devices/virtual/misc/ubi_ctrl/dev | cut -d':' -f 1`;
+	MINOR=`cat /sys/devices/virtual/misc/ubi_ctrl/dev | cut -d':' -f 2`;
+	mknod /dev/ubi_ctrl c $MAJOR $MINOR;
+fi
+
+if [ "$SUPPORT_DUAL_HEAD" = "yes" ]; then
+	/etc.defaults/AHAtasks junior_stage
+	/etc.defaults/AHAtasks junior_monitor_reboot_or_poweroff &
+fi
+
+echo "============ Date ============"
+date
+echo "=============================="
+
+exit 0
