@@ -7,7 +7,7 @@
  * XPEnology hack
  */
 #define XPENOLOGY
- 
+
 /**
  * Dsc: Synology multimedia server feature. For indexing video, photo,
  *      music.

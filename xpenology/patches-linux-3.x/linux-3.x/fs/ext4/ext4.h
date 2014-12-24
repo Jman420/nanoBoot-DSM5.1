@@ -1972,7 +1972,7 @@ extern int ext4_htree_fill_tree(struct file *dir_file, __u32 start_hash,
 /* resize.c */
 extern int ext4_group_add(struct super_block *sb,
 				struct ext4_new_group_data *input);
-#ifdef MY_ABC_HERE
+#ifdef SYNO_KERNEL_UNICODE
 extern int ext4_group_add_no_flex(struct super_block *sb,
 				struct ext4_new_group_data *input);
 #endif

@@ -72,12 +72,13 @@ struct ext4_xattr_entry {
 		EXT4_I(inode)->i_extra_isize))
 #define IFIRST(hdr) ((struct ext4_xattr_entry *)((hdr)+1))
 
-# ifdef CONFIG_EXT4_FS_XATTR
+#ifdef CONFIG_EXT4_FS_XATTR
 
 #ifdef CONFIG_EXT4_FS_SYNO_ACL
 extern const struct xattr_handler ext4_xattr_synoacl_access_handler;
 extern const struct xattr_handler ext4_xattr_synoacl_noperm_access_handler;
 #endif
+
 #ifdef SYNO_XATTR
 extern struct xattr_handler ext4_xattr_syno_handler;
 #endif

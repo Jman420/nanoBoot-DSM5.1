@@ -1768,7 +1768,7 @@ static void compat_ioctl_error(struct file *filp, unsigned int fd,
 			(cmd >> _IOC_SIZESHIFT) & _IOC_SIZEMASK,
 			(unsigned int)arg, fn);
 #endif
-			
+
 	if (path)
 		free_page((unsigned long)path);
 }

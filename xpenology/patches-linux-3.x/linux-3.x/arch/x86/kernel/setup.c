@@ -960,6 +960,7 @@ static int __init early_pid(char *p)
 	printk("synoboot pid: %d\n", gSynoPid);
 	return 1;
 }
+__setup("pid=", early_pid);
 #endif
 
 /*

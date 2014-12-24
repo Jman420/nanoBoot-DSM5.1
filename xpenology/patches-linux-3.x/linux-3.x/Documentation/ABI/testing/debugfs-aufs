@@ -17,7 +17,7 @@ Description:
 		blank). The last line is a single number representing a
 		total number of psedo-links.
 		When the aufs mount option 'noplink' is specified, it
-		will show "1\n0\n0\n".		
+		will show "1\n0\n0\n".
 
 What:		/debug/aufs/si_<id>/xib
 Date:		March 2009

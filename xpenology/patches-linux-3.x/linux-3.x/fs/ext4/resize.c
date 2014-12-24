@@ -1376,7 +1376,7 @@ static int ext4_setup_next_flex_gd(struct super_block *sb,
 	return 1;
 }
 
-#ifdef MY_ABC_HERE
+#ifdef SYNO_KERNEL_UNICODE
 /*
  * Set up the block and inode bitmaps, and the inode table for the new group.
  * This doesn't need to be part of the main transaction, since we are only
@@ -1706,7 +1706,7 @@ int ext4_group_add_no_flex(struct super_block *sb, struct ext4_new_group_data *i
 
 	/* Update the reserved block counts only once the new group is
 	 * active. */
-#ifndef MY_ABC_HERE
+#ifndef SYNO_KERNEL_UNICODE
 	ext4_r_blocks_count_set(es, ext4_r_blocks_count(es) +
 		input->reserved_blocks);
 #endif

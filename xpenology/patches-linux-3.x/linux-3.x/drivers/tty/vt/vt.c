@@ -2474,7 +2474,7 @@ int vt_kmsg_redirect(int new)
 		return kmsg_con;
 }
 
-#if (defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY))
+#if !defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY)
 /*
  *	Console on virtual terminal
  *
@@ -2574,7 +2574,7 @@ quit:
 }
 #endif
 
-#if (defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY))
+#if !defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY)
 static struct tty_driver *vt_console_device(struct console *c, int *index)
 {
 	*index = c->index ? c->index-1 : fg_console;
@@ -2942,7 +2942,7 @@ static int __init con_init(void)
 
 	console_unlock();
 
-#if (defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY))
+#if !defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY)
 #ifdef CONFIG_VT_CONSOLE
 	register_console(&vt_console_driver);
 #endif

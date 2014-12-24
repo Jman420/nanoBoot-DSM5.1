@@ -14,8 +14,6 @@ if [ ! -d workspace/linux-3.x ]; then
 	cd workspace
 	patch -p0 < ./linux-3.x-xpenology-5004.patch
 	rm -f linux-3.x-xpenology-5004.patch
-        echo "\033[41;37m Copying new XPEnology Source Files not included in patch ...\033[0m"
-	cp -nr ../xpenology/patches-linux-3.x/linux-3.x/* ./linux-3.x/
 	echo "\033[41;37m Copying XPEnology Build Config ...\033[0m"
 	cp -p ../xpenology/.config ./linux-3.x/
 	cd ../
@@ -30,6 +28,7 @@ fi
 
 echo "\033[41;37m Linux-3.x and Toolchain is ready, Please follow this step to build modules and bzImage : \033[0m"
 echo "\033[32m cd ./workspace/linux-3.x \033[0m"
+echo "\033[32m make ARCH=x86_64 CROSS_COMPILE=../x86_64-pc-linux-gnu/bin/x86_64-pc-linux-gnu- xpenology_defconfig \033[0m"
 echo "\033[32m make ARCH=x86_64 CROSS_COMPILE=../x86_64-pc-linux-gnu/bin/x86_64-pc-linux-gnu- menuconfig \033[0m"
 echo "\033[32m make ARCH=x86_64 CROSS_COMPILE=../x86_64-pc-linux-gnu/bin/x86_64-pc-linux-gnu- modules \033[0m"
 echo "\033[32m make ARCH=x86_64 CROSS_COMPILE=../x86_64-pc-linux-gnu/bin/x86_64-pc-linux-gnu- bzImage \033[0m"

@@ -1,6 +1,379 @@
-diff -ru linux-3.x-orig/arch/x86/Kconfig linux-3.x/arch/x86/Kconfig
---- linux-3.x-orig/arch/x86/Kconfig	2014-12-15 18:49:22.927087000 +0000
-+++ linux-3.x/arch/x86/Kconfig	2014-12-15 21:05:00.151087000 +0000
+diff -ru --new-file linux-3.x-orig/arch/x86/configs/xpenology_defconfig linux-3.x/arch/x86/configs/xpenology_defconfig
+--- linux-3.x-orig/arch/x86/configs/xpenology_defconfig	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/arch/x86/configs/xpenology_defconfig	2014-12-23 17:23:09.015087000 +0000
+@@ -0,0 +1,369 @@
++CONFIG_SYNO_BROMOLOW=y
++CONFIG_EXPERIMENTAL=y
++# CONFIG_LOCALVERSION_AUTO is not set
++CONFIG_KERNEL_LZMA=y
++CONFIG_SYSVIPC=y
++CONFIG_POSIX_MQUEUE=y
++CONFIG_TASKSTATS=y
++CONFIG_TASK_DELAY_ACCT=y
++CONFIG_TASK_XACCT=y
++CONFIG_TASK_IO_ACCOUNTING=y
++CONFIG_RCU_FANOUT=32
++CONFIG_RCU_FAST_NO_HZ=y
++CONFIG_IKCONFIG=m
++CONFIG_IKCONFIG_PROC=y
++CONFIG_LOG_BUF_SHIFT=20
++CONFIG_BLK_DEV_INITRD=y
++CONFIG_RD_LZMA=y
++CONFIG_SYSCTL_SYSCALL=y
++# CONFIG_PCSPKR_PLATFORM is not set
++CONFIG_EMBEDDED=y
++CONFIG_SLAB=y
++CONFIG_SYNO_ADT7490_FEATURES=y
++CONFIG_SYNO_DISPLAY_CPUINFO=y
++CONFIG_SYNO_DUAL_HEAD=y
++CONFIG_MODULES=y
++CONFIG_MODULE_UNLOAD=y
++CONFIG_MODULE_FORCE_UNLOAD=y
++CONFIG_BLK_DEV_INTEGRITY=y
++# CONFIG_IOSCHED_DEADLINE is not set
++CONFIG_NO_HZ=y
++CONFIG_SMP=y
++# CONFIG_X86_EXTENDED_PLATFORM is not set
++# CONFIG_SCHED_OMIT_FRAME_POINTER is not set
++CONFIG_PROCESSOR_SELECT=y
++# CONFIG_CPU_SUP_CENTAUR is not set
++CONFIG_SCHED_SMT=y
++CONFIG_X86_MCE=y
++CONFIG_X86_MCE_INJECT=m
++CONFIG_X86_MSR=y
++CONFIG_X86_CPUID=y
++CONFIG_DEFAULT_MMAP_MIN_ADDR=65536
++# CONFIG_MTRR_SANITIZER is not set
++# CONFIG_X86_PAT is not set
++CONFIG_EFI=y
++# CONFIG_SECCOMP is not set
++CONFIG_HZ_1000=y
++CONFIG_KEXEC=y
++CONFIG_PHYSICAL_START=0x100000
++# CONFIG_RELOCATABLE is not set
++# CONFIG_COMPAT_VDSO is not set
++# CONFIG_SUSPEND is not set
++CONFIG_HIBERNATION=y
++CONFIG_PM_STD_PARTITION="/dev/md1"
++CONFIG_ACPI_PROCFS=y
++CONFIG_ACPI_PROCFS_POWER=y
++CONFIG_ACPI_DOCK=y
++CONFIG_CPU_FREQ=y
++CONFIG_CPU_FREQ_STAT=m
++CONFIG_CPU_FREQ_DEFAULT_GOV_USERSPACE=y
++CONFIG_CPU_FREQ_GOV_PERFORMANCE=m
++CONFIG_CPU_FREQ_GOV_POWERSAVE=m
++CONFIG_CPU_FREQ_GOV_ONDEMAND=m
++CONFIG_CPU_FREQ_GOV_CONSERVATIVE=m
++CONFIG_X86_ACPI_CPUFREQ=m
++CONFIG_INTEL_IDLE=y
++CONFIG_PCI_MMCONFIG=y
++CONFIG_PCIEPORTBUS=y
++CONFIG_PCIE_ECRC=y
++CONFIG_PCI_MSI=y
++CONFIG_HOTPLUG_PCI=y
++CONFIG_HOTPLUG_PCI_ACPI=y
++# CONFIG_CORE_DUMP_DEFAULT_ELF_HEADERS is not set
++CONFIG_BINFMT_MISC=y
++CONFIG_IA32_EMULATION=y
++CONFIG_IA32_AOUT=y
++CONFIG_NET=y
++CONFIG_PACKET=y
++CONFIG_UNIX=y
++CONFIG_XFRM_USER=m
++CONFIG_NET_KEY=m
++CONFIG_INET=y
++CONFIG_IP_MULTICAST=y
++CONFIG_IP_ADVANCED_ROUTER=y
++CONFIG_IP_MULTIPLE_TABLES=y
++CONFIG_IP_PNP=y
++CONFIG_IP_PNP_DHCP=y
++CONFIG_NET_IPGRE_DEMUX=m
++CONFIG_NET_IPGRE=m
++CONFIG_NET_IPGRE_BROADCAST=y
++CONFIG_SYN_COOKIES=y
++CONFIG_INET_AH=m
++CONFIG_INET_ESP=m
++CONFIG_INET_IPCOMP=m
++CONFIG_INET_XFRM_MODE_TRANSPORT=m
++CONFIG_INET_XFRM_MODE_TUNNEL=m
++CONFIG_INET_XFRM_MODE_BEET=m
++CONFIG_IPV6_PRIVACY=y
++CONFIG_IPV6_ROUTER_PREF=y
++CONFIG_IPV6_OPTIMISTIC_DAD=y
++CONFIG_INET6_AH=m
++CONFIG_INET6_ESP=m
++CONFIG_INET6_IPCOMP=m
++CONFIG_IPV6_SIT_6RD=y
++CONFIG_IPV6_MULTIPLE_TABLES=y
++CONFIG_IPV6_MROUTE=y
++CONFIG_IPV6_PIMSM_V2=y
++CONFIG_NETFILTER=y
++CONFIG_NF_CONNTRACK=m
++CONFIG_NF_CONNTRACK_MARK=y
++CONFIG_NF_CONNTRACK_PPTP=m
++CONFIG_NETFILTER_XT_TARGET_MARK=m
++CONFIG_NETFILTER_XT_MATCH_IPRANGE=m
++CONFIG_NETFILTER_XT_MATCH_LIMIT=m
++CONFIG_NETFILTER_XT_MATCH_MAC=m
++CONFIG_NETFILTER_XT_MATCH_MULTIPORT=m
++CONFIG_NETFILTER_XT_MATCH_STATE=m
++CONFIG_NF_CONNTRACK_IPV4=m
++CONFIG_IP_NF_IPTABLES=m
++CONFIG_IP_NF_FILTER=m
++CONFIG_IP_NF_TARGET_LOG=m
++CONFIG_NF_NAT=m
++CONFIG_IP_NF_TARGET_MASQUERADE=m
++CONFIG_IP_NF_TARGET_REDIRECT=m
++CONFIG_IP_NF_MANGLE=m
++CONFIG_NF_CONNTRACK_IPV6=m
++CONFIG_IP6_NF_IPTABLES=m
++CONFIG_IP6_NF_TARGET_LOG=m
++CONFIG_IP6_NF_FILTER=m
++CONFIG_IP6_NF_MANGLE=m
++CONFIG_BRIDGE=m
++# CONFIG_BRIDGE_IGMP_SNOOPING is not set
++CONFIG_VLAN_8021Q=m
++CONFIG_ATALK=m
++CONFIG_NET_SCHED=y
++CONFIG_NET_SCH_HTB=m
++CONFIG_NET_SCH_SFQ=m
++CONFIG_NET_SCH_NETEM=m
++CONFIG_NET_CLS_FW=m
++CONFIG_NET_CLS_U32=m
++CONFIG_NET_9P=m
++CONFIG_NET_9P_VIRTIO=m
++CONFIG_UEVENT_HELPER_PATH="/sbin/hotplug"
++CONFIG_DEVTMPFS=y
++CONFIG_DEVTMPFS_MOUNT=y
++# CONFIG_FIRMWARE_IN_KERNEL is not set
++CONFIG_CONNECTOR=m
++# CONFIG_PNP_DEBUG_MESSAGES is not set
++CONFIG_BLK_DEV_LOOP=m
++CONFIG_BLK_DEV_RAM=y
++CONFIG_BLK_DEV_RAM_SIZE=655360
++CONFIG_VIRTIO_BLK=m
++CONFIG_MISC_DEVICES=y
++CONFIG_ENCLOSURE_SERVICES=y
++CONFIG_RAID_ATTRS=y
++CONFIG_BLK_DEV_SD=y
++CONFIG_CHR_DEV_SG=m
++CONFIG_CHR_DEV_SCH=m
++CONFIG_SCSI_ENCLOSURE=y
++CONFIG_SCSI_MULTI_LUN=y
++CONFIG_SCSI_ISCSI_ATTRS=y
++CONFIG_SCSI_SAS_LIBSAS=y
++CONFIG_SCSI_SAS_ATA=y
++CONFIG_ISCSI_TCP=m
++CONFIG_SCSI_MPT2SAS=m
++CONFIG_SCSI_VIRTIO=m
++CONFIG_SCSI_DH=y
++CONFIG_SCSI_DH_RDAC=y
++CONFIG_ATA=y
++CONFIG_SATA_AHCI=y
++CONFIG_SATA_SIL24=y
++CONFIG_ATA_PIIX=m
++CONFIG_SATA_MV=y
++CONFIG_SATA_NV=m
++CONFIG_SATA_SIL=m
++CONFIG_SATA_SIS=m
++CONFIG_SATA_VIA=m
++CONFIG_PATA_AMD=m
++CONFIG_MD=y
++CONFIG_BLK_DEV_MD=y
++CONFIG_MD_LINEAR=y
++CONFIG_MD_RAID0=y
++CONFIG_MD_RAID1=y
++CONFIG_MD_RAID10=y
++CONFIG_MD_RAID456=y
++CONFIG_BLK_DEV_DM=y
++CONFIG_DM_SNAPSHOT=m
++CONFIG_NETDEVICES=y
++CONFIG_BONDING=m
++CONFIG_DUMMY=m
++CONFIG_TUN=m
++CONFIG_VIRTIO_NET=m
++CONFIG_PCNET32=m
++CONFIG_TIGON3=m
++CONFIG_BNX2X=m
++CONFIG_BE2NET=m
++CONFIG_E100=m
++CONFIG_E1000=m
++CONFIG_E1000E=m
++CONFIG_IGB=m
++CONFIG_IGBVF=m
++CONFIG_IXGB=m
++CONFIG_IXGBE=m
++CONFIG_IXGBEVF=m
++CONFIG_FORCEDETH=m
++# CONFIG_NET_PACKET_ENGINE is not set
++CONFIG_QLA3XXX=m
++CONFIG_QLCNIC=m
++CONFIG_QLGE=m
++CONFIG_8139CP=m
++CONFIG_8139TOO=m
++CONFIG_R8169=m
++CONFIG_SIS900=m
++CONFIG_SIS190=m
++CONFIG_VIA_RHINE=m
++CONFIG_VIA_VELOCITY=m
++CONFIG_PPP=m
++CONFIG_PPP_BSDCOMP=m
++CONFIG_PPP_DEFLATE=m
++CONFIG_PPP_MPPE=m
++CONFIG_PPP_ASYNC=m
++CONFIG_USB_USBNET=m
++# CONFIG_USB_NET_AX8817X is not set
++# CONFIG_USB_NET_NET1080 is not set
++# CONFIG_USB_NET_CDC_SUBSET is not set
++# CONFIG_USB_NET_ZAURUS is not set
++CONFIG_USB_NET_QMI_WWAN_SYNO=m
++CONFIG_VMXNET3=m
++# CONFIG_INPUT_MOUSEDEV is not set
++# CONFIG_INPUT_MOUSE is not set
++CONFIG_SERIAL_8250=y
++CONFIG_SERIAL_8250_CONSOLE=y
++# CONFIG_SERIAL_8250_PNP is not set
++CONFIG_VIRTIO_CONSOLE=m
++CONFIG_HW_RANDOM_VIRTIO=m
++CONFIG_I2C=y
++CONFIG_I2C_CHARDEV=y
++CONFIG_I2C_MUX=y
++CONFIG_I2C_I801=m
++CONFIG_SPI=y
++CONFIG_SPI_BITBANG=y
++CONFIG_SPI_SPIDEV=y
++CONFIG_SENSORS_ADT7475=m
++CONFIG_SENSORS_CORETEMP=y
++CONFIG_SENSORS_IT87=y
++CONFIG_SSB=m
++CONFIG_AGP=m
++CONFIG_AGP_INTEL=m
++CONFIG_DRM=m
++CONFIG_DRM_I915=m
++CONFIG_FB=y
++CONFIG_FB_VESA=y
++# CONFIG_ADI9889 is not set
++# CONFIG_THS8200 is not set
++CONFIG_VGACON_SOFT_SCROLLBACK=y
++CONFIG_FRAMEBUFFER_CONSOLE=y
++CONFIG_FONTS=y
++CONFIG_FONT_8x8=y
++CONFIG_FONT_8x16=y
++CONFIG_SOUND=m
++CONFIG_SND=m
++CONFIG_SND_SEQUENCER=m
++CONFIG_SND_MIXER_OSS=m
++CONFIG_SND_PCM_OSS=m
++CONFIG_SND_SEQUENCER_OSS=y
++# CONFIG_SND_VERBOSE_PROCFS is not set
++CONFIG_SND_VERBOSE_PRINTK=y
++CONFIG_SND_DUMMY=m
++CONFIG_SND_ALOOP=m
++CONFIG_SND_VIRMIDI=m
++CONFIG_SND_AC97_POWER_SAVE=y
++CONFIG_SND_HDA_INTEL=m
++CONFIG_SND_INTEL8X0=m
++CONFIG_SND_USB_AUDIO=m
++CONFIG_SOUND_PRIME=m
++CONFIG_HID=m
++CONFIG_USB_HIDDEV=y
++CONFIG_USB=m
++CONFIG_USB_DEVICEFS=y
++CONFIG_USB_ETRON_HCD=m
++CONFIG_USB_ETRON_HCD_DEBUGGING=y
++CONFIG_USB_XHCI_HCD=m
++CONFIG_USB_EHCI_HCD=m
++CONFIG_USB_EHCI_ROOT_HUB_TT=y
++CONFIG_USB_OHCI_HCD=m
++CONFIG_USB_OHCI_HCD_SSB=y
++CONFIG_USB_UHCI_HCD=m
++CONFIG_USB_ACM=m
++CONFIG_USB_PRINTER=m
++CONFIG_USB_WDM_SYNO=m
++CONFIG_USB_STORAGE=m
++CONFIG_USB_SERIAL=m
++CONFIG_USB_SERIAL_FTDI_SIO=m
++CONFIG_USB_SERIAL_SIERRAWIRELESS=m
++CONFIG_USB_SERIAL_OPTION=m
++CONFIG_NEW_LEDS=y
++CONFIG_LEDS_CLASS=y
++CONFIG_LEDS_TRIGGERS=y
++CONFIG_LEDS_TRIGGER_TIMER=y
++CONFIG_LEDS_TRIGGER_HEARTBEAT=y
++CONFIG_RTC_CLASS=y
++CONFIG_DMADEVICES=y
++CONFIG_INTEL_IOATDMA=m
++CONFIG_ASYNC_TX_DMA=y
++CONFIG_VIRTIO_PCI=m
++CONFIG_VIRTIO_BALLOON=m
++CONFIG_VIRTIO_MMIO=m
++CONFIG_VIRTIO_MMIO_CMDLINE_DEVICES=y
++CONFIG_STAGING=y
++CONFIG_USBIP_CORE=m
++CONFIG_USBIP_HOST=m
++CONFIG_USBIP_DEBUG=y
++CONFIG_ZSMALLOC=y
++CONFIG_ZRAM=m
++CONFIG_EFI_VARS=y
++CONFIG_EXT2_FS=y
++CONFIG_EXT2_FS_XATTR=y
++CONFIG_EXT3_FS=y
++CONFIG_EXT4_FS=y
++CONFIG_EXT4_FS_SYNO_ACL=y
++CONFIG_BTRFS_FS=m
++CONFIG_QUOTA=y
++# CONFIG_PRINT_QUOTA_WARNING is not set
++CONFIG_QFMT_V2=m
++CONFIG_FUSE_FS=m
++CONFIG_ISO9660_FS=m
++CONFIG_JOLIET=y
++CONFIG_ZISOFS=y
++CONFIG_UDF_FS=m
++CONFIG_VFAT_FS=m
++CONFIG_PROC_KCORE=y
++CONFIG_CONFIGFS_FS=m
++CONFIG_ECRYPT_FS=m
++CONFIG_HFSPLUS_FS=m
++CONFIG_AUFS_FS=y
++CONFIG_NFS_FS=y
++CONFIG_NFS_V3=y
++CONFIG_NFS_V4=y
++CONFIG_NFS_USE_NEW_IDMAPPER=y
++CONFIG_NFSD=m
++CONFIG_NFSD_V4=y
++CONFIG_CIFS=m
++CONFIG_PARTITION_ADVANCED=y
++CONFIG_MAC_PARTITION=y
++CONFIG_EFI_PARTITION=y
++CONFIG_NLS_UTF8=y
++CONFIG_PRINTK_TIME=y
++CONFIG_FRAME_WARN=1024
++CONFIG_MAGIC_SYSRQ=y
++# CONFIG_UNUSED_SYMBOLS is not set
++CONFIG_LOCKUP_DETECTOR=y
++CONFIG_SYSCTL_SYSCALL_CHECK=y
++# CONFIG_FTRACE is not set
++CONFIG_OPTIMIZE_INLINING=y
++CONFIG_KEYS_DEBUG_PROC_KEYS=y
++CONFIG_SECURITY=y
++CONFIG_SECURITY_APPARMOR=y
++CONFIG_CRYPTO_CTS=m
++CONFIG_CRYPTO_CRC32C_INTEL=m
++CONFIG_CRYPTO_SHA256=m
++CONFIG_CRYPTO_SHA512=m
++CONFIG_CRYPTO_AES_NI_INTEL=m
++CONFIG_CRYPTO_TWOFISH=m
++CONFIG_CRYPTO_TWOFISH_X86_64_3WAY=m
++CONFIG_CRYPTO_ZLIB=m
++CONFIG_CRYPTO_LZO=m
++# CONFIG_CRYPTO_HW is not set
++# CONFIG_VIRTUALIZATION is not set
++CONFIG_XZ_DEC=y
++CONFIG_AVERAGE=y
+diff -ru --new-file linux-3.x-orig/arch/x86/Kconfig linux-3.x/arch/x86/Kconfig
+--- linux-3.x-orig/arch/x86/Kconfig	2014-12-11 11:27:33.000000000 +0000
++++ linux-3.x/arch/x86/Kconfig	2014-12-23 17:23:09.015087000 +0000
 @@ -512,21 +512,21 @@
  	depends on HW_MUTEXES
  	prompt "MUTEX controller support for Intel CE2600 platform"
@@ -30,9 +403,9 @@ diff -ru linux-3.x-orig/arch/x86/Kconfig linux-3.x/arch/x86/Kconfig
  	help
  	 works in polling mode, interrupt is disabled
  
-diff -ru linux-3.x-orig/arch/x86/kernel/setup.c linux-3.x/arch/x86/kernel/setup.c
---- linux-3.x-orig/arch/x86/kernel/setup.c	2014-12-15 18:49:23.571087000 +0000
-+++ linux-3.x/arch/x86/kernel/setup.c	2014-12-15 21:05:00.875087000 +0000
+diff -ru --new-file linux-3.x-orig/arch/x86/kernel/setup.c linux-3.x/arch/x86/kernel/setup.c
+--- linux-3.x-orig/arch/x86/kernel/setup.c	2014-12-11 11:32:48.000000000 +0000
++++ linux-3.x/arch/x86/kernel/setup.c	2014-12-23 17:23:09.015087000 +0000
 @@ -199,6 +199,11 @@
  extern char gszRaidSwapUuid[48];
  #endif
@@ -45,7 +418,7 @@ diff -ru linux-3.x-orig/arch/x86/kernel/setup.c linux-3.x/arch/x86/kernel/setup.
  /*
   * end_pfn only includes RAM, while max_pfn_mapped includes all e820 entries.
   * The direct mapping extends to max_pfn_mapped, so that we can directly access
-@@ -940,6 +945,23 @@
+@@ -940,6 +945,24 @@
  __setup("swap_uuid=", early_swap_uuid);
  #endif
  
@@ -64,14 +437,15 @@ diff -ru linux-3.x-orig/arch/x86/kernel/setup.c linux-3.x/arch/x86/kernel/setup.
 +	printk("synoboot pid: %d\n", gSynoPid);
 +	return 1;
 +}
++__setup("pid=", early_pid);
 +#endif
 +
  /*
   * --------- Crashkernel reservation ------------------------------
   */
-diff -ru linux-3.x-orig/arch/x86/mm/fault.c linux-3.x/arch/x86/mm/fault.c
---- linux-3.x-orig/arch/x86/mm/fault.c	2014-12-15 18:49:24.375087000 +0000
-+++ linux-3.x/arch/x86/mm/fault.c	2014-12-15 21:05:01.531087000 +0000
+diff -ru --new-file linux-3.x-orig/arch/x86/mm/fault.c linux-3.x/arch/x86/mm/fault.c
+--- linux-3.x-orig/arch/x86/mm/fault.c	2014-12-11 11:32:48.000000000 +0000
++++ linux-3.x/arch/x86/mm/fault.c	2014-12-23 17:23:09.015087000 +0000
 @@ -688,6 +688,7 @@
  show_signal_msg(struct pt_regs *regs, unsigned long error_code,
  		unsigned long address, struct task_struct *tsk)
@@ -88,9 +462,9 @@ diff -ru linux-3.x-orig/arch/x86/mm/fault.c linux-3.x/arch/x86/mm/fault.c
  }
  
  static void
-diff -ru linux-3.x-orig/Documentation/ABI/testing/debugfs-aufs linux-3.x/Documentation/ABI/testing/debugfs-aufs
---- linux-3.x-orig/Documentation/ABI/testing/debugfs-aufs	2014-12-15 18:49:25.895087000 +0000
-+++ linux-3.x/Documentation/ABI/testing/debugfs-aufs	2014-12-15 21:05:03.151087000 +0000
+diff -ru --new-file linux-3.x-orig/Documentation/ABI/testing/debugfs-aufs linux-3.x/Documentation/ABI/testing/debugfs-aufs
+--- linux-3.x-orig/Documentation/ABI/testing/debugfs-aufs	2014-12-11 11:27:33.000000000 +0000
++++ linux-3.x/Documentation/ABI/testing/debugfs-aufs	2014-12-23 17:23:09.011087000 +0000
 @@ -6,6 +6,19 @@
  		per aufs mount, where <id> is a unique id generated
  		internally.
@@ -106,7 +480,7 @@ diff -ru linux-3.x-orig/Documentation/ABI/testing/debugfs-aufs linux-3.x/Documen
 +		blank). The last line is a single number representing a
 +		total number of psedo-links.
 +		When the aufs mount option 'noplink' is specified, it
-+		will show "1\n0\n0\n".		
++		will show "1\n0\n0\n".
 +
  What:		/debug/aufs/si_<id>/xib
  Date:		March 2009
@@ -138,25 +512,23 @@ diff -ru linux-3.x-orig/Documentation/ABI/testing/debugfs-aufs linux-3.x/Documen
 -		will be empty. About XINO files, see
 -		Documentation/filesystems/aufs/aufs.5 in detail.
 +		will be empty. About XINO files, see the aufs manual.
-diff -ru linux-3.x-orig/Documentation/ABI/testing/sysfs-aufs linux-3.x/Documentation/ABI/testing/sysfs-aufs
---- linux-3.x-orig/Documentation/ABI/testing/sysfs-aufs	2014-12-15 18:49:26.339087000 +0000
-+++ linux-3.x/Documentation/ABI/testing/sysfs-aufs	2014-12-15 21:05:03.411087000 +0000
-@@ -13,7 +13,14 @@
+diff -ru --new-file linux-3.x-orig/Documentation/ABI/testing/sysfs-aufs linux-3.x/Documentation/ABI/testing/sysfs-aufs
+--- linux-3.x-orig/Documentation/ABI/testing/sysfs-aufs	2014-12-11 11:27:33.000000000 +0000
++++ linux-3.x/Documentation/ABI/testing/sysfs-aufs	2014-12-23 17:23:09.011087000 +0000
+@@ -13,6 +13,13 @@
  		It shows the abolute path of a member directory (which
  		is called branch) in aufs, and its permission.
  
--What:		/sys/fs/aufs/si_<id>/xi_path
 +What:		/sys/fs/aufs/si_<id>/brid0, brid1 ... bridN
 +Date:		July 2013
 +Contact:	J. R. Okajima <hooanon05@yahoo.co.jp>
 +Description:
 +		It shows the id of a member directory (which is called
 +		branch) in aufs.
-+		
-+		What:		/sys/fs/aufs/si_<id>/xi_path
++
+ What:		/sys/fs/aufs/si_<id>/xi_path
  Date:		March 2009
  Contact:	J. R. Okajima <hooanon05@yahoo.co.jp>
- Description:
 @@ -21,5 +28,4 @@
  		Bitmap, Translation Table and Generation Table) file
  		even if it is the default path.
@@ -164,22 +536,1340 @@ diff -ru linux-3.x-orig/Documentation/ABI/testing/sysfs-aufs linux-3.x/Documenta
 -		will be empty. About XINO files, see
 -		Documentation/filesystems/aufs/aufs.5 in detail.
 +		will be empty. About XINO files, see the aufs manual.
-Only in linux-3.x/Documentation: filesystems
-diff -ru linux-3.x-orig/drivers/ata/libata-core.c linux-3.x/drivers/ata/libata-core.c
---- linux-3.x-orig/drivers/ata/libata-core.c	2014-12-15 18:49:27.495087000 +0000
-+++ linux-3.x/drivers/ata/libata-core.c	2014-12-15 21:05:10.011087000 +0000
+diff -ru --new-file linux-3.x-orig/Documentation/filesystems/aufs/design/01intro.txt linux-3.x/Documentation/filesystems/aufs/design/01intro.txt
+--- linux-3.x-orig/Documentation/filesystems/aufs/design/01intro.txt	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/Documentation/filesystems/aufs/design/01intro.txt	2014-12-23 17:23:09.011087000 +0000
+@@ -0,0 +1,162 @@
++
++# Copyright (C) 2005-2013 Junjiro R. Okajima
++# 
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++# 
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++# 
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
++
++Introduction
++----------------------------------------
++
++aufs [ei ju: ef es] | [a u f s]
++1. abbrev. for "advanced multi-layered unification filesystem".
++2. abbrev. for "another unionfs".
++3. abbrev. for "auf das" in German which means "on the" in English.
++   Ex. "Butter aufs Brot"(G) means "butter onto bread"(E).
++   But "Filesystem aufs Filesystem" is hard to understand.
++
++AUFS is a filesystem with features:
++- multi layered stackable unification filesystem, the member directory
++  is called as a branch.
++- branch permission and attribute, 'readonly', 'real-readonly',
++  'readwrite', 'whiteout-able', 'link-able whiteout' and their
++  combination.
++- internal "file copy-on-write".
++- logical deletion, whiteout.
++- dynamic branch manipulation, adding, deleting and changing permission.
++- allow bypassing aufs, user's direct branch access.
++- external inode number translation table and bitmap which maintains the
++  persistent aufs inode number.
++- seekable directory, including NFS readdir.
++- file mapping, mmap and sharing pages.
++- pseudo-link, hardlink over branches.
++- loopback mounted filesystem as a branch.
++- several policies to select one among multiple writable branches.
++- revert a single systemcall when an error occurs in aufs.
++- and more...
++
++
++Multi Layered Stackable Unification Filesystem
++----------------------------------------------------------------------
++Most people already knows what it is.
++It is a filesystem which unifies several directories and provides a
++merged single directory. When users access a file, the access will be
++passed/re-directed/converted (sorry, I am not sure which English word is
++correct) to the real file on the member filesystem. The member
++filesystem is called 'lower filesystem' or 'branch' and has a mode
++'readonly' and 'readwrite.' And the deletion for a file on the lower
++readonly branch is handled by creating 'whiteout' on the upper writable
++branch.
++
++On LKML, there have been discussions about UnionMount (Jan Blunck,
++Bharata B Rao and Valerie Aurora) and Unionfs (Erez Zadok). They took
++different approaches to implement the merged-view.
++The former tries putting it into VFS, and the latter implements as a
++separate filesystem.
++(If I misunderstand about these implementations, please let me know and
++I shall correct it. Because it is a long time ago when I read their
++source files last time).
++
++UnionMount's approach will be able to small, but may be hard to share
++branches between several UnionMount since the whiteout in it is
++implemented in the inode on branch filesystem and always
++shared. According to Bharata's post, readdir does not seems to be
++finished yet.
++There are several missing features known in this implementations such as
++- for users, the inode number may change silently. eg. copy-up.
++- link(2) may break by copy-up.
++- read(2) may get an obsoleted filedata (fstat(2) too).
++- fcntl(F_SETLK) may be broken by copy-up.
++- unnecessary copy-up may happen, for example mmap(MAP_PRIVATE) after
++  open(O_RDWR).
++
++Unionfs has a longer history. When I started implementing a stacking filesystem
++(Aug 2005), it already existed. It has virtual super_block, inode,
++dentry and file objects and they have an array pointing lower same kind
++objects. After contributing many patches for Unionfs, I re-started my
++project AUFS (Jun 2006).
++
++In AUFS, the structure of filesystem resembles to Unionfs, but I
++implemented my own ideas, approaches and enhancements and it became
++totally different one.
++
++Comparing DM snapshot and fs based implementation
++- the number of bytes to be copied between devices is much smaller.
++- the type of filesystem must be one and only.
++- the fs must be writable, no readonly fs, even for the lower original
++  device. so the compression fs will not be usable. but if we use
++  loopback mount, we may address this issue.
++  for instance,
++	mount /cdrom/squashfs.img /sq
++	losetup /sq/ext2.img
++	losetup /somewhere/cow
++	dmsetup "snapshot /dev/loop0 /dev/loop1 ..."
++- it will be difficult (or needs more operations) to extract the
++  difference between the original device and COW.
++- DM snapshot-merge may help a lot when users try merging. in the
++  fs-layer union, users will use rsync(1).
++
++
++Several characters/aspects of aufs
++----------------------------------------------------------------------
++
++Aufs has several characters or aspects.
++1. a filesystem, callee of VFS helper
++2. sub-VFS, caller of VFS helper for branches
++3. a virtual filesystem which maintains persistent inode number
++4. reader/writer of files on branches such like an application
++
++1. Callee of VFS Helper
++As an ordinary linux filesystem, aufs is a callee of VFS. For instance,
++unlink(2) from an application reaches sys_unlink() kernel function and
++then vfs_unlink() is called. vfs_unlink() is one of VFS helper and it
++calls filesystem specific unlink operation. Actually aufs implements the
++unlink operation but it behaves like a redirector.
++
++2. Caller of VFS Helper for Branches
++aufs_unlink() passes the unlink request to the branch filesystem as if
++it were called from VFS. So the called unlink operation of the branch
++filesystem acts as usual. As a caller of VFS helper, aufs should handle
++every necessary pre/post operation for the branch filesystem.
++- acquire the lock for the parent dir on a branch
++- lookup in a branch
++- revalidate dentry on a branch
++- mnt_want_write() for a branch
++- vfs_unlink() for a branch
++- mnt_drop_write() for a branch
++- release the lock on a branch
++
++3. Persistent Inode Number
++One of the most important issue for a filesystem is to maintain inode
++numbers. This is particularly important to support exporting a
++filesystem via NFS. Aufs is a virtual filesystem which doesn't have a
++backend block device for its own. But some storage is necessary to
++maintain inode number. It may be a large space and may not suit to keep
++in memory. Aufs rents some space from its first writable branch
++filesystem (by default) and creates file(s) on it. These files are
++created by aufs internally and removed soon (currently) keeping opened.
++Note: Because these files are removed, they are totally gone after
++      unmounting aufs. It means the inode numbers are not persistent
++      across unmount or reboot. I have a plan to make them really
++      persistent which will be important for aufs on NFS server.
++
++4. Read/Write Files Internally (copy-on-write)
++Because a branch can be readonly, when you write a file on it, aufs will
++"copy-up" it to the upper writable branch internally. And then write the
++originally requested thing to the file. Generally kernel doesn't
++open/read/write file actively. In aufs, even a single write may cause a
++internal "file copy". This behaviour is very similar to cp(1) command.
++
++Some people may think it is better to pass such work to user space
++helper, instead of doing in kernel space. Actually I am still thinking
++about it. But currently I have implemented it in kernel space.
+diff -ru --new-file linux-3.x-orig/Documentation/filesystems/aufs/design/02struct.txt linux-3.x/Documentation/filesystems/aufs/design/02struct.txt
+--- linux-3.x-orig/Documentation/filesystems/aufs/design/02struct.txt	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/Documentation/filesystems/aufs/design/02struct.txt	2014-12-23 17:23:09.011087000 +0000
+@@ -0,0 +1,226 @@
++
++# Copyright (C) 2005-2013 Junjiro R. Okajima
++# 
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++# 
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++# 
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
++
++Basic Aufs Internal Structure
++
++Superblock/Inode/Dentry/File Objects
++----------------------------------------------------------------------
++As like an ordinary filesystem, aufs has its own
++superblock/inode/dentry/file objects. All these objects have a
++dynamically allocated array and store the same kind of pointers to the
++lower filesystem, branch.
++For example, when you build a union with one readwrite branch and one
++readonly, mounted /au, /rw and /ro respectively.
++- /au = /rw + /ro
++- /ro/fileA exists but /rw/fileA
++
++Aufs lookup operation finds /ro/fileA and gets dentry for that. These
++pointers are stored in a aufs dentry. The array in aufs dentry will be,
++- [0] = NULL
++- [1] = /ro/fileA
++
++This style of an array is essentially same to the aufs
++superblock/inode/dentry/file objects.
++
++Because aufs supports manipulating branches, ie. add/delete/change
++dynamically, these objects has its own generation. When branches are
++changed, the generation in aufs superblock is incremented. And a
++generation in other object are compared when it is accessed.
++When a generation in other objects are obsoleted, aufs refreshes the
++internal array.
++
++
++Superblock
++----------------------------------------------------------------------
++Additionally aufs superblock has some data for policies to select one
++among multiple writable branches, XIB files, pseudo-links and kobject.
++See below in detail.
++About the policies which supports copy-down a directory, see policy.txt
++too.
++
++
++Branch and XINO(External Inode Number Translation Table)
++----------------------------------------------------------------------
++Every branch has its own xino (external inode number translation table)
++file. The xino file is created and unlinked by aufs internally. When two
++members of a union exist on the same filesystem, they share the single
++xino file.
++The struct of a xino file is simple, just a sequence of aufs inode
++numbers which is indexed by the lower inode number.
++In the above sample, assume the inode number of /ro/fileA is i111 and
++aufs assigns the inode number i999 for fileA. Then aufs writes 999 as
++4(8) bytes at 111 * 4(8) bytes offset in the xino file.
++
++When the inode numbers are not contiguous, the xino file will be sparse
++which has a hole in it and doesn't consume as much disk space as it
++might appear. If your branch filesystem consumes disk space for such
++holes, then you should specify 'xino=' option at mounting aufs.
++
++Also a writable branch has three kinds of "whiteout bases". All these
++are existed when the branch is joined to aufs and the names are
++whiteout-ed doubly, so that users will never see their names in aufs
++hierarchy.
++1. a regular file which will be linked to all whiteouts.
++2. a directory to store a pseudo-link.
++3. a directory to store an "orphan-ed" file temporary.
++
++1. Whiteout Base
++   When you remove a file on a readonly branch, aufs handles it as a
++   logical deletion and creates a whiteout on the upper writable branch
++   as a hardlink of this file in order not to consume inode on the
++   writable branch.
++2. Pseudo-link Dir
++   See below, Pseudo-link.
++3. Step-Parent Dir
++   When "fileC" exists on the lower readonly branch only and it is
++   opened and removed with its parent dir, and then user writes
++   something into it, then aufs copies-up fileC to this
++   directory. Because there is no other dir to store fileC. After
++   creating a file under this dir, the file is unlinked.
++
++Because aufs supports manipulating branches, ie. add/delete/change
++dynamically, a branch has its own id. When the branch order changes, aufs
++finds the new index by searching the branch id.
++
++
++Pseudo-link
++----------------------------------------------------------------------
++Assume "fileA" exists on the lower readonly branch only and it is
++hardlinked to "fileB" on the branch. When you write something to fileA,
++aufs copies-up it to the upper writable branch. Additionally aufs
++creates a hardlink under the Pseudo-link Directory of the writable
++branch. The inode of a pseudo-link is kept in aufs super_block as a
++simple list. If fileB is read after unlinking fileA, aufs returns
++filedata from the pseudo-link instead of the lower readonly
++branch. Because the pseudo-link is based upon the inode, to keep the
++inode number by xino (see above) is important.
++
++All the hardlinks under the Pseudo-link Directory of the writable branch
++should be restored in a proper location later. Aufs provides a utility
++to do this. The userspace helpers executed at remounting and unmounting
++aufs by default.
++During this utility is running, it puts aufs into the pseudo-link
++maintenance mode. In this mode, only the process which began the
++maintenance mode (and its child processes) is allowed to operate in
++aufs. Some other processes which are not related to the pseudo-link will
++be allowed to run too, but the rest have to return an error or wait
++until the maintenance mode ends. If a process already acquires an inode
++mutex (in VFS), it has to return an error.
++
++
++XIB(external inode number bitmap)
++----------------------------------------------------------------------
++Addition to the xino file per a branch, aufs has an external inode number
++bitmap in a superblock object. It is also a file such like a xino file.
++It is a simple bitmap to mark whether the aufs inode number is in-use or
++not.
++To reduce the file I/O, aufs prepares a single memory page to cache xib.
++
++Aufs implements a feature to truncate/refresh both of xino and xib to
++reduce the number of consumed disk blocks for these files.
++
++
++Virtual or Vertical Dir, and Readdir in Userspace
++----------------------------------------------------------------------
++In order to support multiple layers (branches), aufs readdir operation
++constructs a virtual dir block on memory. For readdir, aufs calls
++vfs_readdir() internally for each dir on branches, merges their entries
++with eliminating the whiteout-ed ones, and sets it to file (dir)
++object. So the file object has its entry list until it is closed. The
++entry list will be updated when the file position is zero and becomes
++old. This decision is made in aufs automatically.
++
++The dynamically allocated memory block for the name of entries has a
++unit of 512 bytes (by default) and stores the names contiguously (no
++padding). Another block for each entry is handled by kmem_cache too.
++During building dir blocks, aufs creates hash list and judging whether
++the entry is whiteouted by its upper branch or already listed.
++The merged result is cached in the corresponding inode object and
++maintained by a customizable life-time option.
++
++Some people may call it can be a security hole or invite DoS attack
++since the opened and once readdir-ed dir (file object) holds its entry
++list and becomes a pressure for system memory. But I'd say it is similar
++to files under /proc or /sys. The virtual files in them also holds a
++memory page (generally) while they are opened. When an idea to reduce
++memory for them is introduced, it will be applied to aufs too.
++For those who really hate this situation, I've developed readdir(3)
++library which operates this merging in userspace. You just need to set
++LD_PRELOAD environment variable, and aufs will not consume no memory in
++kernel space for readdir(3).
++
++
++Workqueue
++----------------------------------------------------------------------
++Aufs sometimes requires privilege access to a branch. For instance,
++in copy-up/down operation. When a user process is going to make changes
++to a file which exists in the lower readonly branch only, and the mode
++of one of ancestor directories may not be writable by a user
++process. Here aufs copy-up the file with its ancestors and they may
++require privilege to set its owner/group/mode/etc.
++This is a typical case of a application character of aufs (see
++Introduction).
++
++Aufs uses workqueue synchronously for this case. It creates its own
++workqueue. The workqueue is a kernel thread and has privilege. Aufs
++passes the request to call mkdir or write (for example), and wait for
++its completion. This approach solves a problem of a signal handler
++simply.
++If aufs didn't adopt the workqueue and changed the privilege of the
++process, and if the mkdir/write call arises SIGXFSZ or other signal,
++then the user process might gain a privilege or the generated core file
++was owned by a superuser.
++
++Also aufs uses the system global workqueue ("events" kernel thread) too
++for asynchronous tasks, such like handling inotify/fsnotify, re-creating a
++whiteout base and etc. This is unrelated to a privilege.
++Most of aufs operation tries acquiring a rw_semaphore for aufs
++superblock at the beginning, at the same time waits for the completion
++of all queued asynchronous tasks.
++
++
++Whiteout
++----------------------------------------------------------------------
++The whiteout in aufs is very similar to Unionfs's. That is represented
++by its filename. UnionMount takes an approach of a file mode, but I am
++afraid several utilities (find(1) or something) will have to support it.
++
++Basically the whiteout represents "logical deletion" which stops aufs to
++lookup further, but also it represents "dir is opaque" which also stop
++lookup.
++
++In aufs, rmdir(2) and rename(2) for dir uses whiteout alternatively.
++In order to make several functions in a single systemcall to be
++revertible, aufs adopts an approach to rename a directory to a temporary
++unique whiteouted name.
++For example, in rename(2) dir where the target dir already existed, aufs
++renames the target dir to a temporary unique whiteouted name before the
++actual rename on a branch and then handles other actions (make it opaque,
++update the attributes, etc). If an error happens in these actions, aufs
++simply renames the whiteouted name back and returns an error. If all are
++succeeded, aufs registers a function to remove the whiteouted unique
++temporary name completely and asynchronously to the system global
++workqueue.
++
++
++Copy-up
++----------------------------------------------------------------------
++It is a well-known feature or concept.
++When user modifies a file on a readonly branch, aufs operate "copy-up"
++internally and makes change to the new file on the upper writable branch.
++When the trigger systemcall does not update the timestamps of the parent
++dir, aufs reverts it after copy-up.
+diff -ru --new-file linux-3.x-orig/Documentation/filesystems/aufs/design/03lookup.txt linux-3.x/Documentation/filesystems/aufs/design/03lookup.txt
+--- linux-3.x-orig/Documentation/filesystems/aufs/design/03lookup.txt	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/Documentation/filesystems/aufs/design/03lookup.txt	2014-12-23 17:23:09.011087000 +0000
+@@ -0,0 +1,106 @@
++
++# Copyright (C) 2005-2013 Junjiro R. Okajima
++# 
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++# 
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++# 
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
++
++Lookup in a Branch
++----------------------------------------------------------------------
++Since aufs has a character of sub-VFS (see Introduction), it operates
++lookup for branches as VFS does. It may be a heavy work. Generally
++speaking struct nameidata is a bigger structure and includes many
++information. But almost all lookup operation in aufs is the simplest
++case, ie. lookup only an entry directly connected to its parent. Digging
++down the directory hierarchy is unnecessary.
++
++VFS has a function lookup_one_len() for that use, but it is not usable
++for a branch filesystem which requires struct nameidata. So aufs
++implements a simple lookup wrapper function. When a branch filesystem
++allows NULL as nameidata, it calls lookup_one_len(). Otherwise it builds
++a simplest nameidata and calls lookup_hash().
++Here aufs applies "a principle in NFSD", ie. if the filesystem supports
++NFS-export, then it has to support NULL as a nameidata parameter for
++->create(), ->lookup() and ->d_revalidate(). So the lookup wrapper in
++aufs tests if ->s_export_op in the branch is NULL or not.
++
++When a branch is a remote filesystem, aufs basically trusts its
++->d_revalidate(), also aufs forces the hardest revalidate tests for
++them.
++For d_revalidate, aufs implements three levels of revalidate tests. See
++"Revalidate Dentry and UDBA" in detail.
++
++
++Loopback Mount
++----------------------------------------------------------------------
++Basically aufs supports any type of filesystem and block device for a
++branch (actually there are some exceptions). But it is prohibited to add
++a loopback mounted one whose backend file exists in a filesystem which is
++already added to aufs. The reason is to protect aufs from a recursive
++lookup. If it was allowed, the aufs lookup operation might re-enter a
++lookup for the loopback mounted branch in the same context, and will
++cause a deadlock.
++
++
++Revalidate Dentry and UDBA (User's Direct Branch Access)
++----------------------------------------------------------------------
++Generally VFS helpers re-validate a dentry as a part of lookup.
++0. digging down the directory hierarchy.
++1. lock the parent dir by its i_mutex.
++2. lookup the final (child) entry.
++3. revalidate it.
++4. call the actual operation (create, unlink, etc.)
++5. unlock the parent dir
++
++If the filesystem implements its ->d_revalidate() (step 3), then it is
++called. Actually aufs implements it and checks the dentry on a branch is
++still valid.
++But it is not enough. Because aufs has to release the lock for the
++parent dir on a branch at the end of ->lookup() (step 2) and
++->d_revalidate() (step 3) while the i_mutex of the aufs dir is still
++held by VFS.
++If the file on a branch is changed directly, eg. bypassing aufs, after
++aufs released the lock, then the subsequent operation may cause
++something unpleasant result.
++
++This situation is a result of VFS architecture, ->lookup() and
++->d_revalidate() is separated. But I never say it is wrong. It is a good
++design from VFS's point of view. It is just not suitable for sub-VFS
++character in aufs.
++
++Aufs supports such case by three level of revalidation which is
++selectable by user.
++1. Simple Revalidate
++   Addition to the native flow in VFS's, confirm the child-parent
++   relationship on the branch just after locking the parent dir on the
++   branch in the "actual operation" (step 4). When this validation
++   fails, aufs returns EBUSY. ->d_revalidate() (step 3) in aufs still
++   checks the validation of the dentry on branches.
++2. Monitor Changes Internally by Inotify/Fsnotify
++   Addition to above, in the "actual operation" (step 4) aufs re-lookup
++   the dentry on the branch, and returns EBUSY if it finds different
++   dentry.
++   Additionally, aufs sets the inotify/fsnotify watch for every dir on branches
++   during it is in cache. When the event is notified, aufs registers a
++   function to kernel 'events' thread by schedule_work(). And the
++   function sets some special status to the cached aufs dentry and inode
++   private data. If they are not cached, then aufs has nothing to
++   do. When the same file is accessed through aufs (step 0-3) later,
++   aufs will detect the status and refresh all necessary data.
++   In this mode, aufs has to ignore the event which is fired by aufs
++   itself.
++3. No Extra Validation
++   This is the simplest test and doesn't add any additional revalidation
++   test, and skip therevalidatin in step 4. It is useful and improves
++   aufs performance when system surely hide the aufs branches from user,
++   by over-mounting something (or another method).
+diff -ru --new-file linux-3.x-orig/Documentation/filesystems/aufs/design/04branch.txt linux-3.x/Documentation/filesystems/aufs/design/04branch.txt
+--- linux-3.x-orig/Documentation/filesystems/aufs/design/04branch.txt	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/Documentation/filesystems/aufs/design/04branch.txt	2014-12-23 17:23:09.011087000 +0000
+@@ -0,0 +1,76 @@
++
++# Copyright (C) 2005-2013 Junjiro R. Okajima
++# 
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++# 
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++# 
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
++
++Branch Manipulation
++
++Since aufs supports dynamic branch manipulation, ie. add/remove a branch
++and changing its permission/attribute, there are a lot of works to do.
++
++
++Add a Branch
++----------------------------------------------------------------------
++o Confirm the adding dir exists outside of aufs, including loopback
++  mount.
++- and other various attributes...
++o Initialize the xino file and whiteout bases if necessary.
++  See struct.txt.
++
++o Check the owner/group/mode of the directory
++  When the owner/group/mode of the adding directory differs from the
++  existing branch, aufs issues a warning because it may impose a
++  security risk.
++  For example, when a upper writable branch has a world writable empty
++  top directory, a malicious user can create any files on the writable
++  branch directly, like copy-up and modify manually. If something like
++  /etc/{passwd,shadow} exists on the lower readonly branch but the upper
++  writable branch, and the writable branch is world-writable, then a
++  malicious guy may create /etc/passwd on the writable branch directly
++  and the infected file will be valid in aufs.
++  I am afraid it can be a security issue, but nothing to do except
++  producing a warning.
++
++
++Delete a Branch
++----------------------------------------------------------------------
++o Confirm the deleting branch is not busy
++  To be general, there is one merit to adopt "remount" interface to
++  manipulate branches. It is to discard caches. At deleting a branch,
++  aufs checks the still cached (and connected) dentries and inodes. If
++  there are any, then they are all in-use. An inode without its
++  corresponding dentry can be alive alone (for example, inotify/fsnotify case).
++
++  For the cached one, aufs checks whether the same named entry exists on
++  other branches.
++  If the cached one is a directory, because aufs provides a merged view
++  to users, as long as one dir is left on any branch aufs can show the
++  dir to users. In this case, the branch can be removed from aufs.
++  Otherwise aufs rejects deleting the branch.
++
++  If any file on the deleting branch is opened by aufs, then aufs
++  rejects deleting.
++
++
++Modify the Permission of a Branch
++----------------------------------------------------------------------
++o Re-initialize or remove the xino file and whiteout bases if necessary.
++  See struct.txt.
++
++o rw --> ro: Confirm the modifying branch is not busy
++  Aufs rejects the request if any of these conditions are true.
++  - a file on the branch is mmap-ed.
++  - a regular file on the branch is opened for write and there is no
++    same named entry on the upper branch.
+diff -ru --new-file linux-3.x-orig/Documentation/filesystems/aufs/design/05wbr_policy.txt linux-3.x/Documentation/filesystems/aufs/design/05wbr_policy.txt
+--- linux-3.x-orig/Documentation/filesystems/aufs/design/05wbr_policy.txt	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/Documentation/filesystems/aufs/design/05wbr_policy.txt	2014-12-23 17:23:09.011087000 +0000
+@@ -0,0 +1,65 @@
++
++# Copyright (C) 2005-2013 Junjiro R. Okajima
++# 
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++# 
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++# 
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
++
++Policies to Select One among Multiple Writable Branches
++----------------------------------------------------------------------
++When the number of writable branch is more than one, aufs has to decide
++the target branch for file creation or copy-up. By default, the highest
++writable branch which has the parent (or ancestor) dir of the target
++file is chosen (top-down-parent policy).
++By user's request, aufs implements some other policies to select the
++writable branch, for file creation two policies, round-robin and
++most-free-space policies. For copy-up three policies, top-down-parent,
++bottom-up-parent and bottom-up policies.
++
++As expected, the round-robin policy selects the branch in circular. When
++you have two writable branches and creates 10 new files, 5 files will be
++created for each branch. mkdir(2) systemcall is an exception. When you
++create 10 new directories, all will be created on the same branch.
++And the most-free-space policy selects the one which has most free
++space among the writable branches. The amount of free space will be
++checked by aufs internally, and users can specify its time interval.
++
++The policies for copy-up is more simple,
++top-down-parent is equivalent to the same named on in create policy,
++bottom-up-parent selects the writable branch where the parent dir
++exists and the nearest upper one from the copyup-source,
++bottom-up selects the nearest upper writable branch from the
++copyup-source, regardless the existence of the parent dir.
++
++There are some rules or exceptions to apply these policies.
++- If there is a readonly branch above the policy-selected branch and
++  the parent dir is marked as opaque (a variation of whiteout), or the
++  target (creating) file is whiteout-ed on the upper readonly branch,
++  then the result of the policy is ignored and the target file will be
++  created on the nearest upper writable branch than the readonly branch.
++- If there is a writable branch above the policy-selected branch and
++  the parent dir is marked as opaque or the target file is whiteouted
++  on the branch, then the result of the policy is ignored and the target
++  file will be created on the highest one among the upper writable
++  branches who has diropq or whiteout. In case of whiteout, aufs removes
++  it as usual.
++- link(2) and rename(2) systemcalls are exceptions in every policy.
++  They try selecting the branch where the source exists as possible
++  since copyup a large file will take long time. If it can't be,
++  ie. the branch where the source exists is readonly, then they will
++  follow the copyup policy.
++- There is an exception for rename(2) when the target exists.
++  If the rename target exists, aufs compares the index of the branches
++  where the source and the target exists and selects the higher
++  one. If the selected branch is readonly, then aufs follows the
++  copyup policy.
+diff -ru --new-file linux-3.x-orig/Documentation/filesystems/aufs/design/06mmap.txt linux-3.x/Documentation/filesystems/aufs/design/06mmap.txt
+--- linux-3.x-orig/Documentation/filesystems/aufs/design/06mmap.txt	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/Documentation/filesystems/aufs/design/06mmap.txt	2014-12-23 17:23:09.011087000 +0000
+@@ -0,0 +1,47 @@
++
++# Copyright (C) 2005-2013 Junjiro R. Okajima
++# 
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++# 
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++# 
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
++
++mmap(2) -- File Memory Mapping
++----------------------------------------------------------------------
++In aufs, the file-mapped pages are handled by a branch fs directly, no
++interaction with aufs. It means aufs_mmap() calls the branch fs's
++->mmap().
++This approach is simple and good, but there is one problem.
++Under /proc, several entries show the mmap-ped files by its path (with
++device and inode number), and the printed path will be the path on the
++branch fs's instead of virtual aufs's.
++This is not a problem in most cases, but some utilities lsof(1) (and its
++user) may expect the path on aufs.
++
++To address this issue, aufs adds a new member called vm_prfile in struct
++vm_area_struct (and struct vm_region). The original vm_file points to
++the file on the branch fs in order to handle everything correctly as
++usual. The new vm_prfile points to a virtual file in aufs, and the
++show-functions in procfs refers to vm_prfile if it is set.
++Also we need to maintain several other places where touching vm_file
++such like
++- fork()/clone() copies vma and the reference count of vm_file is
++  incremented.
++- merging vma maintains the ref count too.
++
++This is not a good approach. It just faking the printed path. But it
++leaves all behaviour around f_mapping unchanged. This is surely an
++advantage.
++Actually aufs had adopted another complicated approach which calls
++generic_file_mmap() and handles struct vm_operations_struct. In this
++approach, aufs met a hard problem and I could not solve it without
++switching the approach.
+diff -ru --new-file linux-3.x-orig/Documentation/filesystems/aufs/design/07export.txt linux-3.x/Documentation/filesystems/aufs/design/07export.txt
+--- linux-3.x-orig/Documentation/filesystems/aufs/design/07export.txt	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/Documentation/filesystems/aufs/design/07export.txt	2014-12-23 17:23:09.015087000 +0000
+@@ -0,0 +1,59 @@
++
++# Copyright (C) 2005-2013 Junjiro R. Okajima
++# 
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++# 
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++# 
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
++
++Export Aufs via NFS
++----------------------------------------------------------------------
++Here is an approach.
++- like xino/xib, add a new file 'xigen' which stores aufs inode
++  generation.
++- iget_locked(): initialize aufs inode generation for a new inode, and
++  store it in xigen file.
++- destroy_inode(): increment aufs inode generation and store it in xigen
++  file. it is necessary even if it is not unlinked, because any data of
++  inode may be changed by UDBA.
++- encode_fh(): for a root dir, simply return FILEID_ROOT. otherwise
++  build file handle by
++  + branch id (4 bytes)
++  + superblock generation (4 bytes)
++  + inode number (4 or 8 bytes)
++  + parent dir inode number (4 or 8 bytes)
++  + inode generation (4 bytes))
++  + return value of exportfs_encode_fh() for the parent on a branch (4
++    bytes)
++  + file handle for a branch (by exportfs_encode_fh())
++- fh_to_dentry():
++  + find the index of a branch from its id in handle, and check it is
++    still exist in aufs.
++  + 1st level: get the inode number from handle and search it in cache.
++  + 2nd level: if not found, get the parent inode number from handle and
++    search it in cache. and then open the parent dir, find the matching
++    inode number by vfs_readdir() and get its name, and call
++    lookup_one_len() for the target dentry.
++  + 3rd level: if the parent dir is not cached, call
++    exportfs_decode_fh() for a branch and get the parent on a branch,
++    build a pathname of it, convert it a pathname in aufs, call
++    path_lookup(). now aufs gets a parent dir dentry, then handle it as
++    the 2nd level.
++  + to open the dir, aufs needs struct vfsmount. aufs keeps vfsmount
++    for every branch, but not itself. to get this, (currently) aufs
++    searches in current->nsproxy->mnt_ns list. it may not be a good
++    idea, but I didn't get other approach.
++  + test the generation of the gotten inode.
++- every inode operation: they may get EBUSY due to UDBA. in this case,
++  convert it into ESTALE for NFSD.
++- readdir(): call lockdep_on/off() because filldir in NFSD calls
++  lookup_one_len(), vfs_getattr(), encode_fh() and others.
+diff -ru --new-file linux-3.x-orig/Documentation/filesystems/aufs/design/08shwh.txt linux-3.x/Documentation/filesystems/aufs/design/08shwh.txt
+--- linux-3.x-orig/Documentation/filesystems/aufs/design/08shwh.txt	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/Documentation/filesystems/aufs/design/08shwh.txt	2014-12-23 17:23:09.015087000 +0000
+@@ -0,0 +1,53 @@
++
++# Copyright (C) 2005-2013 Junjiro R. Okajima
++# 
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++# 
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++# 
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
++
++Show Whiteout Mode (shwh)
++----------------------------------------------------------------------
++Generally aufs hides the name of whiteouts. But in some cases, to show
++them is very useful for users. For instance, creating a new middle layer
++(branch) by merging existing layers.
++
++(borrowing aufs1 HOW-TO from a user, Michael Towers)
++When you have three branches,
++- Bottom: 'system', squashfs (underlying base system), read-only
++- Middle: 'mods', squashfs, read-only
++- Top: 'overlay', ram (tmpfs), read-write
++
++The top layer is loaded at boot time and saved at shutdown, to preserve
++the changes made to the system during the session.
++When larger changes have been made, or smaller changes have accumulated,
++the size of the saved top layer data grows. At this point, it would be
++nice to be able to merge the two overlay branches ('mods' and 'overlay')
++and rewrite the 'mods' squashfs, clearing the top layer and thus
++restoring save and load speed.
++
++This merging is simplified by the use of another aufs mount, of just the
++two overlay branches using the 'shwh' option.
++# mount -t aufs -o ro,shwh,br:/livesys/overlay=ro+wh:/livesys/mods=rr+wh \
++	aufs /livesys/merge_union
++
++A merged view of these two branches is then available at
++/livesys/merge_union, and the new feature is that the whiteouts are
++visible!
++Note that in 'shwh' mode the aufs mount must be 'ro', which will disable
++writing to all branches. Also the default mode for all branches is 'ro'.
++It is now possible to save the combined contents of the two overlay
++branches to a new squashfs, e.g.:
++# mksquashfs /livesys/merge_union /path/to/newmods.squash
++
++This new squashfs archive can be stored on the boot device and the
++initramfs will use it to replace the old one at the next boot.
+diff -ru --new-file linux-3.x-orig/Documentation/filesystems/aufs/design/10dynop.txt linux-3.x/Documentation/filesystems/aufs/design/10dynop.txt
+--- linux-3.x-orig/Documentation/filesystems/aufs/design/10dynop.txt	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/Documentation/filesystems/aufs/design/10dynop.txt	2014-12-23 17:23:09.015087000 +0000
+@@ -0,0 +1,47 @@
++
++# Copyright (C) 2010-2013 Junjiro R. Okajima
++#
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++#
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
++
++Dynamically customizable FS operations
++----------------------------------------------------------------------
++Generally FS operations (struct inode_operations, struct
++address_space_operations, struct file_operations, etc.) are defined as
++"static const", but it never means that FS have only one set of
++operation. Some FS have multiple sets of them. For instance, ext2 has
++three sets, one for XIP, for NOBH, and for normal.
++Since aufs overrides and redirects these operations, sometimes aufs has
++to change its behaviour according to the branch FS type. More imporantly
++VFS acts differently if a function (member in the struct) is set or
++not. It means aufs should have several sets of operations and select one
++among them according to the branch FS definition.
++
++In order to solve this problem and not to affect the behavour of VFS,
++aufs defines these operations dynamically. For instance, aufs defines
++aio_read function for struct file_operations, but it may not be set to
++the file_operations. When the branch FS doesn't have it, aufs doesn't
++set it to its file_operations while the function definition itself is
++still alive. So the behaviour of io_submit(2) will not change, and it
++will return an error when aio_read is not defined.
++
++The lifetime of these dynamically generated operation object is
++maintained by aufs branch object. When the branch is removed from aufs,
++the reference counter of the object is decremented. When it reaches
++zero, the dynamically generated operation object will be freed.
++
++This approach is designed to support AIO (io_submit), Direcit I/O and
++XIP mainly.
++Currently this approach is applied to file_operations and
++vm_operations_struct for regular files only.
+diff -ru --new-file linux-3.x-orig/Documentation/filesystems/aufs/design/99plan.txt linux-3.x/Documentation/filesystems/aufs/design/99plan.txt
+--- linux-3.x-orig/Documentation/filesystems/aufs/design/99plan.txt	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/Documentation/filesystems/aufs/design/99plan.txt	2014-12-23 17:23:09.015087000 +0000
+@@ -0,0 +1,96 @@
++
++# Copyright (C) 2005-2013 Junjiro R. Okajima
++# 
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++# 
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++# 
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
++
++Plan
++
++Restoring some features which was implemented in aufs1.
++They were dropped in aufs2 in order to make source files simpler and
++easier to be reviewed.
++
++
++Test Only the Highest One for the Directory Permission (dirperm1 option)
++----------------------------------------------------------------------
++Let's try case study.
++- aufs has two branches, upper readwrite and lower readonly.
++  /au = /rw + /ro
++- "dirA" exists under /ro, but /rw. and its mode is 0700.
++- user invoked "chmod a+rx /au/dirA"
++- then "dirA" becomes world readable?
++
++In this case, /ro/dirA is still 0700 since it exists in readonly branch,
++or it may be a natively readonly filesystem. If aufs respects the lower
++branch, it should not respond readdir request from other users. But user
++allowed it by chmod. Should really aufs rejects showing the entries
++under /ro/dirA?
++
++To be honest, I don't have a best solution for this case. So I
++implemented 'dirperm1' and 'nodirperm1' option in aufs1, and leave it to
++users.
++When dirperm1 is specified, aufs checks only the highest one for the
++directory permission, and shows the entries. Otherwise, as usual, checks
++every dir existing on all branches and rejects the request.
++
++As a side effect, dirperm1 option improves the performance of aufs
++because the number of permission check is reduced.
++
++
++Being Another Aufs's Readonly Branch (robr)
++----------------------------------------------------------------------
++Aufs1 allows aufs to be another aufs's readonly branch.
++This feature was developed by a user's request. But it may not be used
++currecnly.
++
++
++Copy-up on Open (coo=)
++----------------------------------------------------------------------
++By default the internal copy-up is executed when it is really necessary.
++It is not done when a file is opened for writing, but when write(2) is
++done. Users who have many (over 100) branches want to know and analyse
++when and what file is copied-up. To insert a new upper branch which
++contains such files only may improve the performance of aufs.
++
++Aufs1 implemented "coo=none | leaf | all" option.
++
++
++Refresh the Opened File (refrof)
++----------------------------------------------------------------------
++This option is implemented in aufs1 but incomplete.
++
++When user reads from a file, he expects to get its latest filedata
++generally. If the file is removed and a new same named file is created,
++the content he gets is unchanged, ie. the unlinked filedata.
++
++Let's try case study again.
++- aufs has two branches.
++  /au = /rw + /ro
++- "fileA" exists under /ro, but /rw.
++- user opened "/au/fileA".
++- he or someone else inserts a branch (/new) between /rw and /ro.
++  /au = /rw + /new + /ro
++- the new branch has "fileA".
++- user reads from the opened "fileA"
++- which filedata should aufs return, from /ro or /new?
++
++Some people says it has to be "from /ro" and it is a semantics of Unix.
++The others say it should be "from /new" because the file is not removed
++and it is equivalent to the case of someone else modifies the file.
++
++Here again I don't have a best and final answer. I got an idea to
++implement 'refrof' and 'norefrof' option. When 'refrof' (REFResh the
++Opened File) is specified (by default), aufs returns the filedata from
++/new.
++Otherwise from /new.
+diff -ru --new-file linux-3.x-orig/Documentation/filesystems/aufs/README linux-3.x/Documentation/filesystems/aufs/README
+--- linux-3.x-orig/Documentation/filesystems/aufs/README	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/Documentation/filesystems/aufs/README	2014-12-23 17:23:09.011087000 +0000
+@@ -0,0 +1,338 @@
++
++Aufs3 -- advanced multi layered unification filesystem version 3.x
++http://aufs.sf.net
++Junjiro R. Okajima
++
++
++0. Introduction
++----------------------------------------
++In the early days, aufs was entirely re-designed and re-implemented
++Unionfs Version 1.x series. After many original ideas, approaches,
++improvements and implementations, it becomes totally different from
++Unionfs while keeping the basic features.
++Recently, Unionfs Version 2.x series begin taking some of the same
++approaches to aufs1's.
++Unionfs is being developed by Professor Erez Zadok at Stony Brook
++University and his team.
++
++Aufs3 supports linux-3.0 and later.
++If you want older kernel version support, try aufs2-2.6.git or
++aufs2-standalone.git repository, aufs1 from CVS on SourceForge.
++
++Note: it becomes clear that "Aufs was rejected. Let's give it up."
++According to Christoph Hellwig, linux rejects all union-type filesystems
++but UnionMount.
++<http://marc.info/?l=linux-kernel&m=123938533724484&w=2>
++
++
++1. Features
++----------------------------------------
++- unite several directories into a single virtual filesystem. The member
++  directory is called as a branch.
++- you can specify the permission flags to the branch, which are 'readonly',
++  'readwrite' and 'whiteout-able.'
++- by upper writable branch, internal copyup and whiteout, files/dirs on
++  readonly branch are modifiable logically.
++- dynamic branch manipulation, add, del.
++- etc...
++
++Also there are many enhancements in aufs1, such as:
++- readdir(3) in userspace.
++- keep inode number by external inode number table
++- keep the timestamps of file/dir in internal copyup operation
++- seekable directory, supporting NFS readdir.
++- whiteout is hardlinked in order to reduce the consumption of inodes
++  on branch
++- do not copyup, nor create a whiteout when it is unnecessary
++- revert a single systemcall when an error occurs in aufs
++- remount interface instead of ioctl
++- maintain /etc/mtab by an external command, /sbin/mount.aufs.
++- loopback mounted filesystem as a branch
++- kernel thread for removing the dir who has a plenty of whiteouts
++- support copyup sparse file (a file which has a 'hole' in it)
++- default permission flags for branches
++- selectable permission flags for ro branch, whether whiteout can
++  exist or not
++- export via NFS.
++- support <sysfs>/fs/aufs and <debugfs>/aufs.
++- support multiple writable branches, some policies to select one
++  among multiple writable branches.
++- a new semantics for link(2) and rename(2) to support multiple
++  writable branches.
++- no glibc changes are required.
++- pseudo hardlink (hardlink over branches)
++- allow a direct access manually to a file on branch, e.g. bypassing aufs.
++  including NFS or remote filesystem branch.
++- userspace wrapper for pathconf(3)/fpathconf(3) with _PC_LINK_MAX.
++- and more...
++
++Currently these features are dropped temporary from aufs3.
++See design/08plan.txt in detail.
++- test only the highest one for the directory permission (dirperm1)
++- copyup on open (coo=)
++- nested mount, i.e. aufs as readonly no-whiteout branch of another aufs
++  (robr)
++- statistics of aufs thread (/sys/fs/aufs/stat)
++- delegation mode (dlgt)
++  a delegation of the internal branch access to support task I/O
++  accounting, which also supports Linux Security Modules (LSM) mainly
++  for Suse AppArmor.
++- intent.open/create (file open in a single lookup)
++
++Features or just an idea in the future (see also design/*.txt),
++- reorder the branch index without del/re-add.
++- permanent xino files for NFSD
++- an option for refreshing the opened files after add/del branches
++- 'move' policy for copy-up between two writable branches, after
++  checking free space.
++- light version, without branch manipulation. (unnecessary?)
++- copyup in userspace
++- inotify in userspace
++- readv/writev
++- xattr, acl
++
++
++2. Download
++----------------------------------------
++There were three GIT trees for aufs3, aufs3-linux.git,
++aufs3-standalone.git, and aufs-util.git. Note that there is no "3" in
++"aufs-util.git."
++While the aufs-util is always necessary, you need either of aufs3-linux
++or aufs3-standalone.
++
++The aufs3-linux tree includes the whole linux mainline GIT tree,
++git://git.kernel.org/.../torvalds/linux.git.
++And you cannot select CONFIG_AUFS_FS=m for this version, eg. you cannot
++build aufs3 as an external kernel module.
++
++On the other hand, the aufs3-standalone tree has only aufs source files
++and necessary patches, and you can select CONFIG_AUFS_FS=m.
++
++You will find GIT branches whose name is in form of "aufs3.x" where "x"
++represents the linux kernel version, "linux-3.x". For instance,
++"aufs3.0" is for linux-3.0. For latest "linux-3.x-rcN", use
++"aufs3.x-rcN" branch.
++
++o aufs3-linux tree
++$ git clone --reference /your/linux/git/tree \
++	git://git.code.sf.net/p/aufs/aufs3-linux aufs-aufs3-linux \
++	aufs3-linux.git
++- if you don't have linux GIT tree, then remove "--reference ..."
++$ cd aufs3-linux.git
++$ git checkout origin/aufs3.0
++
++o aufs3-standalone tree
++$ git clone git://git.code.sf.net/p/aufs/aufs3-standalone \
++	aufs3-standalone.git
++$ cd aufs3-standalone.git
++$ git checkout origin/aufs3.0
++
++o aufs-util tree
++$ git clone git://git.code.sf.net/p/aufs/aufs-util \
++	aufs-util.git
++$ cd aufs-util.git
++$ git checkout origin/aufs3.0
++
++Note: The 3.x-rcN branch is to be used with `rc' kernel versions ONLY.
++The minor version number, 'x' in '3.x', of aufs may not always
++follow the minor version number of the kernel.
++Because changes in the kernel that cause the use of a new
++minor version number do not always require changes to aufs-util.
++
++Since aufs-util has its own minor version number, you may not be
++able to find a GIT branch in aufs-util for your kernel's
++exact minor version number.
++In this case, you should git-checkout the branch for the
++nearest lower number.
++
++For (an unreleased) example:
++If you are using "linux-3.10" and the "aufs3.10" branch
++does not exist in aufs-util repository, then "aufs3.9", "aufs3.8"
++or something numerically smaller is the branch for your kernel.
++
++Also you can view all branches by
++	$ git branch -a
++
++
++3. Configuration and Compilation
++----------------------------------------
++Make sure you have git-checkout'ed the correct branch.
++
++For aufs3-linux tree,
++- enable CONFIG_EXPERIMENTAL and CONFIG_AUFS_FS.
++- set other aufs configurations if necessary.
++
++For aufs3-standalone tree,
++There are several ways to build.
++
++1.
++- apply ./aufs3-kbuild.patch to your kernel source files.
++- apply ./aufs3-base.patch too.
++- apply ./aufs3-mmap.patch too.
++- apply ./aufs3-standalone.patch too, if you have a plan to set
++  CONFIG_AUFS_FS=m. otherwise you don't need ./aufs3-standalone.patch.
++- copy ./{Documentation,fs,include/linux/aufs_type.h} files to your
++  kernel source tree. Never copy $PWD/include/linux/Kbuild.
++- enable CONFIG_EXPERIMENTAL and CONFIG_AUFS_FS, you can select either
++  =m or =y.
++- and build your kernel as usual.
++- install the built kernel.
++- install the header files too by "make headers_install" to the
++  directory where you specify. By default, it is $PWD/usr.
++  "make help" shows a brief note for headers_install.
++- and reboot your system.
++
++2.
++- module only (CONFIG_AUFS_FS=m).
++- apply ./aufs3-base.patch to your kernel source files.
++- apply ./aufs3-mmap.patch too.
++- apply ./aufs3-standalone.patch too.
++- build your kernel, don't forget "make headers_install", and reboot.
++- edit ./config.mk and set other aufs configurations if necessary.
++  Note: You should read $PWD/fs/aufs/Kconfig carefully which describes
++  every aufs configurations.
++- build the module by simple "make".
++- you can specify ${KDIR} make variable which points to your kernel
++  source tree.
++- install the files
++  + run "make install" to install the aufs module, or copy the built
++    $PWD/aufs.ko to /lib/modules/... and run depmod -a (or reboot simply).
++  + run "make install_headers" (instead of headers_install) to install
++    the modified aufs header file (you can specify DESTDIR which is
++    available in aufs standalone version's Makefile only), or copy
++    $PWD/usr/include/linux/aufs_type.h to /usr/include/linux or wherever
++    you like manually. By default, the target directory is $PWD/usr.
++- no need to apply aufs3-kbuild.patch, nor copying source files to your
++  kernel source tree.
++
++Note: The header file aufs_type.h is necessary to build aufs-util
++      as well as "make headers_install" in the kernel source tree.
++      headers_install is subject to be forgotten, but it is essentially
++      necessary, not only for building aufs-util.
++      You may not meet problems without headers_install in some older
++      version though.
++
++And then,
++- read README in aufs-util, build and install it
++- note that your distribution may contain an obsoleted version of
++  aufs_type.h in /usr/include/linux or something. When you build aufs
++  utilities, make sure that your compiler refers the correct aufs header
++  file which is built by "make headers_install."
++- if you want to use readdir(3) in userspace or pathconf(3) wrapper,
++  then run "make install_ulib" too. And refer to the aufs manual in
++  detail.
++
++
++4. Usage
++----------------------------------------
++At first, make sure aufs-util are installed, and please read the aufs
++manual, aufs.5 in aufs-util.git tree.
++$ man -l aufs.5
++
++And then,
++$ mkdir /tmp/rw /tmp/aufs
++# mount -t aufs -o br=/tmp/rw:${HOME} none /tmp/aufs
++
++Here is another example. The result is equivalent.
++# mount -t aufs -o br=/tmp/rw=rw:${HOME}=ro none /tmp/aufs
++  Or
++# mount -t aufs -o br:/tmp/rw none /tmp/aufs
++# mount -o remount,append:${HOME} /tmp/aufs
++
++Then, you can see whole tree of your home dir through /tmp/aufs. If
++you modify a file under /tmp/aufs, the one on your home directory is
++not affected, instead the same named file will be newly created under
++/tmp/rw. And all of your modification to a file will be applied to
++the one under /tmp/rw. This is called the file based Copy on Write
++(COW) method.
++Aufs mount options are described in aufs.5.
++If you run chroot or something and make your aufs as a root directory,
++then you need to customize the shutdown script. See the aufs manual in
++detail.
++
++Additionally, there are some sample usages of aufs which are a
++diskless system with network booting, and LiveCD over NFS.
++See sample dir in CVS tree on SourceForge.
++
++
++5. Contact
++----------------------------------------
++When you have any problems or strange behaviour in aufs, please let me
++know with:
++- /proc/mounts (instead of the output of mount(8))
++- /sys/module/aufs/*
++- /sys/fs/aufs/* (if you have them)
++- /debug/aufs/* (if you have them)
++- linux kernel version
++  if your kernel is not plain, for example modified by distributor,
++  the url where i can download its source is necessary too.
++- aufs version which was printed at loading the module or booting the
++  system, instead of the date you downloaded.
++- configuration (define/undefine CONFIG_AUFS_xxx)
++- kernel configuration or /proc/config.gz (if you have it)
++- behaviour which you think to be incorrect
++- actual operation, reproducible one is better
++- mailto: aufs-users at lists.sourceforge.net
++
++Usually, I don't watch the Public Areas(Bugs, Support Requests, Patches,
++and Feature Requests) on SourceForge. Please join and write to
++aufs-users ML.
++
++
++6. Acknowledgements
++----------------------------------------
++Thanks to everyone who have tried and are using aufs, whoever
++have reported a bug or any feedback.
++
++Especially donators:
++Tomas Matejicek(slax.org) made a donation (much more than once).
++	Since Apr 2010, Tomas M (the author of Slax and Linux Live
++	scripts) is making "doubling" donations.
++	Unfortunately I cannot list all of the donators, but I really
++	appreciate.
++	It ends Aug 2010, but the ordinary donation URL is still available.
++	<http://sourceforge.net/donate/index.php?group_id=167503>
++Dai Itasaka made a donation (2007/8).
++Chuck Smith made a donation (2008/4, 10 and 12).
++Henk Schoneveld made a donation (2008/9).
++Chih-Wei Huang, ASUS, CTC donated Eee PC 4G (2008/10).
++Francois Dupoux made a donation (2008/11).
++Bruno Cesar Ribas and Luis Carlos Erpen de Bona, C3SL serves public
++	aufs2 GIT tree (2009/2).
++William Grant made a donation (2009/3).
++Patrick Lane made a donation (2009/4).
++The Mail Archive (mail-archive.com) made donations (2009/5).
++Nippy Networks (Ed Wildgoose) made a donation (2009/7).
++New Dream Network, LLC (www.dreamhost.com) made a donation (2009/11).
++Pavel Pronskiy made a donation (2011/2).
++Iridium and Inmarsat satellite phone retailer (www.mailasail.com), Nippy
++	Networks (Ed Wildgoose) made a donation for hardware (2011/3).
++Max Lekomcev (DOM-TV project) made a donation (2011/7, 12, 2012/3, 6 and
++11).
++Sam Liddicott made a donation (2011/9).
++Era Scarecrow made a donation (2013/4).
++Bor Ratajc made a donation (2013/4).
++Alessandro Gorreta made a donation (2013/4).
++POIRETTE Marc made a donation (2013/4).
++Alessandro Gorreta made a donation (2013/4).
++lauri kasvandik made a donation (2013/5).
++"pemasu from Finland" made a donation (2013/7).
++The Parted Magic Project made a donation (2013/9).
++Pavel Barta made a donation (2013/10).
++
++Thank you very much.
++Donations are always, including future donations, very important and
++helpful for me to keep on developing aufs.
++
++
++7.
++----------------------------------------
++If you are an experienced user, no explanation is needed. Aufs is
++just a linux filesystem.
++
++
++Enjoy!
++
++# Local variables: ;
++# mode: text;
++# End: ;
+diff -ru --new-file linux-3.x-orig/drivers/ata/libata-core.c linux-3.x/drivers/ata/libata-core.c
+--- linux-3.x-orig/drivers/ata/libata-core.c	2014-12-11 11:32:19.000000000 +0000
++++ linux-3.x/drivers/ata/libata-core.c	2014-12-23 17:23:09.015087000 +0000
 @@ -7415,7 +7415,7 @@
  int (*funcSYNODiskRetryReport)(unsigned int, unsigned int) = NULL;
  EXPORT_SYMBOL(funcSYNODiskRetryReport);
  
 -#ifdef SYNO_SATA_EBOX_REFRESH
-+#if (defined(SYNO_SATA_EBOX_REFRESH) || defined(XPENOLOGY))
++#if defined(SYNO_SATA_EBOX_REFRESH) || defined(XPENOLOGY)
  int (*funcSYNOSendEboxRefreshEvent)(int portIndex) = NULL;
  EXPORT_SYMBOL(funcSYNOSendEboxRefreshEvent);
  #endif
-diff -ru linux-3.x-orig/drivers/ata/libata-eh.c linux-3.x/drivers/ata/libata-eh.c
---- linux-3.x-orig/drivers/ata/libata-eh.c	2014-12-15 18:49:27.791087000 +0000
-+++ linux-3.x/drivers/ata/libata-eh.c	2014-12-15 21:05:10.255087000 +0000
+diff -ru --new-file linux-3.x-orig/drivers/ata/libata-eh.c linux-3.x/drivers/ata/libata-eh.c
+--- linux-3.x-orig/drivers/ata/libata-eh.c	2014-12-11 11:32:19.000000000 +0000
++++ linux-3.x/drivers/ata/libata-eh.c	2014-12-23 17:23:09.023087000 +0000
 @@ -103,6 +103,8 @@
  extern int syno_is_alpine_internal_ahci(struct ata_port *);
  #endif
@@ -189,9 +1879,9 @@ diff -ru linux-3.x-orig/drivers/ata/libata-eh.c linux-3.x/drivers/ata/libata-eh.
  /* The following table determines how we sequence resets.  Each entry
   * represents timeout for that try.  The first try can be soft or
   * hardreset.  All others are hardreset if available.  In most cases
-diff -ru linux-3.x-orig/drivers/ata/libata-scsi.c linux-3.x/drivers/ata/libata-scsi.c
---- linux-3.x-orig/drivers/ata/libata-scsi.c	2014-12-15 18:49:28.075087000 +0000
-+++ linux-3.x/drivers/ata/libata-scsi.c	2014-12-15 21:05:10.611087000 +0000
+diff -ru --new-file linux-3.x-orig/drivers/ata/libata-scsi.c linux-3.x/drivers/ata/libata-scsi.c
+--- linux-3.x-orig/drivers/ata/libata-scsi.c	2014-12-11 11:32:19.000000000 +0000
++++ linux-3.x/drivers/ata/libata-scsi.c	2014-12-23 17:23:09.023087000 +0000
 @@ -712,6 +712,7 @@
  END:
  	return iRet;
@@ -207,9 +1897,9 @@ diff -ru linux-3.x-orig/drivers/ata/libata-scsi.c linux-3.x/drivers/ata/libata-s
 +EXPORT_SYMBOL(syno_libata_index_get);
  #endif
  
-diff -ru linux-3.x-orig/drivers/ata/sata_mv.c linux-3.x/drivers/ata/sata_mv.c
---- linux-3.x-orig/drivers/ata/sata_mv.c	2014-12-15 18:49:28.347087000 +0000
-+++ linux-3.x/drivers/ata/sata_mv.c	2014-12-15 21:05:10.959087000 +0000
+diff -ru --new-file linux-3.x-orig/drivers/ata/sata_mv.c linux-3.x/drivers/ata/sata_mv.c
+--- linux-3.x-orig/drivers/ata/sata_mv.c	2014-12-11 11:32:19.000000000 +0000
++++ linux-3.x/drivers/ata/sata_mv.c	2014-12-23 17:23:09.023087000 +0000
 @@ -3671,6 +3671,9 @@
  #ifdef SYNO_SATA_MV_GPIO_RW
  int syno_sata_mv_gpio_read(const unsigned short hostnum)
@@ -243,10 +1933,23 @@ diff -ru linux-3.x-orig/drivers/ata/sata_mv.c linux-3.x/drivers/ata/sata_mv.c
  	return;
  }
  EXPORT_SYMBOL(syno_sata_mv_gpio_write);
-Only in linux-3.x/drivers: i2c
-diff -ru linux-3.x-orig/drivers/pci/quirks.c linux-3.x/drivers/pci/quirks.c
---- linux-3.x-orig/drivers/pci/quirks.c	2014-12-15 18:49:30.243087000 +0000
-+++ linux-3.x/drivers/pci/quirks.c	2014-12-15 21:05:14.619087000 +0000
+diff -ru --new-file linux-3.x-orig/drivers/i2c/busses/Kconfig linux-3.x/drivers/i2c/busses/Kconfig
+--- linux-3.x-orig/drivers/i2c/busses/Kconfig	2014-12-11 11:27:34.000000000 +0000
++++ linux-3.x/drivers/i2c/busses/Kconfig	2014-12-23 17:23:09.023087000 +0000
+@@ -607,10 +607,6 @@
+ 	  This driver can also be built as a module.  If so, the module
+ 	  will be called i2c-pxa.
+ 
+-config I2C_PXA_PCI
+-	def_bool I2C_PXA && X86_32 && PCI && OF
+-	depends on !ARCH_GEN3
+-
+ config I2C_PXA_SLAVE
+ 	bool "Intel PXA2XX I2C Slave comms support"
+ 	depends on I2C_PXA && !X86_32
+diff -ru --new-file linux-3.x-orig/drivers/pci/quirks.c linux-3.x/drivers/pci/quirks.c
+--- linux-3.x-orig/drivers/pci/quirks.c	2014-12-11 11:32:12.000000000 +0000
++++ linux-3.x/drivers/pci/quirks.c	2014-12-23 17:23:09.023087000 +0000
 @@ -618,7 +618,9 @@
           ( pin < 0 || pin >= 96 ) ||
           NULL == pValue )
@@ -257,9 +1960,9 @@ diff -ru linux-3.x-orig/drivers/pci/quirks.c linux-3.x/drivers/pci/quirks.c
          goto END;
      }
      
-diff -ru linux-3.x-orig/drivers/scsi/sd.c linux-3.x/drivers/scsi/sd.c
---- linux-3.x-orig/drivers/scsi/sd.c	2014-12-15 18:49:30.927087000 +0000
-+++ linux-3.x/drivers/scsi/sd.c	2014-12-15 21:05:15.351087000 +0000
+diff -ru --new-file linux-3.x-orig/drivers/scsi/sd.c linux-3.x/drivers/scsi/sd.c
+--- linux-3.x-orig/drivers/scsi/sd.c	2014-12-11 11:32:03.000000000 +0000
++++ linux-3.x/drivers/scsi/sd.c	2014-12-23 17:23:09.023087000 +0000
 @@ -94,6 +94,11 @@
  MODULE_ALIAS_SCSI_DEVICE(TYPE_MOD);
  MODULE_ALIAS_SCSI_DEVICE(TYPE_RBC);
@@ -283,9 +1986,9 @@ diff -ru linux-3.x-orig/drivers/scsi/sd.c linux-3.x/drivers/scsi/sd.c
  			gSynoHasDynModule) {
  			if (!syno_find_synoboot()) {
  				return SYNO_DISK_SYNOBOOT;
-diff -ru linux-3.x-orig/drivers/spi/Kconfig linux-3.x/drivers/spi/Kconfig
---- linux-3.x-orig/drivers/spi/Kconfig	2014-12-15 18:49:31.627087000 +0000
-+++ linux-3.x/drivers/spi/Kconfig	2014-12-15 21:05:16.143087000 +0000
+diff -ru --new-file linux-3.x-orig/drivers/spi/Kconfig linux-3.x/drivers/spi/Kconfig
+--- linux-3.x-orig/drivers/spi/Kconfig	2014-12-11 11:27:36.000000000 +0000
++++ linux-3.x/drivers/spi/Kconfig	2014-12-23 17:23:09.027087000 +0000
 @@ -297,9 +297,6 @@
  	help
  	  This drivers supports the Intel CE SPI master controller
@@ -296,15 +1999,15 @@ diff -ru linux-3.x-orig/drivers/spi/Kconfig linux-3.x/drivers/spi/Kconfig
  config SPI_CE5XX_SPI_SLAVE
  	tristate "CE5XX SPI SLAVE"
  	depends on ARCH_GEN3
-diff -ru linux-3.x-orig/drivers/tty/vt/vt.c linux-3.x/drivers/tty/vt/vt.c
---- linux-3.x-orig/drivers/tty/vt/vt.c	2014-12-15 18:49:32.775087000 +0000
-+++ linux-3.x/drivers/tty/vt/vt.c	2014-12-15 21:05:17.267087000 +0000
+diff -ru --new-file linux-3.x-orig/drivers/tty/vt/vt.c linux-3.x/drivers/tty/vt/vt.c
+--- linux-3.x-orig/drivers/tty/vt/vt.c	2014-12-11 11:32:19.000000000 +0000
++++ linux-3.x/drivers/tty/vt/vt.c	2014-12-23 17:23:09.027087000 +0000
 @@ -2474,7 +2474,7 @@
  		return kmsg_con;
  }
  
 -#ifndef SYNO_X86_TTY_CONSOLE_OUTPUT
-+#if (defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY))
++#if !defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY)
  /*
   *	Console on virtual terminal
   *
@@ -313,7 +2016,7 @@ diff -ru linux-3.x-orig/drivers/tty/vt/vt.c linux-3.x/drivers/tty/vt/vt.c
  #endif
  
 -#ifndef SYNO_X86_TTY_CONSOLE_OUTPUT
-+#if (defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY))
++#if !defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY)
  static struct tty_driver *vt_console_device(struct console *c, int *index)
  {
  	*index = c->index ? c->index-1 : fg_console;
@@ -322,13 +2025,13 @@ diff -ru linux-3.x-orig/drivers/tty/vt/vt.c linux-3.x/drivers/tty/vt/vt.c
  	console_unlock();
  
 -#ifndef SYNO_X86_TTY_CONSOLE_OUTPUT
-+#if (defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY))
++#if !defined(SYNO_X86_TTY_CONSOLE_OUTPUT) || defined(XPENOLOGY)
  #ifdef CONFIG_VT_CONSOLE
  	register_console(&vt_console_driver);
  #endif
-diff -ru linux-3.x-orig/fs/aufs/aufs.h linux-3.x/fs/aufs/aufs.h
---- linux-3.x-orig/fs/aufs/aufs.h	2014-12-15 18:49:34.031087000 +0000
-+++ linux-3.x/fs/aufs/aufs.h	2014-12-15 21:05:18.503087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/aufs.h linux-3.x/fs/aufs/aufs.h
+--- linux-3.x-orig/fs/aufs/aufs.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/aufs.h	2014-12-23 17:23:09.027087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -336,9 +2039,9 @@ diff -ru linux-3.x-orig/fs/aufs/aufs.h linux-3.x/fs/aufs/aufs.h
   *
   * This program, aufs is free software; you can redistribute it and/or modify
   * it under the terms of the GNU General Public License as published by
-diff -ru linux-3.x-orig/fs/aufs/branch.c linux-3.x/fs/aufs/branch.c
---- linux-3.x-orig/fs/aufs/branch.c	2014-12-15 18:49:34.311087000 +0000
-+++ linux-3.x/fs/aufs/branch.c	2014-12-15 21:05:18.759087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/branch.c linux-3.x/fs/aufs/branch.c
+--- linux-3.x-orig/fs/aufs/branch.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/branch.c	2014-12-23 17:23:09.031087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -728,9 +2431,9 @@ diff -ru linux-3.x-orig/fs/aufs/branch.c linux-3.x/fs/aufs/branch.c
  		*do_refresh |= need_sigen_inc(br->br_perm, mod->perm);
  		br->br_perm = mod->perm;
  	}
-diff -ru linux-3.x-orig/fs/aufs/branch.h linux-3.x/fs/aufs/branch.h
---- linux-3.x-orig/fs/aufs/branch.h	2014-12-15 18:49:34.647087000 +0000
-+++ linux-3.x/fs/aufs/branch.h	2014-12-15 21:05:19.195087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/branch.h linux-3.x/fs/aufs/branch.h
+--- linux-3.x-orig/fs/aufs/branch.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/branch.h	2014-12-23 17:23:09.031087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -888,9 +2591,50 @@ diff -ru linux-3.x-orig/fs/aufs/branch.h linux-3.x/fs/aufs/branch.h
  }
  
  static inline void au_sbr_put(struct super_block *sb, aufs_bindex_t bindex)
-diff -ru linux-3.x-orig/fs/aufs/cpup.c linux-3.x/fs/aufs/cpup.c
---- linux-3.x-orig/fs/aufs/cpup.c	2014-12-15 18:49:35.519087000 +0000
-+++ linux-3.x/fs/aufs/cpup.c	2014-12-15 21:05:19.435087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/conf.mk linux-3.x/fs/aufs/conf.mk
+--- linux-3.x-orig/fs/aufs/conf.mk	1970-01-01 00:00:00.000000000 +0000
++++ linux-3.x/fs/aufs/conf.mk	2014-12-23 17:23:09.031087000 +0000
+@@ -0,0 +1,37 @@
++
++AuConfStr = CONFIG_AUFS_FS=${CONFIG_AUFS_FS}
++
++define AuConf
++ifdef ${1}
++AuConfStr += ${1}=${${1}}
++endif
++endef
++
++AuConfAll = BRANCH_MAX_127 BRANCH_MAX_511 BRANCH_MAX_1023 BRANCH_MAX_32767 \
++	SBILIST \
++	HNOTIFY HFSNOTIFY \
++	EXPORT INO_T_64 \
++	RDU \
++	SP_IATTR \
++	SHWH \
++	BR_RAMFS \
++	BR_FUSE POLL \
++	BR_HFSPLUS \
++	BDEV_LOOP \
++	DEBUG MAGIC_SYSRQ
++$(foreach i, ${AuConfAll}, \
++	$(eval $(call AuConf,CONFIG_AUFS_${i})))
++
++AuConfName = ${obj}/conf.str
++${AuConfName}.tmp: FORCE
++	@echo ${AuConfStr} | tr ' ' '\n' | sed -e 's/^/"/' -e 's/$$/\\n"/' > $@
++${AuConfName}: ${AuConfName}.tmp
++	@diff -q $< $@ > /dev/null 2>&1 || { \
++	echo '  GEN    ' $@; \
++	cp -p $< $@; \
++	}
++FORCE:
++clean-files += ${AuConfName} ${AuConfName}.tmp
++${obj}/sysfs.o: ${AuConfName}
++
++-include ${srctree}/${src}/conf_priv.mk
+diff -ru --new-file linux-3.x-orig/fs/aufs/cpup.c linux-3.x/fs/aufs/cpup.c
+--- linux-3.x-orig/fs/aufs/cpup.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/cpup.c	2014-12-23 17:23:09.031087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -1938,9 +3682,9 @@ diff -ru linux-3.x-orig/fs/aufs/cpup.c linux-3.x/fs/aufs/cpup.c
  }
  
  int au_cpup_dirs(struct dentry *dentry, aufs_bindex_t bdst)
-diff -ru linux-3.x-orig/fs/aufs/cpup.h linux-3.x/fs/aufs/cpup.h
---- linux-3.x-orig/fs/aufs/cpup.h	2014-12-15 18:49:35.767087000 +0000
-+++ linux-3.x/fs/aufs/cpup.h	2014-12-15 21:05:19.755087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/cpup.h linux-3.x/fs/aufs/cpup.h
+--- linux-3.x-orig/fs/aufs/cpup.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/cpup.h	2014-12-23 17:23:09.031087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2006,9 +3750,9 @@ diff -ru linux-3.x-orig/fs/aufs/cpup.h linux-3.x/fs/aufs/cpup.h
  			 struct dentry *h_parent, void *arg),
  	       void *arg);
  int au_cpup_dirs(struct dentry *dentry, aufs_bindex_t bdst);
-diff -ru linux-3.x-orig/fs/aufs/dbgaufs.c linux-3.x/fs/aufs/dbgaufs.c
---- linux-3.x-orig/fs/aufs/dbgaufs.c	2014-12-15 18:49:36.015087000 +0000
-+++ linux-3.x/fs/aufs/dbgaufs.c	2014-12-15 21:05:20.011087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/dbgaufs.c linux-3.x/fs/aufs/dbgaufs.c
+--- linux-3.x-orig/fs/aufs/dbgaufs.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/dbgaufs.c	2014-12-23 17:23:09.031087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2153,9 +3897,9 @@ diff -ru linux-3.x-orig/fs/aufs/dbgaufs.c linux-3.x/fs/aufs/dbgaufs.c
  	err = dbgaufs_xigen_init(sbinfo);
  	if (!err)
  		goto out; /* success */
-diff -ru linux-3.x-orig/fs/aufs/dbgaufs.h linux-3.x/fs/aufs/dbgaufs.h
---- linux-3.x-orig/fs/aufs/dbgaufs.h	2014-12-15 18:49:36.231087000 +0000
-+++ linux-3.x/fs/aufs/dbgaufs.h	2014-12-15 21:05:20.263087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/dbgaufs.h linux-3.x/fs/aufs/dbgaufs.h
+--- linux-3.x-orig/fs/aufs/dbgaufs.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/dbgaufs.h	2014-12-23 17:23:09.031087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2173,9 +3917,9 @@ diff -ru linux-3.x-orig/fs/aufs/dbgaufs.h linux-3.x/fs/aufs/dbgaufs.h
  struct super_block;
  struct au_sbinfo;
  
-diff -ru linux-3.x-orig/fs/aufs/dcsub.c linux-3.x/fs/aufs/dcsub.c
---- linux-3.x-orig/fs/aufs/dcsub.c	2014-12-15 18:49:36.511087000 +0000
-+++ linux-3.x/fs/aufs/dcsub.c	2014-12-15 21:05:20.531087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/dcsub.c linux-3.x/fs/aufs/dcsub.c
+--- linux-3.x-orig/fs/aufs/dcsub.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/dcsub.c	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2183,9 +3927,9 @@ diff -ru linux-3.x-orig/fs/aufs/dcsub.c linux-3.x/fs/aufs/dcsub.c
   *
   * This program, aufs is free software; you can redistribute it and/or modify
   * it under the terms of the GNU General Public License as published by
-diff -ru linux-3.x-orig/fs/aufs/dcsub.h linux-3.x/fs/aufs/dcsub.h
---- linux-3.x-orig/fs/aufs/dcsub.h	2014-12-15 18:49:37.143087000 +0000
-+++ linux-3.x/fs/aufs/dcsub.h	2014-12-15 21:05:20.843087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/dcsub.h linux-3.x/fs/aufs/dcsub.h
+--- linux-3.x-orig/fs/aufs/dcsub.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/dcsub.h	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2201,9 +3945,9 @@ diff -ru linux-3.x-orig/fs/aufs/dcsub.h linux-3.x/fs/aufs/dcsub.h
  
  struct dentry;
  
-diff -ru linux-3.x-orig/fs/aufs/debug.c linux-3.x/fs/aufs/debug.c
---- linux-3.x-orig/fs/aufs/debug.c	2014-12-15 18:49:37.631087000 +0000
-+++ linux-3.x/fs/aufs/debug.c	2014-12-15 21:05:21.115087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/debug.c linux-3.x/fs/aufs/debug.c
+--- linux-3.x-orig/fs/aufs/debug.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/debug.c	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2438,9 +4182,9 @@ diff -ru linux-3.x-orig/fs/aufs/debug.c linux-3.x/fs/aufs/debug.c
  #endif
  
  #ifdef AuForceNoBrs
-diff -ru linux-3.x-orig/fs/aufs/debug.h linux-3.x/fs/aufs/debug.h
---- linux-3.x-orig/fs/aufs/debug.h	2014-12-15 18:49:38.067087000 +0000
-+++ linux-3.x/fs/aufs/debug.h	2014-12-15 21:05:21.351087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/debug.h linux-3.x/fs/aufs/debug.h
+--- linux-3.x-orig/fs/aufs/debug.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/debug.h	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2509,9 +4253,9 @@ diff -ru linux-3.x-orig/fs/aufs/debug.h linux-3.x/fs/aufs/debug.h
  } while (0)
  
  #define AuErr1(fmt, ...) do { \
-diff -ru linux-3.x-orig/fs/aufs/dentry.c linux-3.x/fs/aufs/dentry.c
---- linux-3.x-orig/fs/aufs/dentry.c	2014-12-15 18:49:38.303087000 +0000
-+++ linux-3.x/fs/aufs/dentry.c	2014-12-15 21:05:21.611087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/dentry.c linux-3.x/fs/aufs/dentry.c
+--- linux-3.x-orig/fs/aufs/dentry.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/dentry.c	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2560,9 +4304,9 @@ diff -ru linux-3.x-orig/fs/aufs/dentry.c linux-3.x/fs/aufs/dentry.c
  		path_get(&h_nd.path);
  		valid = reval(h_dentry, &h_nd);
  		path_put(&h_nd.path);
-diff -ru linux-3.x-orig/fs/aufs/dentry.h linux-3.x/fs/aufs/dentry.h
---- linux-3.x-orig/fs/aufs/dentry.h	2014-12-15 18:49:38.547087000 +0000
-+++ linux-3.x/fs/aufs/dentry.h	2014-12-15 21:05:21.847087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/dentry.h linux-3.x/fs/aufs/dentry.h
+--- linux-3.x-orig/fs/aufs/dentry.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/dentry.h	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2587,9 +4331,9 @@ diff -ru linux-3.x-orig/fs/aufs/dentry.h linux-3.x/fs/aufs/dentry.h
  int au_refresh_dentry(struct dentry *dentry, struct dentry *parent);
  int au_reval_dpath(struct dentry *dentry, unsigned int sigen);
  
-diff -ru linux-3.x-orig/fs/aufs/dinfo.c linux-3.x/fs/aufs/dinfo.c
---- linux-3.x-orig/fs/aufs/dinfo.c	2014-12-15 18:49:38.779087000 +0000
-+++ linux-3.x/fs/aufs/dinfo.c	2014-12-15 21:05:22.151087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/dinfo.c linux-3.x/fs/aufs/dinfo.c
+--- linux-3.x-orig/fs/aufs/dinfo.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/dinfo.c	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2597,9 +4341,9 @@ diff -ru linux-3.x-orig/fs/aufs/dinfo.c linux-3.x/fs/aufs/dinfo.c
   *
   * This program, aufs is free software; you can redistribute it and/or modify
   * it under the terms of the GNU General Public License as published by
-diff -ru linux-3.x-orig/fs/aufs/dir.c linux-3.x/fs/aufs/dir.c
---- linux-3.x-orig/fs/aufs/dir.c	2014-12-15 18:49:39.107087000 +0000
-+++ linux-3.x/fs/aufs/dir.c	2014-12-15 21:05:22.447087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/dir.c linux-3.x/fs/aufs/dir.c
+--- linux-3.x-orig/fs/aufs/dir.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/dir.c	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2780,9 +4524,9 @@ diff -ru linux-3.x-orig/fs/aufs/dir.c linux-3.x/fs/aufs/dir.c
  	mutex_lock_nested(&h_inode->i_mutex, AuLsc_I_CHILD);
  	err = au_test_h_perm_sio(h_inode, MAY_EXEC | MAY_READ);
  	mutex_unlock(&h_inode->i_mutex);
-diff -ru linux-3.x-orig/fs/aufs/dir.h linux-3.x/fs/aufs/dir.h
---- linux-3.x-orig/fs/aufs/dir.h	2014-12-15 18:49:39.307087000 +0000
-+++ linux-3.x/fs/aufs/dir.h	2014-12-15 21:05:22.727087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/dir.h linux-3.x/fs/aufs/dir.h
+--- linux-3.x-orig/fs/aufs/dir.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/dir.h	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2798,9 +4542,9 @@ diff -ru linux-3.x-orig/fs/aufs/dir.h linux-3.x/fs/aufs/dir.h
  
  /* ---------------------------------------------------------------------- */
  
-diff -ru linux-3.x-orig/fs/aufs/dynop.c linux-3.x/fs/aufs/dynop.c
---- linux-3.x-orig/fs/aufs/dynop.c	2014-12-15 18:49:39.731087000 +0000
-+++ linux-3.x/fs/aufs/dynop.c	2014-12-15 21:05:22.955087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/dynop.c linux-3.x/fs/aufs/dynop.c
+--- linux-3.x-orig/fs/aufs/dynop.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/dynop.c	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2010-2011 Junjiro R. Okajima
@@ -2817,9 +4561,9 @@ diff -ru linux-3.x-orig/fs/aufs/dynop.c linux-3.x/fs/aufs/dynop.c
  	old = dy_gadd(spl, key);
  	if (old) {
  		kfree(key);
-diff -ru linux-3.x-orig/fs/aufs/dynop.h linux-3.x/fs/aufs/dynop.h
---- linux-3.x-orig/fs/aufs/dynop.h	2014-12-15 18:49:39.967087000 +0000
-+++ linux-3.x/fs/aufs/dynop.h	2014-12-15 21:05:23.191087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/dynop.h linux-3.x/fs/aufs/dynop.h
+--- linux-3.x-orig/fs/aufs/dynop.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/dynop.h	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2010-2011 Junjiro R. Okajima
@@ -2838,9 +4582,9 @@ diff -ru linux-3.x-orig/fs/aufs/dynop.h linux-3.x/fs/aufs/dynop.h
  #include "inode.h"
  
  enum {AuDy_AOP, AuDyLast};
-diff -ru linux-3.x-orig/fs/aufs/export.c linux-3.x/fs/aufs/export.c
---- linux-3.x-orig/fs/aufs/export.c	2014-12-15 18:49:40.223087000 +0000
-+++ linux-3.x/fs/aufs/export.c	2014-12-15 21:05:23.427087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/export.c linux-3.x/fs/aufs/export.c
+--- linux-3.x-orig/fs/aufs/export.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/export.c	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -2915,9 +4659,9 @@ diff -ru linux-3.x-orig/fs/aufs/export.c linux-3.x/fs/aufs/export.c
  	if (unlikely(!h_sb->s_export_op)) {
  		AuErr1("%s branch is not exportable\n", au_sbtype(h_sb));
  		goto out_dput;
-diff -ru linux-3.x-orig/fs/aufs/file.c linux-3.x/fs/aufs/file.c
---- linux-3.x-orig/fs/aufs/file.c	2014-12-15 18:49:40.979087000 +0000
-+++ linux-3.x/fs/aufs/file.c	2014-12-15 21:05:24.203087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/file.c linux-3.x/fs/aufs/file.c
+--- linux-3.x-orig/fs/aufs/file.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/file.c	2014-12-23 17:23:09.043087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -3248,9 +4992,9 @@ diff -ru linux-3.x-orig/fs/aufs/file.c linux-3.x/fs/aufs/file.c
  { AuUnsupport(); return 0; }
  static int aufs_launder_page(struct page *page)
  { AuUnsupport(); return 0; }
-diff -ru linux-3.x-orig/fs/aufs/file.h linux-3.x/fs/aufs/file.h
---- linux-3.x-orig/fs/aufs/file.h	2014-12-15 18:49:41.543087000 +0000
-+++ linux-3.x/fs/aufs/file.h	2014-12-15 21:05:24.419087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/file.h linux-3.x/fs/aufs/file.h
+--- linux-3.x-orig/fs/aufs/file.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/file.h	2014-12-23 17:23:09.043087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -3319,9 +5063,9 @@ diff -ru linux-3.x-orig/fs/aufs/file.h linux-3.x/fs/aufs/file.h
  }
  
  #endif /* __KERNEL__ */
-diff -ru linux-3.x-orig/fs/aufs/finfo.c linux-3.x/fs/aufs/finfo.c
---- linux-3.x-orig/fs/aufs/finfo.c	2014-12-15 18:49:42.111087000 +0000
-+++ linux-3.x/fs/aufs/finfo.c	2014-12-15 21:05:24.687087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/finfo.c linux-3.x/fs/aufs/finfo.c
+--- linux-3.x-orig/fs/aufs/finfo.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/finfo.c	2014-12-23 17:23:09.043087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -3349,9 +5093,9 @@ diff -ru linux-3.x-orig/fs/aufs/finfo.c linux-3.x/fs/aufs/finfo.c
  	au_rw_write_lock(&finfo->fi_rwsem);
  	finfo->fi_btop = -1;
  	finfo->fi_hdir = fidir;
-diff -ru linux-3.x-orig/fs/aufs/f_op.c linux-3.x/fs/aufs/f_op.c
---- linux-3.x-orig/fs/aufs/f_op.c	2014-12-15 18:49:40.695087000 +0000
-+++ linux-3.x/fs/aufs/f_op.c	2014-12-15 21:05:23.927087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/f_op.c linux-3.x/fs/aufs/f_op.c
+--- linux-3.x-orig/fs/aufs/f_op.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/f_op.c	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -3842,9 +5586,9 @@ diff -ru linux-3.x-orig/fs/aufs/f_op.c linux-3.x/fs/aufs/f_op.c
  	.llseek		= default_llseek,
  
  	.read		= aufs_read,
-diff -ru linux-3.x-orig/fs/aufs/f_op_sp.c linux-3.x/fs/aufs/f_op_sp.c
---- linux-3.x-orig/fs/aufs/f_op_sp.c	2014-12-15 18:49:40.455087000 +0000
-+++ linux-3.x/fs/aufs/f_op_sp.c	2014-12-15 21:05:23.667087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/f_op_sp.c linux-3.x/fs/aufs/f_op_sp.c
+--- linux-3.x-orig/fs/aufs/f_op_sp.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/f_op_sp.c	2014-12-23 17:23:09.035087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -3901,9 +5645,9 @@ diff -ru linux-3.x-orig/fs/aufs/f_op_sp.c linux-3.x/fs/aufs/f_op_sp.c
  		au_unpin(&pin);
  	}
  
-diff -ru linux-3.x-orig/fs/aufs/fstype.h linux-3.x/fs/aufs/fstype.h
---- linux-3.x-orig/fs/aufs/fstype.h	2014-12-15 18:49:42.319087000 +0000
-+++ linux-3.x/fs/aufs/fstype.h	2014-12-15 21:05:24.947087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/fstype.h linux-3.x/fs/aufs/fstype.h
+--- linux-3.x-orig/fs/aufs/fstype.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/fstype.h	2014-12-23 17:23:09.043087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -3952,9 +5696,9 @@ diff -ru linux-3.x-orig/fs/aufs/fstype.h linux-3.x/fs/aufs/fstype.h
  		/* || au_test_ocfs2(sb) */	/* untested */
  		/* || au_test_btrfs(sb) */	/* untested */
  		/* || au_test_coda(sb) */	/* untested */
-diff -ru linux-3.x-orig/fs/aufs/hfsnotify.c linux-3.x/fs/aufs/hfsnotify.c
---- linux-3.x-orig/fs/aufs/hfsnotify.c	2014-12-15 18:49:42.647087000 +0000
-+++ linux-3.x/fs/aufs/hfsnotify.c	2014-12-15 21:05:25.175087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/hfsnotify.c linux-3.x/fs/aufs/hfsnotify.c
+--- linux-3.x-orig/fs/aufs/hfsnotify.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/hfsnotify.c	2014-12-23 17:23:09.043087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -4071,9 +5815,9 @@ diff -ru linux-3.x-orig/fs/aufs/hfsnotify.c linux-3.x/fs/aufs/hfsnotify.c
  	.reset_br	= au_hfsn_reset_br,
  	.fin_br		= au_hfsn_fin_br,
  	.init_br	= au_hfsn_init_br
-diff -ru linux-3.x-orig/fs/aufs/hfsplus.c linux-3.x/fs/aufs/hfsplus.c
---- linux-3.x-orig/fs/aufs/hfsplus.c	2014-12-15 18:49:42.927087000 +0000
-+++ linux-3.x/fs/aufs/hfsplus.c	2014-12-15 21:05:25.395087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/hfsplus.c linux-3.x/fs/aufs/hfsplus.c
+--- linux-3.x-orig/fs/aufs/hfsplus.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/hfsplus.c	2014-12-23 17:23:09.043087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2010-2011 Junjiro R. Okajima
@@ -4097,9 +5841,9 @@ diff -ru linux-3.x-orig/fs/aufs/hfsplus.c linux-3.x/fs/aufs/hfsplus.c
  
  	h_file = NULL;
  	if (au_test_hfsplus(h_dentry->d_sb)
-diff -ru linux-3.x-orig/fs/aufs/hnotify.c linux-3.x/fs/aufs/hnotify.c
---- linux-3.x-orig/fs/aufs/hnotify.c	2014-12-15 18:49:43.155087000 +0000
-+++ linux-3.x/fs/aufs/hnotify.c	2014-12-15 21:05:25.667087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/hnotify.c linux-3.x/fs/aufs/hnotify.c
+--- linux-3.x-orig/fs/aufs/hnotify.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/hnotify.c	2014-12-23 17:23:09.043087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -4187,9 +5931,9 @@ diff -ru linux-3.x-orig/fs/aufs/hnotify.c linux-3.x/fs/aufs/hnotify.c
  	if (unlikely(err)) {
  		pr_err("wkq %d\n", err);
  		iput(args->h_child_inode);
-diff -ru linux-3.x-orig/fs/aufs/iinfo.c linux-3.x/fs/aufs/iinfo.c
---- linux-3.x-orig/fs/aufs/iinfo.c	2014-12-15 18:49:44.727087000 +0000
-+++ linux-3.x/fs/aufs/iinfo.c	2014-12-15 21:05:27.027087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/iinfo.c linux-3.x/fs/aufs/iinfo.c
+--- linux-3.x-orig/fs/aufs/iinfo.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/iinfo.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -4241,9 +5985,9 @@ diff -ru linux-3.x-orig/fs/aufs/iinfo.c linux-3.x/fs/aufs/iinfo.c
  		iinfo->ii_bstart = -1;
  		iinfo->ii_bend = -1;
  		iinfo->ii_vdir = NULL;
-diff -ru linux-3.x-orig/fs/aufs/inode.c linux-3.x/fs/aufs/inode.c
---- linux-3.x-orig/fs/aufs/inode.c	2014-12-15 18:49:44.991087000 +0000
-+++ linux-3.x/fs/aufs/inode.c	2014-12-15 21:05:27.299087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/inode.c linux-3.x/fs/aufs/inode.c
+--- linux-3.x-orig/fs/aufs/inode.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/inode.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -4313,9 +6057,9 @@ diff -ru linux-3.x-orig/fs/aufs/inode.c linux-3.x/fs/aufs/inode.c
  		ii_write_lock_new_child(inode);
  		err = set_inode(inode, dentry);
  		if (!err) {
-diff -ru linux-3.x-orig/fs/aufs/inode.h linux-3.x/fs/aufs/inode.h
---- linux-3.x-orig/fs/aufs/inode.h	2014-12-15 18:49:45.247087000 +0000
-+++ linux-3.x/fs/aufs/inode.h	2014-12-15 21:05:27.527087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/inode.h linux-3.x/fs/aufs/inode.h
+--- linux-3.x-orig/fs/aufs/inode.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/inode.h	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -4488,9 +6232,9 @@ diff -ru linux-3.x-orig/fs/aufs/inode.h linux-3.x/fs/aufs/inode.h
  AuStubVoid(au_hn_free, struct au_hinode *hinode __maybe_unused)
  AuStubVoid(au_hn_ctl, struct au_hinode *hinode __maybe_unused,
  	   int do_set __maybe_unused)
-diff -ru linux-3.x-orig/fs/aufs/ioctl.c linux-3.x/fs/aufs/ioctl.c
---- linux-3.x-orig/fs/aufs/ioctl.c	2014-12-15 18:49:45.491087000 +0000
-+++ linux-3.x/fs/aufs/ioctl.c	2014-12-15 21:05:27.747087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/ioctl.c linux-3.x/fs/aufs/ioctl.c
+--- linux-3.x-orig/fs/aufs/ioctl.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/ioctl.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -4628,9 +6372,9 @@ diff -ru linux-3.x-orig/fs/aufs/ioctl.c linux-3.x/fs/aufs/ioctl.c
  		break;
  
  	default:
-diff -ru linux-3.x-orig/fs/aufs/i_op_add.c linux-3.x/fs/aufs/i_op_add.c
---- linux-3.x-orig/fs/aufs/i_op_add.c	2014-12-15 18:49:43.507087000 +0000
-+++ linux-3.x/fs/aufs/i_op_add.c	2014-12-15 21:05:25.899087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/i_op_add.c linux-3.x/fs/aufs/i_op_add.c
+--- linux-3.x-orig/fs/aufs/i_op_add.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/i_op_add.c	2014-12-23 17:23:09.043087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -4880,9 +6624,9 @@ diff -ru linux-3.x-orig/fs/aufs/i_op_add.c linux-3.x/fs/aufs/i_op_add.c
  	return err;
  }
  
-diff -ru linux-3.x-orig/fs/aufs/i_op.c linux-3.x/fs/aufs/i_op.c
---- linux-3.x-orig/fs/aufs/i_op.c	2014-12-15 18:49:44.479087000 +0000
-+++ linux-3.x/fs/aufs/i_op.c	2014-12-15 21:05:26.679087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/i_op.c linux-3.x/fs/aufs/i_op.c
+--- linux-3.x-orig/fs/aufs/i_op.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/i_op.c	2014-12-23 17:23:09.043087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -5373,9 +7117,9 @@ diff -ru linux-3.x-orig/fs/aufs/i_op.c linux-3.x/fs/aufs/i_op.c
  	}
  
  	spin_lock(&inode->i_lock);
-diff -ru linux-3.x-orig/fs/aufs/i_op_del.c linux-3.x/fs/aufs/i_op_del.c
---- linux-3.x-orig/fs/aufs/i_op_del.c	2014-12-15 18:49:43.707087000 +0000
-+++ linux-3.x/fs/aufs/i_op_del.c	2014-12-15 21:05:26.159087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/i_op_del.c linux-3.x/fs/aufs/i_op_del.c
+--- linux-3.x-orig/fs/aufs/i_op_del.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/i_op_del.c	2014-12-23 17:23:09.043087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -5551,9 +7295,9 @@ diff -ru linux-3.x-orig/fs/aufs/i_op_del.c linux-3.x/fs/aufs/i_op_del.c
  out:
  	AuTraceErr(err);
  	return err;
-diff -ru linux-3.x-orig/fs/aufs/i_op_ren.c linux-3.x/fs/aufs/i_op_ren.c
---- linux-3.x-orig/fs/aufs/i_op_ren.c	2014-12-15 18:49:43.975087000 +0000
-+++ linux-3.x/fs/aufs/i_op_ren.c	2014-12-15 21:05:26.403087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/i_op_ren.c linux-3.x/fs/aufs/i_op_ren.c
+--- linux-3.x-orig/fs/aufs/i_op_ren.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/i_op_ren.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -5722,9 +7466,9 @@ diff -ru linux-3.x-orig/fs/aufs/i_op_ren.c linux-3.x/fs/aufs/i_op_ren.c
  		goto out_children;
  
  	if (!au_opt_test(au_mntflags(a->dst_dir->i_sb), UDBA_NONE))
-diff -ru linux-3.x-orig/fs/aufs/Kconfig linux-3.x/fs/aufs/Kconfig
---- linux-3.x-orig/fs/aufs/Kconfig	2014-12-15 18:49:45.739087000 +0000
-+++ linux-3.x/fs/aufs/Kconfig	2014-12-15 21:05:28.007087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/Kconfig linux-3.x/fs/aufs/Kconfig
+--- linux-3.x-orig/fs/aufs/Kconfig	2014-12-11 11:27:34.000000000 +0000
++++ linux-3.x/fs/aufs/Kconfig	2014-12-23 17:23:09.027087000 +0000
 @@ -1,5 +1,5 @@
  config AUFS_FS
 -	bool "Aufs (Advanced multi layered unification filesystem) support"
@@ -5771,9 +7515,9 @@ diff -ru linux-3.x-orig/fs/aufs/Kconfig linux-3.x/fs/aufs/Kconfig
  config AUFS_SP_IATTR
  	bool "Respect the attributes (mtime/ctime mainly) of special files"
  	help
-diff -ru linux-3.x-orig/fs/aufs/loop.c linux-3.x/fs/aufs/loop.c
---- linux-3.x-orig/fs/aufs/loop.c	2014-12-15 18:49:45.971087000 +0000
-+++ linux-3.x/fs/aufs/loop.c	2014-12-15 21:05:28.271087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/loop.c linux-3.x/fs/aufs/loop.c
+--- linux-3.x-orig/fs/aufs/loop.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/loop.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -5869,9 +7613,9 @@ diff -ru linux-3.x-orig/fs/aufs/loop.c linux-3.x/fs/aufs/loop.c
 +{
 +	kfree(au_warn_loopback_array);
 +}
-diff -ru linux-3.x-orig/fs/aufs/loop.h linux-3.x/fs/aufs/loop.h
---- linux-3.x-orig/fs/aufs/loop.h	2014-12-15 18:49:46.215087000 +0000
-+++ linux-3.x/fs/aufs/loop.h	2014-12-15 21:05:28.519087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/loop.h linux-3.x/fs/aufs/loop.h
+--- linux-3.x-orig/fs/aufs/loop.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/loop.h	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -5898,10 +7642,9 @@ diff -ru linux-3.x-orig/fs/aufs/loop.h linux-3.x/fs/aufs/loop.h
  #endif /* BLK_DEV_LOOP */
  
  #endif /* __KERNEL__ */
-Only in linux-3.x/fs/aufs: magic.mk
-diff -ru linux-3.x-orig/fs/aufs/Makefile linux-3.x/fs/aufs/Makefile
---- linux-3.x-orig/fs/aufs/Makefile	2014-12-15 18:49:46.719087000 +0000
-+++ linux-3.x/fs/aufs/Makefile	2014-12-15 21:05:29.327087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/Makefile linux-3.x/fs/aufs/Makefile
+--- linux-3.x-orig/fs/aufs/Makefile	2014-12-11 11:27:34.000000000 +0000
++++ linux-3.x/fs/aufs/Makefile	2014-12-23 17:23:09.027087000 +0000
 @@ -1,11 +1,19 @@
  
 -include ${srctree}/${src}/magic.mk
@@ -5925,9 +7668,9 @@ diff -ru linux-3.x-orig/fs/aufs/Makefile linux-3.x/fs/aufs/Makefile
  
  obj-$(CONFIG_AUFS_FS) += aufs.o
  aufs-y := module.o sbinfo.o super.o branch.o xino.o sysaufs.o opts.o \
-diff -ru linux-3.x-orig/fs/aufs/module.c linux-3.x/fs/aufs/module.c
---- linux-3.x-orig/fs/aufs/module.c	2014-12-15 18:49:47.007087000 +0000
-+++ linux-3.x/fs/aufs/module.c	2014-12-15 21:05:29.547087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/module.c linux-3.x/fs/aufs/module.c
+--- linux-3.x-orig/fs/aufs/module.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/module.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -5994,9 +7737,9 @@ diff -ru linux-3.x-orig/fs/aufs/module.c linux-3.x/fs/aufs/module.c
  	au_wkq_fin();
  	au_procfs_fin();
  	sysaufs_fin();
-diff -ru linux-3.x-orig/fs/aufs/module.h linux-3.x/fs/aufs/module.h
---- linux-3.x-orig/fs/aufs/module.h	2014-12-15 18:49:47.227087000 +0000
-+++ linux-3.x/fs/aufs/module.h	2014-12-15 21:05:29.775087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/module.h linux-3.x/fs/aufs/module.h
+--- linux-3.x-orig/fs/aufs/module.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/module.h	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -6038,9 +7781,9 @@ diff -ru linux-3.x-orig/fs/aufs/module.h linux-3.x/fs/aufs/module.h
  	AuCache_Last
  };
  
-diff -ru linux-3.x-orig/fs/aufs/opts.c linux-3.x/fs/aufs/opts.c
---- linux-3.x-orig/fs/aufs/opts.c	2014-12-15 18:49:47.975087000 +0000
-+++ linux-3.x/fs/aufs/opts.c	2014-12-15 21:05:30.059087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/opts.c linux-3.x/fs/aufs/opts.c
+--- linux-3.x-orig/fs/aufs/opts.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/opts.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -6364,9 +8107,9 @@ diff -ru linux-3.x-orig/fs/aufs/opts.c linux-3.x/fs/aufs/opts.c
  		if (wbr)
  			wbr_wh_write_unlock(wbr);
  		au_hn_imtx_unlock(hdir);
-diff -ru linux-3.x-orig/fs/aufs/opts.h linux-3.x/fs/aufs/opts.h
---- linux-3.x-orig/fs/aufs/opts.h	2014-12-15 18:49:48.227087000 +0000
-+++ linux-3.x/fs/aufs/opts.h	2014-12-15 21:05:30.287087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/opts.h linux-3.x/fs/aufs/opts.h
+--- linux-3.x-orig/fs/aufs/opts.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/opts.h	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -6400,9 +8143,9 @@ diff -ru linux-3.x-orig/fs/aufs/opts.h linux-3.x/fs/aufs/opts.h
  const char *au_optstr_udba(int udba);
  const char *au_optstr_wbr_copyup(int wbr_copyup);
  const char *au_optstr_wbr_create(int wbr_create);
-diff -ru linux-3.x-orig/fs/aufs/plink.c linux-3.x/fs/aufs/plink.c
---- linux-3.x-orig/fs/aufs/plink.c	2014-12-15 18:49:48.443087000 +0000
-+++ linux-3.x/fs/aufs/plink.c	2014-12-15 21:05:30.523087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/plink.c linux-3.x/fs/aufs/plink.c
+--- linux-3.x-orig/fs/aufs/plink.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/plink.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -6708,9 +8451,9 @@ diff -ru linux-3.x-orig/fs/aufs/plink.c linux-3.x/fs/aufs/plink.c
 -		iput(inode);
  	}
  }
-diff -ru linux-3.x-orig/fs/aufs/poll.c linux-3.x/fs/aufs/poll.c
---- linux-3.x-orig/fs/aufs/poll.c	2014-12-15 18:49:48.675087000 +0000
-+++ linux-3.x/fs/aufs/poll.c	2014-12-15 21:05:30.823087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/poll.c linux-3.x/fs/aufs/poll.c
+--- linux-3.x-orig/fs/aufs/poll.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/poll.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -6718,9 +8461,9 @@ diff -ru linux-3.x-orig/fs/aufs/poll.c linux-3.x/fs/aufs/poll.c
   *
   * This program, aufs is free software; you can redistribute it and/or modify
   * it under the terms of the GNU General Public License as published by
-diff -ru linux-3.x-orig/fs/aufs/procfs.c linux-3.x/fs/aufs/procfs.c
---- linux-3.x-orig/fs/aufs/procfs.c	2014-12-15 18:49:49.035087000 +0000
-+++ linux-3.x/fs/aufs/procfs.c	2014-12-15 21:05:31.075087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/procfs.c linux-3.x/fs/aufs/procfs.c
+--- linux-3.x-orig/fs/aufs/procfs.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/procfs.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2010-2011 Junjiro R. Okajima
@@ -6745,9 +8488,9 @@ diff -ru linux-3.x-orig/fs/aufs/procfs.c linux-3.x/fs/aufs/procfs.c
  	if (unlikely(err))
  		goto out;
  
-diff -ru linux-3.x-orig/fs/aufs/rdu.c linux-3.x/fs/aufs/rdu.c
---- linux-3.x-orig/fs/aufs/rdu.c	2014-12-15 18:49:49.343087000 +0000
-+++ linux-3.x/fs/aufs/rdu.c	2014-12-15 21:05:31.351087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/rdu.c linux-3.x/fs/aufs/rdu.c
+--- linux-3.x-orig/fs/aufs/rdu.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/rdu.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -6780,9 +8523,9 @@ diff -ru linux-3.x-orig/fs/aufs/rdu.c linux-3.x/fs/aufs/rdu.c
  		err = copy_from_user(&ent, u->e, sizeof(ent));
  		if (!err)
  			err = !access_ok(VERIFY_WRITE, &u->e->ino, sizeof(ino));
-diff -ru linux-3.x-orig/fs/aufs/rwsem.h linux-3.x/fs/aufs/rwsem.h
---- linux-3.x-orig/fs/aufs/rwsem.h	2014-12-15 18:49:49.603087000 +0000
-+++ linux-3.x/fs/aufs/rwsem.h	2014-12-15 21:05:31.591087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/rwsem.h linux-3.x/fs/aufs/rwsem.h
+--- linux-3.x-orig/fs/aufs/rwsem.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/rwsem.h	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -6798,9 +8541,9 @@ diff -ru linux-3.x-orig/fs/aufs/rwsem.h linux-3.x/fs/aufs/rwsem.h
  #include "debug.h"
  
  struct au_rwsem {
-diff -ru linux-3.x-orig/fs/aufs/sbinfo.c linux-3.x/fs/aufs/sbinfo.c
---- linux-3.x-orig/fs/aufs/sbinfo.c	2014-12-15 18:49:49.903087000 +0000
-+++ linux-3.x/fs/aufs/sbinfo.c	2014-12-15 21:05:31.839087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/sbinfo.c linux-3.x/fs/aufs/sbinfo.c
+--- linux-3.x-orig/fs/aufs/sbinfo.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/sbinfo.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -6877,9 +8620,9 @@ diff -ru linux-3.x-orig/fs/aufs/sbinfo.c linux-3.x/fs/aufs/sbinfo.c
  	sb->s_root->d_inode->i_version++;
  	return gen;
  }
-diff -ru linux-3.x-orig/fs/aufs/spl.h linux-3.x/fs/aufs/spl.h
---- linux-3.x-orig/fs/aufs/spl.h	2014-12-15 18:49:50.115087000 +0000
-+++ linux-3.x/fs/aufs/spl.h	2014-12-15 21:05:32.083087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/spl.h linux-3.x/fs/aufs/spl.h
+--- linux-3.x-orig/fs/aufs/spl.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/spl.h	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -6954,9 +8697,9 @@ diff -ru linux-3.x-orig/fs/aufs/spl.h linux-3.x/fs/aufs/spl.h
 +
  #endif /* __KERNEL__ */
  #endif /* __AUFS_SPL_H__ */
-diff -ru linux-3.x-orig/fs/aufs/super.c linux-3.x/fs/aufs/super.c
---- linux-3.x-orig/fs/aufs/super.c	2014-12-15 18:49:50.367087000 +0000
-+++ linux-3.x/fs/aufs/super.c	2014-12-15 21:05:32.331087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/super.c linux-3.x/fs/aufs/super.c
+--- linux-3.x-orig/fs/aufs/super.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/super.c	2014-12-23 17:23:09.051087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -7203,9 +8946,9 @@ diff -ru linux-3.x-orig/fs/aufs/super.c linux-3.x/fs/aufs/super.c
  		aufs_write_unlock(sb->s_root);
  		au_nwt_flush(&sbinfo->si_nowait);
  	}
-diff -ru linux-3.x-orig/fs/aufs/super.h linux-3.x/fs/aufs/super.h
---- linux-3.x-orig/fs/aufs/super.h	2014-12-15 18:49:50.643087000 +0000
-+++ linux-3.x/fs/aufs/super.h	2014-12-15 21:05:32.675087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/super.h linux-3.x/fs/aufs/super.h
+--- linux-3.x-orig/fs/aufs/super.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/super.h	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -7355,9 +9098,9 @@ diff -ru linux-3.x-orig/fs/aufs/super.h linux-3.x/fs/aufs/super.h
  	sbinfo->si_dbgaufs_xib = NULL;
  #ifdef CONFIG_AUFS_EXPORT
  	sbinfo->si_dbgaufs_xigen = NULL;
-diff -ru linux-3.x-orig/fs/aufs/sysaufs.c linux-3.x/fs/aufs/sysaufs.c
---- linux-3.x-orig/fs/aufs/sysaufs.c	2014-12-15 18:49:50.891087000 +0000
-+++ linux-3.x/fs/aufs/sysaufs.c	2014-12-15 21:05:32.919087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/sysaufs.c linux-3.x/fs/aufs/sysaufs.c
+--- linux-3.x-orig/fs/aufs/sysaufs.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/sysaufs.c	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -7375,9 +9118,9 @@ diff -ru linux-3.x-orig/fs/aufs/sysaufs.c linux-3.x/fs/aufs/sysaufs.c
  #include "aufs.h"
  
  unsigned long sysaufs_si_mask;
-diff -ru linux-3.x-orig/fs/aufs/sysaufs.h linux-3.x/fs/aufs/sysaufs.h
---- linux-3.x-orig/fs/aufs/sysaufs.h	2014-12-15 18:49:51.111087000 +0000
-+++ linux-3.x/fs/aufs/sysaufs.h	2014-12-15 21:05:33.179087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/sysaufs.h linux-3.x/fs/aufs/sysaufs.h
+--- linux-3.x-orig/fs/aufs/sysaufs.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/sysaufs.h	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -7393,9 +9136,9 @@ diff -ru linux-3.x-orig/fs/aufs/sysaufs.h linux-3.x/fs/aufs/sysaufs.h
  #include "module.h"
  
  struct super_block;
-diff -ru linux-3.x-orig/fs/aufs/sysfs.c linux-3.x/fs/aufs/sysfs.c
---- linux-3.x-orig/fs/aufs/sysfs.c	2014-12-15 18:49:51.343087000 +0000
-+++ linux-3.x/fs/aufs/sysfs.c	2014-12-15 21:05:33.395087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/sysfs.c linux-3.x/fs/aufs/sysfs.c
+--- linux-3.x-orig/fs/aufs/sysfs.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/sysfs.c	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -7627,9 +9370,9 @@ diff -ru linux-3.x-orig/fs/aufs/sysfs.c linux-3.x/fs/aufs/sysfs.c
 +		}
  	}
  }
-diff -ru linux-3.x-orig/fs/aufs/sysrq.c linux-3.x/fs/aufs/sysrq.c
---- linux-3.x-orig/fs/aufs/sysrq.c	2014-12-15 18:49:51.611087000 +0000
-+++ linux-3.x/fs/aufs/sysrq.c	2014-12-15 21:05:33.639087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/sysrq.c linux-3.x/fs/aufs/sysrq.c
+--- linux-3.x-orig/fs/aufs/sysrq.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/sysrq.c	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -7712,9 +9455,9 @@ diff -ru linux-3.x-orig/fs/aufs/sysrq.c linux-3.x/fs/aufs/sysrq.c
  	lockdep_on();
  }
  
-diff -ru linux-3.x-orig/fs/aufs/vdir.c linux-3.x/fs/aufs/vdir.c
---- linux-3.x-orig/fs/aufs/vdir.c	2014-12-15 18:49:51.867087000 +0000
-+++ linux-3.x/fs/aufs/vdir.c	2014-12-15 21:05:33.915087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/vdir.c linux-3.x/fs/aufs/vdir.c
+--- linux-3.x-orig/fs/aufs/vdir.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/vdir.c	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -7730,9 +9473,9 @@ diff -ru linux-3.x-orig/fs/aufs/vdir.c linux-3.x/fs/aufs/vdir.c
  #include "aufs.h"
  
  static unsigned int calc_size(int nlen)
-diff -ru linux-3.x-orig/fs/aufs/vfsub.c linux-3.x/fs/aufs/vfsub.c
---- linux-3.x-orig/fs/aufs/vfsub.c	2014-12-15 18:49:52.115087000 +0000
-+++ linux-3.x/fs/aufs/vfsub.c	2014-12-15 21:05:34.167087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/vfsub.c linux-3.x/fs/aufs/vfsub.c
+--- linux-3.x-orig/fs/aufs/vfsub.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/vfsub.c	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -7786,9 +9529,9 @@ diff -ru linux-3.x-orig/fs/aufs/vfsub.c linux-3.x/fs/aufs/vfsub.c
  /* cf. open.c:do_sys_truncate() and do_sys_ftruncate() */
  int vfsub_trunc(struct path *h_path, loff_t length, unsigned int attr,
  		struct file *h_file)
-diff -ru linux-3.x-orig/fs/aufs/vfsub.h linux-3.x/fs/aufs/vfsub.h
---- linux-3.x-orig/fs/aufs/vfsub.h	2014-12-15 18:49:52.407087000 +0000
-+++ linux-3.x/fs/aufs/vfsub.h	2014-12-15 21:05:34.411087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/vfsub.h linux-3.x/fs/aufs/vfsub.h
+--- linux-3.x-orig/fs/aufs/vfsub.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/vfsub.h	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -7804,9 +9547,9 @@ diff -ru linux-3.x-orig/fs/aufs/vfsub.h linux-3.x/fs/aufs/vfsub.h
  
  /* ---------------------------------------------------------------------- */
  
-diff -ru linux-3.x-orig/fs/aufs/wbr_policy.c linux-3.x/fs/aufs/wbr_policy.c
---- linux-3.x-orig/fs/aufs/wbr_policy.c	2014-12-15 18:49:52.643087000 +0000
-+++ linux-3.x/fs/aufs/wbr_policy.c	2014-12-15 21:05:34.683087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/wbr_policy.c linux-3.x/fs/aufs/wbr_policy.c
+--- linux-3.x-orig/fs/aufs/wbr_policy.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/wbr_policy.c	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -8170,9 +9913,9 @@ diff -ru linux-3.x-orig/fs/aufs/wbr_policy.c linux-3.x/fs/aufs/wbr_policy.c
 +		.fin	= au_wbr_create_fin_mfs
  	}
  };
-diff -ru linux-3.x-orig/fs/aufs/whout.c linux-3.x/fs/aufs/whout.c
---- linux-3.x-orig/fs/aufs/whout.c	2014-12-15 18:49:52.895087000 +0000
-+++ linux-3.x/fs/aufs/whout.c	2014-12-15 21:05:34.935087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/whout.c linux-3.x/fs/aufs/whout.c
+--- linux-3.x-orig/fs/aufs/whout.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/whout.c	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -8403,9 +10146,9 @@ diff -ru linux-3.x-orig/fs/aufs/whout.c linux-3.x/fs/aufs/whout.c
  		au_whtmp_rmdir_free(args);
  	}
  }
-diff -ru linux-3.x-orig/fs/aufs/whout.h linux-3.x/fs/aufs/whout.h
---- linux-3.x-orig/fs/aufs/whout.h	2014-12-15 18:49:53.199087000 +0000
-+++ linux-3.x/fs/aufs/whout.h	2014-12-15 21:05:35.151087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/whout.h linux-3.x/fs/aufs/whout.h
+--- linux-3.x-orig/fs/aufs/whout.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/whout.h	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -8431,9 +10174,9 @@ diff -ru linux-3.x-orig/fs/aufs/whout.h linux-3.x/fs/aufs/whout.h
  
  /* diropq flags */
  #define AuDiropq_CREATE	1
-diff -ru linux-3.x-orig/fs/aufs/wkq.c linux-3.x/fs/aufs/wkq.c
---- linux-3.x-orig/fs/aufs/wkq.c	2014-12-15 18:49:53.407087000 +0000
-+++ linux-3.x/fs/aufs/wkq.c	2014-12-15 21:05:35.419087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/wkq.c linux-3.x/fs/aufs/wkq.c
+--- linux-3.x-orig/fs/aufs/wkq.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/wkq.c	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -8590,9 +10333,9 @@ diff -ru linux-3.x-orig/fs/aufs/wkq.c linux-3.x/fs/aufs/wkq.c
  
  	return err;
  }
-diff -ru linux-3.x-orig/fs/aufs/wkq.h linux-3.x/fs/aufs/wkq.h
---- linux-3.x-orig/fs/aufs/wkq.h	2014-12-15 18:49:53.623087000 +0000
-+++ linux-3.x/fs/aufs/wkq.h	2014-12-15 21:05:35.675087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/wkq.h linux-3.x/fs/aufs/wkq.h
+--- linux-3.x-orig/fs/aufs/wkq.h	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/wkq.h	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -8647,9 +10390,9 @@ diff -ru linux-3.x-orig/fs/aufs/wkq.h linux-3.x/fs/aufs/wkq.h
  }
  
  static inline int au_wkq_wait(au_wkq_func_t func, void *args)
-diff -ru linux-3.x-orig/fs/aufs/xino.c linux-3.x/fs/aufs/xino.c
---- linux-3.x-orig/fs/aufs/xino.c	2014-12-15 18:49:53.939087000 +0000
-+++ linux-3.x/fs/aufs/xino.c	2014-12-15 21:05:35.951087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/aufs/xino.c linux-3.x/fs/aufs/xino.c
+--- linux-3.x-orig/fs/aufs/xino.c	2014-12-11 11:32:22.000000000 +0000
++++ linux-3.x/fs/aufs/xino.c	2014-12-23 17:23:09.055087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -8866,10 +10609,10 @@ diff -ru linux-3.x-orig/fs/aufs/xino.c linux-3.x/fs/aufs/xino.c
  		path.dentry = au_h_dptr(sb->s_root, bwr);
  		p = d_path(&path, page, PATH_MAX - sizeof(AUFS_XINO_FNAME));
  		file = (void *)p;
-diff -ru linux-3.x-orig/fs/compat_ioctl.c linux-3.x/fs/compat_ioctl.c
---- linux-3.x-orig/fs/compat_ioctl.c	2014-12-15 18:49:54.195087000 +0000
-+++ linux-3.x/fs/compat_ioctl.c	2014-12-15 21:05:36.235087000 +0000
-@@ -1760,13 +1760,15 @@
+diff -ru --new-file linux-3.x-orig/fs/compat_ioctl.c linux-3.x/fs/compat_ioctl.c
+--- linux-3.x-orig/fs/compat_ioctl.c	2014-12-11 11:32:23.000000000 +0000
++++ linux-3.x/fs/compat_ioctl.c	2014-12-23 17:23:09.055087000 +0000
+@@ -1760,12 +1760,14 @@
  	 sprintf(buf,"'%c'", (cmd>>_IOC_TYPESHIFT) & _IOC_TYPEMASK);
  	if (!isprint(buf[1]))
  		sprintf(buf, "%02x", buf[1]);
@@ -8880,27 +10623,27 @@ diff -ru linux-3.x-orig/fs/compat_ioctl.c linux-3.x/fs/compat_ioctl.c
  			(int)fd, (unsigned int)cmd, buf,
  			(cmd >> _IOC_SIZESHIFT) & _IOC_SIZEMASK,
  			(unsigned int)arg, fn);
--
 +#endif
-+			
+ 
  	if (path)
  		free_page((unsigned long)path);
- }
-diff -ru linux-3.x-orig/fs/ext4/dir.c linux-3.x/fs/ext4/dir.c
---- linux-3.x-orig/fs/ext4/dir.c	2014-12-15 18:49:54.923087000 +0000
-+++ linux-3.x/fs/ext4/dir.c	2014-12-15 21:05:36.927087000 +0000
-@@ -132,7 +132,7 @@
+diff -ru --new-file linux-3.x-orig/fs/ext4/dir.c linux-3.x/fs/ext4/dir.c
+--- linux-3.x-orig/fs/ext4/dir.c	2014-12-11 11:32:24.000000000 +0000
++++ linux-3.x/fs/ext4/dir.c	2014-12-23 17:23:09.059087000 +0000
+@@ -131,8 +131,8 @@
+ 	sb = inode->i_sb;
  
  #ifdef SYNO_KERNEL_UNICODE
- 	if ((EXT4_SB(inode->i_sb)->s_es->s_syno_hash_magic != cpu_to_le32(SYNO_HASH_MAGIC)) &&
+-	if ((EXT4_SB(inode->i_sb)->s_es->s_syno_hash_magic != cpu_to_le32(SYNO_HASH_MAGIC)) &&
 -		EXT4_HAS_COMPAT_FEATURE(inode->i_sb, EXT4_FEATURE_COMPAT_DIR_INDEX) &&
++	if ((EXT4_SB(inode->i_sb)->s_es->s_syno_hash_magic == cpu_to_le32(SYNO_HASH_MAGIC)) &&
 +		!EXT4_HAS_COMPAT_FEATURE(inode->i_sb, EXT4_FEATURE_COMPAT_DIR_INDEX) &&
  #else
  	if (EXT4_HAS_COMPAT_FEATURE(inode->i_sb,
  				    EXT4_FEATURE_COMPAT_DIR_INDEX) &&
-diff -ru linux-3.x-orig/fs/ext4/ext4.h linux-3.x/fs/ext4/ext4.h
---- linux-3.x-orig/fs/ext4/ext4.h	2014-12-15 18:49:55.191087000 +0000
-+++ linux-3.x/fs/ext4/ext4.h	2014-12-15 21:05:37.167087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/ext4/ext4.h linux-3.x/fs/ext4/ext4.h
+--- linux-3.x-orig/fs/ext4/ext4.h	2014-12-11 11:32:24.000000000 +0000
++++ linux-3.x/fs/ext4/ext4.h	2014-12-23 17:23:09.059087000 +0000
 @@ -957,6 +957,9 @@
  #define EXT4_MOUNT_BLOCK_VALIDITY	0x20000000 /* Block validity checking */
  #define EXT4_MOUNT_DISCARD		0x40000000 /* Issue DISCARD requests */
@@ -8915,16 +10658,16 @@ diff -ru linux-3.x-orig/fs/ext4/ext4.h linux-3.x/fs/ext4/ext4.h
  /* resize.c */
  extern int ext4_group_add(struct super_block *sb,
  				struct ext4_new_group_data *input);
-+#ifdef MY_ABC_HERE
++#ifdef SYNO_KERNEL_UNICODE
 +extern int ext4_group_add_no_flex(struct super_block *sb,
 +				struct ext4_new_group_data *input);
 +#endif
  extern int ext4_group_extend(struct super_block *sb,
  				struct ext4_super_block *es,
  				ext4_fsblk_t n_blocks_count);
-diff -ru linux-3.x-orig/fs/ext4/file.c linux-3.x/fs/ext4/file.c
---- linux-3.x-orig/fs/ext4/file.c	2014-12-15 18:49:55.887087000 +0000
-+++ linux-3.x/fs/ext4/file.c	2014-12-15 21:05:37.463087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/ext4/file.c linux-3.x/fs/ext4/file.c
+--- linux-3.x-orig/fs/ext4/file.c	2014-12-11 11:32:24.000000000 +0000
++++ linux-3.x/fs/ext4/file.c	2014-12-23 17:23:09.059087000 +0000
 @@ -29,6 +29,10 @@
  #include "xattr.h"
  #include "acl.h"
@@ -8943,15 +10686,15 @@ diff -ru linux-3.x-orig/fs/ext4/file.c linux-3.x/fs/ext4/file.c
 +#ifdef CONFIG_EXT4_FS_SYNO_ACL
 +	.syno_acl_get   = ext4_get_syno_acl,
 +	.syno_acl_set	= ext4_set_syno_acl,
-+#else	
++#else
  	.get_acl	= ext4_get_acl,
 +#endif
  	.fiemap		= ext4_fiemap,
  };
  
-diff -ru linux-3.x-orig/fs/ext4/inode.c linux-3.x/fs/ext4/inode.c
---- linux-3.x-orig/fs/ext4/inode.c	2014-12-15 18:49:56.163087000 +0000
-+++ linux-3.x/fs/ext4/inode.c	2014-12-15 21:05:37.727087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/ext4/inode.c linux-3.x/fs/ext4/inode.c
+--- linux-3.x-orig/fs/ext4/inode.c	2014-12-11 11:32:24.000000000 +0000
++++ linux-3.x/fs/ext4/inode.c	2014-12-23 17:23:09.059087000 +0000
 @@ -47,6 +47,10 @@
  #include "acl.h"
  #include "truncate.h"
@@ -8979,10 +10722,27 @@ diff -ru linux-3.x-orig/fs/ext4/inode.c linux-3.x/fs/ext4/inode.c
  
  	if (is_quota_modification(inode, attr))
  		dquot_initialize(inode);
-Only in linux-3.x/fs/ext4: ioctl.c
-diff -ru linux-3.x-orig/fs/ext4/Kconfig linux-3.x/fs/ext4/Kconfig
---- linux-3.x-orig/fs/ext4/Kconfig	2014-12-15 18:49:56.391087000 +0000
-+++ linux-3.x/fs/ext4/Kconfig	2014-12-15 21:05:38.215087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/ext4/ioctl.c linux-3.x/fs/ext4/ioctl.c
+--- linux-3.x-orig/fs/ext4/ioctl.c	2014-12-11 11:32:24.000000000 +0000
++++ linux-3.x/fs/ext4/ioctl.c	2014-12-23 17:23:09.059087000 +0000
+@@ -293,7 +293,13 @@
+ 		if (err)
+ 			goto group_add_out;
+ 
+-		err = ext4_group_add(sb, &input);
++#ifdef SYNO_KERNEL_UNICODE
++		if (!EXT4_HAS_INCOMPAT_FEATURE(sb, EXT4_FEATURE_INCOMPAT_FLEX_BG))
++			err = ext4_group_add_no_flex(sb, &input);
++		else
++#endif
++			err = ext4_group_add(sb, &input);
++
+ 		if (EXT4_SB(sb)->s_journal) {
+ 			jbd2_journal_lock_updates(EXT4_SB(sb)->s_journal);
+ 			err2 = jbd2_journal_flush(EXT4_SB(sb)->s_journal);
+diff -ru --new-file linux-3.x-orig/fs/ext4/Kconfig linux-3.x/fs/ext4/Kconfig
+--- linux-3.x-orig/fs/ext4/Kconfig	2014-12-11 11:27:34.000000000 +0000
++++ linux-3.x/fs/ext4/Kconfig	2014-12-23 17:23:09.055087000 +0000
 @@ -50,6 +50,18 @@
  
  	  You need this for POSIX ACL support on ext4.
@@ -8990,30 +10750,30 @@ diff -ru linux-3.x-orig/fs/ext4/Kconfig linux-3.x/fs/ext4/Kconfig
 +config EXT4_FS_SYNO_ACL
 +	bool "Ext4 Synology Access Control Lists"
 +	depends on EXT4_FS_XATTR
-+	depends on !EXT4_FS_POSIX_ACL
-+	select FS_SYNO_ACL
-+	default n
++        depends on !EXT4_FS_POSIX_ACL
++        select FS_SYNO_ACL
++        default n
 +	help
-+		Synology Access Control Lists (ACLs) support Windows permissions for users and
-+		groups beyond the owner/group/world scheme.
-+		
-+		If you don't know what Access Control Lists are, say N
-+	
++	  Synology Access Control Lists (ACLs) support Windows permissions for users and
++	  groups beyond the owner/group/world scheme.
++
++	  If you don't know what Access Control Lists are, say N
++
  config EXT4_FS_POSIX_ACL
  	bool "Ext4 POSIX Access Control Lists"
  	depends on EXT4_FS_XATTR
-diff -ru linux-3.x-orig/fs/ext4/Makefile linux-3.x/fs/ext4/Makefile
---- linux-3.x-orig/fs/ext4/Makefile	2014-12-15 18:49:56.659087000 +0000
-+++ linux-3.x/fs/ext4/Makefile	2014-12-15 21:05:38.771087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/ext4/Makefile linux-3.x/fs/ext4/Makefile
+--- linux-3.x-orig/fs/ext4/Makefile	2014-12-11 11:27:34.000000000 +0000
++++ linux-3.x/fs/ext4/Makefile	2014-12-23 17:23:09.055087000 +0000
 @@ -11,4 +11,5 @@
  
  ext4-$(CONFIG_EXT4_FS_XATTR)		+= xattr.o xattr_user.o xattr_trusted.o
  ext4-$(CONFIG_EXT4_FS_POSIX_ACL)	+= acl.o
 +ext4-$(CONFIG_EXT4_FS_SYNO_ACL)		+= syno_acl.o
  ext4-$(CONFIG_EXT4_FS_SECURITY)		+= xattr_security.o
-diff -ru linux-3.x-orig/fs/ext4/namei.c linux-3.x/fs/ext4/namei.c
---- linux-3.x-orig/fs/ext4/namei.c	2014-12-15 18:49:56.919087000 +0000
-+++ linux-3.x/fs/ext4/namei.c	2014-12-15 21:05:39.023087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/ext4/namei.c linux-3.x/fs/ext4/namei.c
+--- linux-3.x-orig/fs/ext4/namei.c	2014-12-11 11:32:24.000000000 +0000
++++ linux-3.x/fs/ext4/namei.c	2014-12-23 17:23:09.067087000 +0000
 @@ -44,6 +44,10 @@
  #include "xattr.h"
  #include "acl.h"
@@ -9046,14 +10806,14 @@ diff -ru linux-3.x-orig/fs/ext4/namei.c linux-3.x/fs/ext4/namei.c
  	.get_acl	= ext4_get_acl,
 +#endif
  };
-diff -ru linux-3.x-orig/fs/ext4/resize.c linux-3.x/fs/ext4/resize.c
---- linux-3.x-orig/fs/ext4/resize.c	2014-12-15 18:49:57.187087000 +0000
-+++ linux-3.x/fs/ext4/resize.c	2014-12-15 21:05:39.267087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/ext4/resize.c linux-3.x/fs/ext4/resize.c
+--- linux-3.x-orig/fs/ext4/resize.c	2014-12-11 11:32:24.000000000 +0000
++++ linux-3.x/fs/ext4/resize.c	2014-12-23 17:23:09.067087000 +0000
 @@ -1376,6 +1376,368 @@
  	return 1;
  }
  
-+#ifdef MY_ABC_HERE
++#ifdef SYNO_KERNEL_UNICODE
 +/*
 + * Set up the block and inode bitmaps, and the inode table for the new group.
 + * This doesn't need to be part of the main transaction, since we are only
@@ -9383,7 +11143,7 @@ diff -ru linux-3.x-orig/fs/ext4/resize.c linux-3.x/fs/ext4/resize.c
 +
 +	/* Update the reserved block counts only once the new group is
 +	 * active. */
-+#ifndef MY_ABC_HERE
++#ifndef SYNO_KERNEL_UNICODE
 +	ext4_r_blocks_count_set(es, ext4_r_blocks_count(es) +
 +		input->reserved_blocks);
 +#endif
@@ -9418,9 +11178,9 @@ diff -ru linux-3.x-orig/fs/ext4/resize.c linux-3.x/fs/ext4/resize.c
  /* Add group descriptor data to an existing or new group descriptor block.
   * Ensure we handle all possible error conditions _before_ we start modifying
   * the filesystem, because we cannot abort the transaction and not have it
-diff -ru linux-3.x-orig/fs/ext4/super.c linux-3.x/fs/ext4/super.c
---- linux-3.x-orig/fs/ext4/super.c	2014-12-15 18:49:57.471087000 +0000
-+++ linux-3.x/fs/ext4/super.c	2014-12-15 21:05:39.551087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/ext4/super.c linux-3.x/fs/ext4/super.c
+--- linux-3.x-orig/fs/ext4/super.c	2014-12-11 11:32:24.000000000 +0000
++++ linux-3.x/fs/ext4/super.c	2014-12-23 17:23:09.067087000 +0000
 @@ -51,6 +51,10 @@
  #include "acl.h"
  #include "mballoc.h"
@@ -9450,7 +11210,7 @@ diff -ru linux-3.x-orig/fs/ext4/super.c linux-3.x/fs/ext4/super.c
  	Opt_discard, Opt_nodiscard, Opt_init_itable, Opt_noinit_itable,
 +#ifdef CONFIG_EXT4_FS_SYNO_ACL
 +	Opt_synoacl, Opt_nosynoacl,
-+#endif	
++#endif
  };
  
  static const match_table_t tokens = {
@@ -9477,7 +11237,7 @@ diff -ru linux-3.x-orig/fs/ext4/super.c linux-3.x/fs/ext4/super.c
 +		case Opt_nosynoacl:
 +			clear_opt(sb, SYNO_ACL);
 +			break;
-+#elif  defined(CONFIG_EXT4_FS_POSIX_ACL)
++#elif defined(CONFIG_EXT4_FS_POSIX_ACL)
  		case Opt_acl:
  			set_opt(sb, POSIX_ACL);
  			break;
@@ -9507,7 +11267,7 @@ diff -ru linux-3.x-orig/fs/ext4/super.c linux-3.x/fs/ext4/super.c
  	if (sbi->s_mount_flags & EXT4_MF_FS_ABORTED)
  		ext4_abort(sb, "Abort forced by user");
  
-+#ifdef CONFIG_EXT4_FS_SYNO_ACL
++	#ifdef CONFIG_EXT4_FS_SYNO_ACL
 +	if ((sb->s_flags & MS_SYNOACL) && !test_opt(sb, SYNO_ACL)) {
 +		sb->s_flags = sb->s_flags & ~MS_SYNOACL;
 +		SYNOACLModulePut("synoacl_vfs");
@@ -9536,7 +11296,7 @@ diff -ru linux-3.x-orig/fs/ext4/super.c linux-3.x/fs/ext4/super.c
 +static void ext4_kill_sb(struct super_block *sb)
 +{
 +	kill_block_super(sb);
-+	
++
 +	if (MS_SYNOACL & sb->s_flags) {
 +		SYNOACLModulePut("synoacl_vfs");
 +	}
@@ -9551,16 +11311,16 @@ diff -ru linux-3.x-orig/fs/ext4/super.c linux-3.x/fs/ext4/super.c
  	.name		= "ext4",
  	.mount          = ext4_mount,
 +#ifdef CONFIG_EXT4_FS_SYNO_ACL
-+	.kill_sb 	= ext4_kill_sb,
++	.kill_sb	= ext4_kill_sb,
 +#else
  	.kill_sb	= kill_block_super,
 +#endif
  	.fs_flags	= FS_REQUIRES_DEV,
  };
  
-diff -ru linux-3.x-orig/fs/ext4/xattr.c linux-3.x/fs/ext4/xattr.c
---- linux-3.x-orig/fs/ext4/xattr.c	2014-12-15 18:49:57.895087000 +0000
-+++ linux-3.x/fs/ext4/xattr.c	2014-12-15 21:05:39.811087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/ext4/xattr.c linux-3.x/fs/ext4/xattr.c
+--- linux-3.x-orig/fs/ext4/xattr.c	2014-12-11 11:32:24.000000000 +0000
++++ linux-3.x/fs/ext4/xattr.c	2014-12-23 17:23:09.067087000 +0000
 @@ -100,7 +100,10 @@
  
  static const struct xattr_handler *ext4_xattr_handler_map[] = {
@@ -9585,9 +11345,9 @@ diff -ru linux-3.x-orig/fs/ext4/xattr.c linux-3.x/fs/ext4/xattr.c
  	&ext4_xattr_acl_access_handler,
  	&ext4_xattr_acl_default_handler,
  #endif
-diff -ru linux-3.x-orig/fs/ext4/xattr.h linux-3.x/fs/ext4/xattr.h
---- linux-3.x-orig/fs/ext4/xattr.h	2014-12-15 18:49:58.355087000 +0000
-+++ linux-3.x/fs/ext4/xattr.h	2014-12-15 21:05:40.059087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/ext4/xattr.h linux-3.x/fs/ext4/xattr.h
+--- linux-3.x-orig/fs/ext4/xattr.h	2014-12-11 11:32:24.000000000 +0000
++++ linux-3.x/fs/ext4/xattr.h	2014-12-23 17:23:09.067087000 +0000
 @@ -21,9 +21,15 @@
  #define EXT4_XATTR_INDEX_TRUSTED		4
  #define	EXT4_XATTR_INDEX_LUSTRE			5
@@ -9604,20 +11364,23 @@ diff -ru linux-3.x-orig/fs/ext4/xattr.h linux-3.x/fs/ext4/xattr.h
  
  struct ext4_xattr_header {
  	__le32	h_magic;	/* magic number for identification */
-@@ -68,6 +74,10 @@
+@@ -66,7 +72,12 @@
+ 		EXT4_I(inode)->i_extra_isize))
+ #define IFIRST(hdr) ((struct ext4_xattr_entry *)((hdr)+1))
  
- # ifdef CONFIG_EXT4_FS_XATTR
- 
+-# ifdef CONFIG_EXT4_FS_XATTR
++#ifdef CONFIG_EXT4_FS_XATTR
++
 +#ifdef CONFIG_EXT4_FS_SYNO_ACL
 +extern const struct xattr_handler ext4_xattr_synoacl_access_handler;
 +extern const struct xattr_handler ext4_xattr_synoacl_noperm_access_handler;
 +#endif
+ 
  #ifdef SYNO_XATTR
  extern struct xattr_handler ext4_xattr_syno_handler;
- #endif
-diff -ru linux-3.x-orig/fs/proc/nommu.c linux-3.x/fs/proc/nommu.c
---- linux-3.x-orig/fs/proc/nommu.c	2014-12-15 18:49:59.131087000 +0000
-+++ linux-3.x/fs/proc/nommu.c	2014-12-15 21:05:40.731087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/proc/nommu.c linux-3.x/fs/proc/nommu.c
+--- linux-3.x-orig/fs/proc/nommu.c	2014-12-11 11:32:23.000000000 +0000
++++ linux-3.x/fs/proc/nommu.c	2014-12-23 17:45:56.303087000 +0000
 @@ -45,7 +45,9 @@
  	file = region->vm_file;
  
@@ -9629,9 +11392,9 @@ diff -ru linux-3.x-orig/fs/proc/nommu.c linux-3.x/fs/proc/nommu.c
  		dev = inode->i_sb->s_dev;
  		ino = inode->i_ino;
  	}
-diff -ru linux-3.x-orig/fs/proc/task_mmu.c linux-3.x/fs/proc/task_mmu.c
---- linux-3.x-orig/fs/proc/task_mmu.c	2014-12-15 18:49:59.507087000 +0000
-+++ linux-3.x/fs/proc/task_mmu.c	2014-12-15 21:05:40.979087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/proc/task_mmu.c linux-3.x/fs/proc/task_mmu.c
+--- linux-3.x-orig/fs/proc/task_mmu.c	2014-12-11 11:32:23.000000000 +0000
++++ linux-3.x/fs/proc/task_mmu.c	2014-12-23 17:23:09.067087000 +0000
 @@ -221,7 +221,9 @@
  	int len;
  
@@ -9651,9 +11414,9 @@ diff -ru linux-3.x-orig/fs/proc/task_mmu.c linux-3.x/fs/proc/task_mmu.c
  		seq_printf(m, " file=");
  		seq_path(m, &file->f_path, "\n\t= ");
  	} else if (vma->vm_start <= mm->brk && vma->vm_end >= mm->start_brk) {
-diff -ru linux-3.x-orig/fs/proc/task_nommu.c linux-3.x/fs/proc/task_nommu.c
---- linux-3.x-orig/fs/proc/task_nommu.c	2014-12-15 18:49:59.767087000 +0000
-+++ linux-3.x/fs/proc/task_nommu.c	2014-12-15 21:05:41.643087000 +0000
+diff -ru --new-file linux-3.x-orig/fs/proc/task_nommu.c linux-3.x/fs/proc/task_nommu.c
+--- linux-3.x-orig/fs/proc/task_nommu.c	2014-12-11 11:32:23.000000000 +0000
++++ linux-3.x/fs/proc/task_nommu.c	2014-12-23 17:23:09.067087000 +0000
 @@ -147,7 +147,9 @@
  	file = vma->vm_file;
  
@@ -9665,9 +11428,9 @@ diff -ru linux-3.x-orig/fs/proc/task_nommu.c linux-3.x/fs/proc/task_nommu.c
  		dev = inode->i_sb->s_dev;
  		ino = inode->i_ino;
  		pgoff = (loff_t)vma->vm_pgoff << PAGE_SHIFT;
-diff -ru linux-3.x-orig/include/linux/aufs_type.h linux-3.x/include/linux/aufs_type.h
---- linux-3.x-orig/include/linux/aufs_type.h	2014-12-15 18:50:00.871087000 +0000
-+++ linux-3.x/include/linux/aufs_type.h	2014-12-15 21:05:43.167087000 +0000
+diff -ru --new-file linux-3.x-orig/include/linux/aufs_type.h linux-3.x/include/linux/aufs_type.h
+--- linux-3.x-orig/include/linux/aufs_type.h	2014-12-11 11:32:25.000000000 +0000
++++ linux-3.x/include/linux/aufs_type.h	2014-12-23 17:23:09.067087000 +0000
 @@ -1,5 +1,5 @@
  /*
 - * Copyright (C) 2005-2011 Junjiro R. Okajima
@@ -9890,9 +11653,9 @@ diff -ru linux-3.x-orig/include/linux/aufs_type.h linux-3.x/include/linux/aufs_t
  #define AUFS_CTL_IBUSY		_IOWR(AuCtlType, AuCtl_IBUSY, struct aufs_ibusy)
  
  #endif /* __AUFS_TYPE_H__ */
-diff -ru linux-3.x-orig/include/linux/mm.h linux-3.x/include/linux/mm.h
---- linux-3.x-orig/include/linux/mm.h	2014-12-15 18:50:01.351087000 +0000
-+++ linux-3.x/include/linux/mm.h	2014-12-15 21:05:43.687087000 +0000
+diff -ru --new-file linux-3.x-orig/include/linux/mm.h linux-3.x/include/linux/mm.h
+--- linux-3.x-orig/include/linux/mm.h	2014-12-11 11:32:25.000000000 +0000
++++ linux-3.x/include/linux/mm.h	2014-12-23 17:23:09.067087000 +0000
 @@ -17,6 +17,9 @@
  #include <linux/pfn.h>
  #include <linux/bit_spinlock.h>
@@ -9988,9 +11751,9 @@ diff -ru linux-3.x-orig/include/linux/mm.h linux-3.x/include/linux/mm.h
  extern int make_pages_present(unsigned long addr, unsigned long end);
  extern int access_process_vm(struct task_struct *tsk, unsigned long addr, void *buf, int len, int write);
  extern int access_remote_vm(struct mm_struct *mm, unsigned long addr,
-diff -ru linux-3.x-orig/include/linux/mm_types.h linux-3.x/include/linux/mm_types.h
---- linux-3.x-orig/include/linux/mm_types.h	2014-12-15 18:50:01.111087000 +0000
-+++ linux-3.x/include/linux/mm_types.h	2014-12-15 21:05:43.415087000 +0000
+diff -ru --new-file linux-3.x-orig/include/linux/mm_types.h linux-3.x/include/linux/mm_types.h
+--- linux-3.x-orig/include/linux/mm_types.h	2014-12-11 11:32:26.000000000 +0000
++++ linux-3.x/include/linux/mm_types.h	2014-12-23 17:23:09.067087000 +0000
 @@ -186,6 +186,7 @@
  	unsigned long	vm_top;		/* region allocated to here */
  	unsigned long	vm_pgoff;	/* the offset in vm_file corresponding to vm_start */
@@ -10007,9 +11770,9 @@ diff -ru linux-3.x-orig/include/linux/mm_types.h linux-3.x/include/linux/mm_type
  	void * vm_private_data;		/* was vm_pte (shared mem) */
  
  #ifndef CONFIG_MMU
-diff -ru linux-3.x-orig/include/linux/syno_user.h linux-3.x/include/linux/syno_user.h
---- linux-3.x-orig/include/linux/syno_user.h	2014-12-15 18:50:01.615087000 +0000
-+++ linux-3.x/include/linux/syno_user.h	2014-12-15 21:05:44.047087000 +0000
+diff -ru --new-file linux-3.x-orig/include/linux/syno_user.h linux-3.x/include/linux/syno_user.h
+--- linux-3.x-orig/include/linux/syno_user.h	2014-12-11 11:32:26.000000000 +0000
++++ linux-3.x/include/linux/syno_user.h	2014-12-23 17:23:09.067087000 +0000
 @@ -4,6 +4,11 @@
  #define __SYNO_USER_H_
  
@@ -10017,14 +11780,14 @@ diff -ru linux-3.x-orig/include/linux/syno_user.h linux-3.x/include/linux/syno_u
 + * XPEnology hack
 + */
 +#define XPENOLOGY
-+ 
++
 +/**
   * Dsc: Synology multimedia server feature. For indexing video, photo,
   *      music.
   * Ref: libsynosdk, lnxnetatalk, lnxsdk, rsync, samba, smbftpd
-diff -ru linux-3.x-orig/kernel/fork.c linux-3.x/kernel/fork.c
---- linux-3.x-orig/kernel/fork.c	2014-12-15 18:50:02.363087000 +0000
-+++ linux-3.x/kernel/fork.c	2014-12-15 21:05:44.779087000 +0000
+diff -ru --new-file linux-3.x-orig/kernel/fork.c linux-3.x/kernel/fork.c
+--- linux-3.x-orig/kernel/fork.c	2014-12-23 18:13:05.823087000 +0000
++++ linux-3.x/kernel/fork.c	2014-12-23 17:23:09.067087000 +0000
 @@ -378,7 +378,7 @@
  			struct inode *inode = file->f_path.dentry->d_inode;
  			struct address_space *mapping = file->f_mapping;
@@ -10034,22 +11797,22 @@ diff -ru linux-3.x-orig/kernel/fork.c linux-3.x/kernel/fork.c
  			if (tmp->vm_flags & VM_DENYWRITE)
  				atomic_dec(&inode->i_writecount);
  			mutex_lock(&mapping->i_mmap_mutex);
-diff -ru linux-3.x-orig/kernel/sysctl.c linux-3.x/kernel/sysctl.c
---- linux-3.x-orig/kernel/sysctl.c	2014-12-15 18:50:02.703087000 +0000
-+++ linux-3.x/kernel/sysctl.c	2014-12-15 21:05:45.111087000 +0000
+diff -ru --new-file linux-3.x-orig/kernel/sysctl.c linux-3.x/kernel/sysctl.c
+--- linux-3.x-orig/kernel/sysctl.c	2014-12-23 18:13:13.715087000 +0000
++++ linux-3.x/kernel/sysctl.c	2014-12-23 17:23:09.067087000 +0000
 @@ -229,7 +229,7 @@
  int (*funcSYNOGetHwCapability)(CAPABILITY *) = NULL;
  EXPORT_SYMBOL(funcSYNOGetHwCapability);
  
 -#ifdef SYNO_EUNIT_POWERCTL_PIN
-+#if (defined(SYNO_EUNIT_POWERCTL_PIN) || defined(XPENOLOGY))
++#if defined(SYNO_EUNIT_POWERCTL_PIN) || defined(XPENOLOGY)
  EUNIT_PWRON_TYPE (*funcSynoEunitPowerctlType)(void) = NULL;
  EXPORT_SYMBOL(funcSynoEunitPowerctlType);
  #endif
-diff -ru linux-3.x-orig/Makefile linux-3.x/Makefile
---- linux-3.x-orig/Makefile	2014-12-15 18:50:02.995087000 +0000
-+++ linux-3.x/Makefile	2014-12-15 21:05:45.359087000 +0000
-@@ -192,10 +192,10 @@
+diff -ru --new-file linux-3.x-orig/Makefile linux-3.x/Makefile
+--- linux-3.x-orig/Makefile	2014-12-11 11:27:32.000000000 +0000
++++ linux-3.x/Makefile	2014-12-23 17:23:09.015087000 +0000
+@@ -192,11 +192,8 @@
  # Default value for CROSS_COMPILE is not to prefix executables
  # Note: Some architectures assign CROSS_COMPILE in their arch/*/Makefile
  export KBUILD_BUILDHOST := $(SUBARCH)
@@ -10057,16 +11820,15 @@ diff -ru linux-3.x-orig/Makefile linux-3.x/Makefile
 -#CROSS_COMPILE	?=
 -ARCH		?= arm
 -CROSS_COMPILE	?= /usr/local/arm-marvell-linux-gnueabi/bin/arm-marvell-linux-gnueabi-
+-#CROSS_COMPILE	?= /usr/local/arm-none-linux-gnueabi/bin/arm-none-linux-gnueabi-
 +ARCH		?= $(SUBARCH)
 +CROSS_COMPILE	?=
-+#ARCH		?= arm
-+#CROSS_COMPILE	?= /usr/local/arm-marvell-linux-gnueabi/bin/arm-marvell-linux-gnueabi-
- #CROSS_COMPILE	?= /usr/local/arm-none-linux-gnueabi/bin/arm-none-linux-gnueabi-
  
  # Architecture as present in compile.h
-diff -ru linux-3.x-orig/mm/fremap.c linux-3.x/mm/fremap.c
---- linux-3.x-orig/mm/fremap.c	2014-12-15 18:50:03.711087000 +0000
-+++ linux-3.x/mm/fremap.c	2014-12-15 21:05:46.043087000 +0000
+ UTS_MACHINE 	:= $(ARCH)
+diff -ru --new-file linux-3.x-orig/mm/fremap.c linux-3.x/mm/fremap.c
+--- linux-3.x-orig/mm/fremap.c	2014-12-11 11:32:51.000000000 +0000
++++ linux-3.x/mm/fremap.c	2014-12-23 17:23:09.067087000 +0000
 @@ -198,10 +198,10 @@
  			struct file *file = vma->vm_file;
  
@@ -10080,9 +11842,9 @@ diff -ru linux-3.x-orig/mm/fremap.c linux-3.x/mm/fremap.c
  			if (IS_ERR_VALUE(addr)) {
  				err = addr;
  			} else {
-diff -ru linux-3.x-orig/mm/madvise.c linux-3.x/mm/madvise.c
---- linux-3.x-orig/mm/madvise.c	2014-12-15 18:50:03.923087000 +0000
-+++ linux-3.x/mm/madvise.c	2014-12-15 21:05:46.287087000 +0000
+diff -ru --new-file linux-3.x-orig/mm/madvise.c linux-3.x/mm/madvise.c
+--- linux-3.x-orig/mm/madvise.c	2014-12-11 11:32:51.000000000 +0000
++++ linux-3.x/mm/madvise.c	2014-12-23 17:23:09.067087000 +0000
 @@ -227,10 +227,10 @@
  	 * vma's reference to the file) can go away as soon as we drop
  	 * mmap_sem.
@@ -10096,9 +11858,9 @@ diff -ru linux-3.x-orig/mm/madvise.c linux-3.x/mm/madvise.c
  	down_read(&current->mm->mmap_sem);
  	return error;
  }
-diff -ru linux-3.x-orig/mm/memory.c linux-3.x/mm/memory.c
---- linux-3.x-orig/mm/memory.c	2014-12-15 18:50:04.163087000 +0000
-+++ linux-3.x/mm/memory.c	2014-12-15 21:05:46.635087000 +0000
+diff -ru --new-file linux-3.x-orig/mm/memory.c linux-3.x/mm/memory.c
+--- linux-3.x-orig/mm/memory.c	2014-12-11 11:32:51.000000000 +0000
++++ linux-3.x/mm/memory.c	2014-12-23 17:23:09.067087000 +0000
 @@ -2646,7 +2646,7 @@
  
  		/* file_update_time outside page_lock */
@@ -10117,9 +11879,9 @@ diff -ru linux-3.x-orig/mm/memory.c linux-3.x/mm/memory.c
  	} else {
  		unlock_page(vmf.page);
  		if (anon)
-diff -ru linux-3.x-orig/mm/mmap.c linux-3.x/mm/mmap.c
---- linux-3.x-orig/mm/mmap.c	2014-12-15 18:50:04.467087000 +0000
-+++ linux-3.x/mm/mmap.c	2014-12-15 21:05:47.239087000 +0000
+diff -ru --new-file linux-3.x-orig/mm/mmap.c linux-3.x/mm/mmap.c
+--- linux-3.x-orig/mm/mmap.c	2014-12-11 11:32:51.000000000 +0000
++++ linux-3.x/mm/mmap.c	2014-12-23 17:23:09.075087000 +0000
 @@ -235,7 +235,7 @@
  	if (vma->vm_ops && vma->vm_ops->close)
  		vma->vm_ops->close(vma);
@@ -10175,9 +11937,9 @@ diff -ru linux-3.x-orig/mm/mmap.c linux-3.x/mm/mmap.c
  				if (vma->vm_flags & VM_EXECUTABLE)
  					added_exe_file_vma(mm);
  			}
-diff -ru linux-3.x-orig/mm/msync.c linux-3.x/mm/msync.c
---- linux-3.x-orig/mm/msync.c	2014-12-15 18:50:04.723087000 +0000
-+++ linux-3.x/mm/msync.c	2014-12-15 21:05:47.583087000 +0000
+diff -ru --new-file linux-3.x-orig/mm/msync.c linux-3.x/mm/msync.c
+--- linux-3.x-orig/mm/msync.c	2014-12-11 11:32:51.000000000 +0000
++++ linux-3.x/mm/msync.c	2014-12-23 17:23:09.075087000 +0000
 @@ -80,10 +80,10 @@
  		start = vma->vm_end;
  		if ((flags & MS_SYNC) && file &&
@@ -10191,9 +11953,9 @@ diff -ru linux-3.x-orig/mm/msync.c linux-3.x/mm/msync.c
  			if (error || start >= end)
  				goto out;
  			down_read(&mm->mmap_sem);
-diff -ru linux-3.x-orig/mm/nommu.c linux-3.x/mm/nommu.c
---- linux-3.x-orig/mm/nommu.c	2014-12-15 18:50:05.015087000 +0000
-+++ linux-3.x/mm/nommu.c	2014-12-15 21:05:47.939087000 +0000
+diff -ru --new-file linux-3.x-orig/mm/nommu.c linux-3.x/mm/nommu.c
+--- linux-3.x-orig/mm/nommu.c	2014-12-11 11:32:51.000000000 +0000
++++ linux-3.x/mm/nommu.c	2014-12-23 17:23:09.075087000 +0000
 @@ -632,7 +632,7 @@
  		up_write(&nommu_region_sem);
  
@@ -10221,8 +11983,12 @@ diff -ru linux-3.x-orig/mm/nommu.c linux-3.x/mm/nommu.c
  			kmem_cache_free(vm_region_jar, region);
  			region = pregion;
  			result = start;
-@@ -1442,7 +1442,7 @@
- 		fput(region->vm_file);
+@@ -1439,10 +1439,10 @@
+ 	up_write(&nommu_region_sem);
+ error:
+ 	if (region->vm_file)
+-		fput(region->vm_file);
++		vmr_fput(region);
  	kmem_cache_free(vm_region_jar, region);
  	if (vma->vm_file)
 -		fput(vma->vm_file);
@@ -10230,4 +11996,3 @@ diff -ru linux-3.x-orig/mm/nommu.c linux-3.x/mm/nommu.c
  	if (vma->vm_flags & VM_EXECUTABLE)
  		removed_exe_file_vma(vma->vm_mm);
  	kmem_cache_free(vm_area_cachep, vma);
-Only in linux-3.x: synoconfigs

@@ -277,7 +277,7 @@ const struct inode_operations ext4_file_inode_operations = {
 #ifdef CONFIG_EXT4_FS_SYNO_ACL
 	.syno_acl_get   = ext4_get_syno_acl,
 	.syno_acl_set	= ext4_set_syno_acl,
-#else	
+#else
 	.get_acl	= ext4_get_acl,
 #endif
 	.fiemap		= ext4_fiemap,

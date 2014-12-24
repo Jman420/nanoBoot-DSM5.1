@@ -1515,7 +1515,7 @@ enum {
 	Opt_discard, Opt_nodiscard, Opt_init_itable, Opt_noinit_itable,
 #ifdef CONFIG_EXT4_FS_SYNO_ACL
 	Opt_synoacl, Opt_nosynoacl,
-#endif	
+#endif
 };
 
 static const match_table_t tokens = {
@@ -1808,7 +1808,7 @@ static int parse_options(char *options, struct super_block *sb,
 		case Opt_nosynoacl:
 			clear_opt(sb, SYNO_ACL);
 			break;
-#elif  defined(CONFIG_EXT4_FS_POSIX_ACL)
+#elif defined(CONFIG_EXT4_FS_POSIX_ACL)
 		case Opt_acl:
 			set_opt(sb, POSIX_ACL);
 			break;
@@ -4877,7 +4877,7 @@ static int ext4_remount(struct super_block *sb, int *flags, char *data)
 	if (sbi->s_mount_flags & EXT4_MF_FS_ABORTED)
 		ext4_abort(sb, "Abort forced by user");
 
-#ifdef CONFIG_EXT4_FS_SYNO_ACL
+	#ifdef CONFIG_EXT4_FS_SYNO_ACL
 	if ((sb->s_flags & MS_SYNOACL) && !test_opt(sb, SYNO_ACL)) {
 		sb->s_flags = sb->s_flags & ~MS_SYNOACL;
 		SYNOACLModulePut("synoacl_vfs");
@@ -5368,7 +5368,7 @@ static struct dentry *ext4_mount(struct file_system_type *fs_type, int flags,
 static void ext4_kill_sb(struct super_block *sb)
 {
 	kill_block_super(sb);
-	
+
 	if (MS_SYNOACL & sb->s_flags) {
 		SYNOACLModulePut("synoacl_vfs");
 	}
@@ -5459,7 +5459,7 @@ static struct file_system_type ext4_fs_type = {
 	.name		= "ext4",
 	.mount          = ext4_mount,
 #ifdef CONFIG_EXT4_FS_SYNO_ACL
-	.kill_sb 	= ext4_kill_sb,
+	.kill_sb	= ext4_kill_sb,
 #else
 	.kill_sb	= kill_block_super,
 #endif

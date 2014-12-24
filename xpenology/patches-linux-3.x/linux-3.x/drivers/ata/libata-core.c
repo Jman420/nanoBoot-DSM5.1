@@ -7415,7 +7415,7 @@ EXPORT_SYMBOL(funcSYNODeepSleepEvent);
 int (*funcSYNODiskRetryReport)(unsigned int, unsigned int) = NULL;
 EXPORT_SYMBOL(funcSYNODiskRetryReport);
 
-#if (defined(SYNO_SATA_EBOX_REFRESH) || defined(XPENOLOGY))
+#if defined(SYNO_SATA_EBOX_REFRESH) || defined(XPENOLOGY)
 int (*funcSYNOSendEboxRefreshEvent)(int portIndex) = NULL;
 EXPORT_SYMBOL(funcSYNOSendEboxRefreshEvent);
 #endif

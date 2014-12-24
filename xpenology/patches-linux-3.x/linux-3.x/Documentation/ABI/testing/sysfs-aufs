@@ -19,8 +19,8 @@ Contact:	J. R. Okajima <hooanon05@yahoo.co.jp>
 Description:
 		It shows the id of a member directory (which is called
 		branch) in aufs.
-		
-		What:		/sys/fs/aufs/si_<id>/xi_path
+
+What:		/sys/fs/aufs/si_<id>/xi_path
 Date:		March 2009
 Contact:	J. R. Okajima <hooanon05@yahoo.co.jp>
 Description:
